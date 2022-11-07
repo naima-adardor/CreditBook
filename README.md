@@ -1,6 +1,10 @@
 # CreditBook
 Mobile application for manipulating credits ,built using java and firebase
 
+# ScreenShots
+
+![Capture](https://user-images.githubusercontent.com/98922186/200339212-0508188f-a00a-4f04-a04f-50b0f4d6a59c.PNG)
+
 # Product Vision
 
 |                     VISION                                                          |
