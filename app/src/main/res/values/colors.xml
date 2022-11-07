@@ -5,6 +5,14 @@
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
+    <!--our palette-->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="Gray">#73777B</color>
+    <color name="Orange">#EC994B</color>
+    <color name="Orange2">#FD841F</color>
+    <color name="Orange3">#DC5F00</color>
+    <color name="LightGray">#F1EEE9</color>
+    <color name="DarkBlue">#15133C</color>
+
 </resources>

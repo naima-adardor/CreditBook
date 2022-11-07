@@ -28,6 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.517" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="172dp"
@@ -44,7 +45,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose a country"
+        android:text="Enter your phone number"
         android:textColor="@color/Gray"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -53,33 +54,35 @@
         app:layout_constraintTop_toBottomOf="@+id/textview"
         app:layout_constraintVertical_bias="0.115" />
 
-    <Spinner
-        android:id="@+id/spinnerCountry"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:background="@color/Gray"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.213" />
-
     <Button
         android:id="@+id/Next_btn"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="74dp"
         android:background="@drawable/btn_bg_selector"
-        android:text="Next"
         android:padding="8dp"
+        android:text="Next"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCountry"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.91" />
+
+    <EditText
+        android:id="@+id/editTextPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:height="20dp"
+        android:background="@color/LightGray"
+        android:ems="10"
+        android:inputType="phone"
+        android:scrollbarSize="6dp"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toTopOf="@+id/Next_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
