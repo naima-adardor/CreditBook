@@ -1,5 +1,5 @@
 # CreditBook
-Mobile application for manipulating credits ,built using java and firebase
+Mobile application for manipulating credits ,built using java and firebase .
 
 # ScreenShots
 
