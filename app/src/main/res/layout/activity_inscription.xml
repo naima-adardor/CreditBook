@@ -56,18 +56,23 @@
 
     <Button
         android:id="@+id/Next_btn"
-        style="?android:attr/borderlessButtonStyle"
+
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/btn_bg_selector"
+        android:layout_height="60dp"
+        android:layout_marginTop="74dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@color/Orange"
+
         android:padding="8dp"
         android:text="Next"
+
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.91" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCountry"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextPhone"
