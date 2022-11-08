@@ -71,19 +71,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCountry"
+
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextPhone"
-        android:layout_width="wrap_content"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="300dp"
         android:layout_height="45dp"
         android:height="20dp"
         android:background="@color/LightGray"
         android:ems="10"
+        android:hint="01233456"
         android:inputType="phone"
         android:scrollbarSize="6dp"
         android:textSize="25sp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
         app:layout_constraintBottom_toTopOf="@+id/Next_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
