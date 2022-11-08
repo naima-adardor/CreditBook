@@ -31,14 +31,14 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="172dp"
-        android:layout_height="211dp"
+        android:layout_width="167dp"
+        android:layout_height="206dp"
         app:layout_constraintBottom_toTopOf="@+id/textview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.598"
+        app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674"
+        app:layout_constraintVertical_bias="0.7"
         app:srcCompat="@drawable/logo" />
 
     <TextView
