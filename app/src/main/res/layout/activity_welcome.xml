@@ -53,8 +53,10 @@
         android:layout_height="60dp"
         android:layout_marginTop="107dp"
         android:layout_marginBottom="88dp"
-
-        android:backgroundTint="@color/Orange"
+        android:background="@drawable/round_edit_text"
+        android:backgroundTint="@color/Orange2"
+        android:textColor="@color/LightGray"
+        android:fontFamily="monospace"
         android:padding="8dp"
 
         android:text="@string/start"

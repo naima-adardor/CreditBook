@@ -52,38 +52,38 @@
         app:layout_constraintHorizontal_bias="0.703"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintVertical_bias="0.118" />
 
     <Button
         android:id="@+id/Next_btn2"
 
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginBottom="28dp"
-        android:backgroundTint="@color/Orange"
-
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/round_edit_text"
+        android:backgroundTint="@color/Orange2"
+        android:fontFamily="monospace"
         android:padding="8dp"
         android:text="Next"
-
+        android:textColor="@color/LightGray"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.811"
         app:layout_constraintStart_toStartOf="parent"
 
-        app:layout_constraintVertical_bias="0.0" />
+        />
 
     <EditText
         android:id="@+id/editTextPhone"
         style="@style/Widget.AppCompat.AutoCompleteTextView"
         android:layout_width="300dp"
-        android:layout_height="45dp"
+        android:layout_height="60dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="44dp"
-        android:height="40dp"
-        android:background="@color/LightGray"
+        android:layout_marginTop="40dp"
+
+        android:background="@drawable/round_edit_text"
         android:ems="10"
         android:hint="01233456"
         android:inputType="phone"
@@ -91,7 +91,7 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/Next_btn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.576"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
