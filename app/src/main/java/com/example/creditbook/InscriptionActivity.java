@@ -20,7 +20,9 @@ public class InscriptionActivity extends AppCompatActivity implements View.OnCli
 
         button = findViewById(R.id.Next_btn2);
         button.setOnClickListener(this);
-
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
     }
     public void onClick(View view) {
 

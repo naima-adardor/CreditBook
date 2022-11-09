@@ -20,7 +20,9 @@ private Button button;
         spinner = findViewById(R.id.spinnerCountry);
         button = findViewById(R.id.Next_btn);
         button.setOnClickListener(this);
-
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
     }
     public void onClick(View view) {
 
