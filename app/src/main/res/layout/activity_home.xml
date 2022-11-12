@@ -12,7 +12,7 @@
 
     <TextView
         android:id="@+id/textView14"
-        android:layout_width="418dp"
+        android:layout_width="0dp"
         android:layout_height="7dp"
         android:layout_marginTop="16dp"
         android:background="@drawable/btn_bg_selector"
@@ -23,15 +23,15 @@
 
     <TextView
         android:id="@+id/textView13"
-        android:layout_width="418dp"
+        android:layout_width="0dp"
         android:layout_height="7dp"
         android:background="@drawable/btn_bg_selector"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.977" />
+        app:layout_constraintVertical_bias="0.955" />
 
     <ImageView
         android:id="@+id/imageView5"
@@ -45,8 +45,8 @@
 
     <TextView
         android:id="@+id/textView15"
-        android:layout_width="172dp"
-        android:layout_height="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:text="Maryam-Bouchhar"
@@ -58,8 +58,8 @@
 
     <TextView
         android:id="@+id/textView16"
-        android:layout_width="309dp"
-        android:layout_height="51dp"
+        android:layout_width="308dp"
+        android:layout_height="62dp"
         android:layout_marginTop="112dp"
         android:background="@drawable/round_edit_text"
         android:fontFamily="sans-serif-condensed-light"
@@ -106,10 +106,9 @@
         app:columnCount="2"
         app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16"
-        app:layout_constraintVertical_bias="0.447"
+        app:layout_constraintVertical_bias="0.228"
         app:rowCount="2">
 
         <androidx.cardview.widget.CardView
@@ -216,7 +215,7 @@
                     android:layout_height="76dp"
                     android:layout_gravity="center_horizontal"
                     android:layout_marginBottom="8dp"
-                    app:srcCompat="@drawable/cashBook" />
+                    app:srcCompat="@drawable/cash_book" />
 
                 <TextView
                     android:id="@+id/textViewCashBook"
