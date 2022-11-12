@@ -17,10 +17,12 @@ private Button button;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         spinner = findViewById(R.id.spinnerCountry);
+        spinner = findViewById(R.id.spinnerCountry);
         button = findViewById(R.id.Next_btn);
         button.setOnClickListener(this);
-
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().hide();
+        }
     }
     public void onClick(View view) {
 

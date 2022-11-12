@@ -28,6 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.517" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="172dp"
@@ -57,29 +58,34 @@
         android:id="@+id/spinnerCountry"
         android:layout_width="250dp"
         android:layout_height="60dp"
-        android:background="@color/Gray"
+        android:background="@drawable/round_edit_text"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.311" />
 
     <Button
         android:id="@+id/Next_btn"
-        style="?android:attr/borderlessButtonStyle"
+
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="74dp"
-        android:background="@drawable/btn_bg_selector"
-        android:text="Next"
+        android:layout_height="60dp"
+        android:background="@drawable/round_edit_text"
+        android:backgroundTint="@color/Orange2"
+        android:fontFamily="monospace"
         android:padding="8dp"
+        android:text="Next"
+
+        android:textColor="@color/LightGray"
+        android:textStyle="bold"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.839"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCountry"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.937" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
