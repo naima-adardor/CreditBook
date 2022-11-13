@@ -90,6 +90,7 @@
         android:fontFamily="@font/cantora_one"
         android:text="Home"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/DarkBlue"
         android:textSize="34sp"
         android:textStyle="bold"
         android:typeface="normal"

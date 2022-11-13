@@ -1,7 +1,14 @@
 <resources>
-    <string name="welcome_message">Welcome To CreditBook</string>
-    <string name="follow_up_and_speed">follow-up and speed up collection</string>
+    <string name="welcome_message">Welcome To Credit</string>
+    <string name="follow_up_and_speed">follow-up and speed up collection.
+    Your data is always backed up.
+    Take control of your finances.</string>
     <string name="lets_start">Let\'s Start</string>
     <string name="start">Let\'s Start</string>
     <string name="view_report">View Report</string>
+    <string name="Book">Book</string>
+    <string name="operations">Operations</string>
+    <string name="dateOpertion">Date</string>
+    <string name="jaipris">J\'ai pris</string>
+    <string name="jaidonne">J\'ai donné</string>
 </resources>

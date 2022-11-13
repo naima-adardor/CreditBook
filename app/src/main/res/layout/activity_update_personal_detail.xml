@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddClientActivity">
-
+    tools:context=".UpdatePersonalDetailActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -35,10 +34,11 @@
             android:layout_height="wrap_content"
             android:clickable="false"
 
-            android:text="Add Client"
-            android:textColor="@color/Gray"
-            android:textStyle="bold"
+            android:text="Naima"
+            android:textColor="@color/Orange"
+            android:textSize="25dp"
 
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -47,6 +47,7 @@
             app:layout_constraintVertical_bias="0.68" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     <EditText
         android:id="@+id/editText1"
@@ -57,65 +58,23 @@
         android:layout_centerVertical="true"
 
         android:background="@drawable/round_edit_text"
-        android:drawableLeft="@drawable/user"
-        android:ems="10"
-        android:hint="First Name"
-        android:inputType="textPersonName"
 
+        android:ems="10"
+
+        android:inputType="textPersonName"
+        android:text="Naima"
+        android:drawableLeft="@drawable/user"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.247" />
+        app:layout_constraintVertical_bias="0.198" />
 
     <EditText
         android:id="@+id/editText3"
-
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-
-        android:background="@drawable/round_edit_text"
-
-        android:drawableLeft="@drawable/email"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.517" />
-
-    <EditText
-        android:id="@+id/editText4"
-
-        android:layout_width="295dp"
-        android:layout_height="61dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-
-        android:layout_marginTop="439dp"
-        android:background="@drawable/round_edit_text"
-        android:drawableLeft="@drawable/address"
-        android:ems="10"
-        android:hint="Address"
-        android:inputType="textPersonName"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.125" />
-
-    <EditText
-        android:id="@+id/editText"
 
         android:layout_width="300dp"
         android:layout_height="60dp"
@@ -126,100 +85,61 @@
 
         android:background="@drawable/round_edit_text"
 
-        android:drawableLeft="@drawable/phone"
         android:ems="10"
-        android:hint="Phone Number"
-        android:inputType="phone"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
         android:textSize="20sp"
+        android:drawableLeft="@drawable/email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.303" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editText"
 
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
 
-        android:layout_marginTop="248dp"
         android:background="@drawable/round_edit_text"
 
-        android:drawableLeft="@drawable/user"
         android:ems="10"
-        android:hint="Last Name"
-
-        android:inputType="textPersonName"
+        android:inputType="phone"
+        android:text="0762389652"
+        android:drawableLeft="@drawable/phone"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.018" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.348" />
 
     <Button
         android:id="@+id/next_btn"
 
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
+        android:layout_width="246dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="482dp"
+        android:layout_marginBottom="120dp"
         android:background="@drawable/round_button"
         android:backgroundTint="@color/Orange2"
         android:fontFamily="monospace"
         android:padding="8dp"
-        android:text="Add"
 
+        android:text="Save"
         android:textColor="@color/LightGray"
         android:textStyle="bold"
-
         app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.921" />
-
-    <Button
-        android:id="@+id/next_btn2"
-
-        android:layout_width="123dp"
-        android:layout_height="51dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/DarkBlue"
-        android:drawableLeft="@drawable/importer"
-        android:fontFamily="monospace"
-        android:padding="8dp"
-        android:text="Import"
-        android:textColor="@color/LightGray"
-        android:textStyle="bold"
-
-        app:layout_constraintBottom_toTopOf="@+id/editText1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.694" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="102dp"
-
-        android:clickable="false"
-        android:text="Import contacts from your phone "
-        android:textColor="@color/Gray2"
-
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/next_btn2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="@+id/next_btn2"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.574" />
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
