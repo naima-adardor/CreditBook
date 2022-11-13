@@ -97,7 +97,7 @@
         app:layout_constraintVertical_bias="0.369" />
 
     <ImageView
-        android:id="@+id/imageView12"
+        android:id="@+id/clientSettings"
         android:layout_width="40dp"
         android:layout_height="38dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView4"

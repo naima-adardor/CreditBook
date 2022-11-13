@@ -6,4 +6,8 @@
     <string name="lets_start">Let\'s Start</string>
     <string name="start">Let\'s Start</string>
     <string name="Book">Book</string>
+    <string name="operations">Opérations</string>
+    <string name="dateOpertion">Date</string>
+    <string name="jaipris">J\'ai pris</string>
+    <string name="jaidonne">J\'ai donné</string>
 </resources>
