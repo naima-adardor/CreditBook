@@ -63,6 +63,7 @@
 
         android:inputType="textPersonName"
         android:text="Naima"
+        android:drawableLeft="@drawable/user"
         android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -88,6 +89,7 @@
         android:hint="Email"
         android:inputType="textEmailAddress"
         android:textSize="20sp"
+        android:drawableLeft="@drawable/email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
@@ -108,6 +110,7 @@
         android:ems="10"
         android:inputType="phone"
         android:text="0762389652"
+        android:drawableLeft="@drawable/phone"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
