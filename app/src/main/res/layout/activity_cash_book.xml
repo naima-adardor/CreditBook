@@ -80,27 +80,28 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewCash">
 
         <ImageView
+            android:id="@+id/imageView15"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:src="@drawable/cashin" />
+
+        <ImageView
             android:id="@+id/imageView16"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:src="@drawable/cashout" />
-
-        <ImageView
-            android:id="@+id/imageView15"
-            android:layout_width="41dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:src="@drawable/cashin" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="408dp"
-        android:layout_height="66dp"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <LinearLayout
             android:layout_width="208dp"
@@ -123,8 +124,13 @@
                 android:id="@+id/textView25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/alata"
                 android:gravity="center"
-                android:text="600 dh" />
+                android:text="600.00 dh"
+                android:textAlignment="center"
+                android:textColor="#1AD321"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
@@ -136,17 +142,109 @@
                 android:id="@+id/textView23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/alata"
+                android:gravity="center"
                 android:text="Cash out"
                 android:textAlignment="center"
-                android:textAllCaps="false" />
+                android:textColor="#090909"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/alata"
                 android:gravity="center"
-                android:text="500 dh" />
+                android:text="500.00 dh"
+                android:textAlignment="center"
+                android:textColor="#E30C0C"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonViewReport"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/round_edit_text"
+        android:fontFamily="sans-serif"
+        android:text="@string/view_report"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonViewReport">
+
+        <TextView
+            android:id="@+id/textViewoperation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_weight="1"
+            android:text="Operations"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#050505" />
+
+        <TextView
+            android:id="@+id/textViewBalance"
+            android:layout_width="141dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:text="Balance : "
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="#090909" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="200.00 dh"
+            android:textColor="#28CF2F"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView32"
+        android:layout_width="117dp"
+        android:layout_height="3dp"
+        android:background="#EDEBEB"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="336dp" />
+
+    <TextView
+        android:id="@+id/textView33"
+        android:layout_width="102dp"
+        android:layout_height="4dp"
+        android:background="#EDEBEB"
+        tools:layout_editor_absoluteX="238dp"
+        tools:layout_editor_absoluteY="335dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleView"
+        android:layout_width="396dp"
+        android:layout_height="278dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
