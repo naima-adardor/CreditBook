@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/DarkBlue"
+    android:background="@drawable/background2"
     tools:context=".MainActivity">
 
     <TextView
@@ -13,8 +13,7 @@
         android:layout_height="68dp"
         android:fontFamily="casual"
         android:shadowColor="@color/Orange"
-        android:shadowDx="8"
-        android:shadowDy="8"
+
         android:shadowRadius="8"
         android:text="@string/app_name"
         android:textAlignment="center"
@@ -31,61 +30,68 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="172dp"
-        android:layout_height="211dp"
+        android:layout_width="167dp"
+        android:layout_height="206dp"
         app:layout_constraintBottom_toTopOf="@+id/textview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.598"
+        app:layout_constraintHorizontal_bias="0.569"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674"
+        app:layout_constraintVertical_bias="0.7"
         app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="42dp"
         android:text="Enter your phone number"
         android:textColor="@color/Gray"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.703"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.118" />
 
     <Button
-        android:id="@+id/Next_btn"
+        android:id="@+id/Next_btn2"
 
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginTop="74dp"
-        android:layout_marginBottom="28dp"
-        android:backgroundTint="@color/Orange"
-
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/round_edit_text"
+        android:backgroundTint="@color/Orange2"
+        android:fontFamily="monospace"
         android:padding="8dp"
         android:text="Next"
-
+        android:textColor="@color/LightGray"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.811"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCountry"
-        app:layout_constraintVertical_bias="0.0" />
+
+        />
 
     <EditText
         android:id="@+id/editTextPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="45dp"
-        android:height="20dp"
-        android:background="@color/LightGray"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="40dp"
+
+        android:background="@drawable/round_edit_text"
         android:ems="10"
+        android:hint="01233456"
         android:inputType="phone"
-        android:scrollbarSize="6dp"
+
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/Next_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.576"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
