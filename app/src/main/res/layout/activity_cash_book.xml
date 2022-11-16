@@ -17,27 +17,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="0dp"
-        android:layout_height="7dp"
-        android:layout_marginTop="696dp"
-        android:background="@drawable/btn_bg_selector"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageView12"
         android:layout_width="51dp"
         android:layout_height="46dp"
         android:layout_marginStart="4dp"
         android:layout_marginBottom="4dp"
-        android:src="@drawable/user"
+        android:src="@drawable/user_c_f"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toStartOf="@+id/textViewNameUser"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -45,23 +34,24 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="220dp"
         android:text="Maryam-Bouchhar"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.216"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textViewCash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="173dp"
+        android:layout_height="38dp"
         android:layout_marginTop="20dp"
         android:fontFamily="sans-serif-black"
         android:text="Cash Book"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,8 +61,8 @@
 
     <LinearLayout
         android:id="@+id/linearLayout2"
-        android:layout_width="407dp"
-        android:layout_height="43dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,23 +71,27 @@
 
         <ImageView
             android:id="@+id/imageView15"
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
             android:layout_weight="1"
+            android:foregroundGravity="center"
             android:src="@drawable/cashin" />
 
         <ImageView
             android:id="@+id/imageView16"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_weight="1"
+            android:foregroundGravity="center"
             android:src="@drawable/cashout" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="64dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,12 +100,15 @@
         <LinearLayout
             android:layout_width="208dp"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_marginLeft="7dp"
+            android:orientation="vertical"
+            android:paddingLeft="22dp">
 
             <TextView
                 android:id="@+id/textView26"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:fontFamily="@font/alata"
                 android:gravity="center"
                 android:text="Cash in"
@@ -124,6 +121,7 @@
                 android:id="@+id/textView25"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:fontFamily="@font/alata"
                 android:gravity="center"
                 android:text="600.00 dh"
@@ -136,12 +134,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="24dp">
 
             <TextView
                 android:id="@+id/textView23"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:fontFamily="@font/alata"
                 android:gravity="center"
                 android:text="Cash out"
@@ -154,6 +154,7 @@
                 android:id="@+id/textView24"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:fontFamily="@font/alata"
                 android:gravity="center"
                 android:text="500.00 dh"
@@ -166,15 +167,17 @@
 
     <Button
         android:id="@+id/buttonViewReport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_width="123dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="50dp"
         android:background="@drawable/round_edit_text"
         android:fontFamily="sans-serif"
         android:text="@string/view_report"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -182,7 +185,7 @@
         android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -192,7 +195,7 @@
         <TextView
             android:id="@+id/textViewoperation"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginLeft="12dp"
             android:layout_weight="1"
             android:text="Operations"
@@ -201,8 +204,8 @@
 
         <TextView
             android:id="@+id/textViewBalance"
-            android:layout_width="141dp"
-            android:layout_height="wrap_content"
+            android:layout_width="202dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="right"
             android:text="Balance : "
@@ -212,10 +215,11 @@
         <TextView
             android:id="@+id/textView31"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
             android:text="200.00 dh"
+            android:textAlignment="textStart"
             android:textColor="#28CF2F"
             android:textStyle="bold" />
 
@@ -223,27 +227,35 @@
 
     <TextView
         android:id="@+id/textView32"
-        android:layout_width="117dp"
-        android:layout_height="3dp"
+        android:layout_width="86dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="24dp"
         android:background="#EDEBEB"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="336dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3" />
 
     <TextView
         android:id="@+id/textView33"
-        android:layout_width="102dp"
-        android:layout_height="4dp"
+        android:layout_width="79dp"
+        android:layout_height="2dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="16dp"
         android:background="#EDEBEB"
-        tools:layout_editor_absoluteX="238dp"
-        tools:layout_editor_absoluteY="335dp" />
+        app:layout_constraintBottom_toTopOf="@+id/recycleViewOperation"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toEndOf="@+id/textView32"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="1.0" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleView"
-        android:layout_width="396dp"
-        android:layout_height="278dp"
+        android:id="@+id/recycleViewOperation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 

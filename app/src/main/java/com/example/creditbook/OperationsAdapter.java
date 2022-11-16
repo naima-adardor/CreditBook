@@ -8,8 +8,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.List;
+
 public class OperationsAdapter  extends RecyclerView.Adapter<OperationsAdapter.ViewHolder> {
 
+    private final List<Operation> opListe;
+
+    public OperationsAdapter(List<Operation> listOperations) {
+        opListe = listOperations;
+    }
 
     @NonNull
     @Override
@@ -21,13 +28,17 @@ public class OperationsAdapter  extends RecyclerView.Adapter<OperationsAdapter.V
 
     @Override
     public void onBindViewHolder(@NonNull OperationsAdapter.ViewHolder holder, int position) {
-
+          Operation listItem= opListe.get(position);
+          holder.typeOperation.setText(listItem.getType_operation());
+          holder.date.setText((listItem.getOperation_date()+" "));
+          holder.balance.setText((listItem.getBalance() + "dh"));
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return opListe.size();
     }
+
     public class ViewHolder extends RecyclerView.ViewHolder{
              public TextView date;
              public TextView balance;
@@ -37,7 +48,6 @@ public class OperationsAdapter  extends RecyclerView.Adapter<OperationsAdapter.V
             date = itemView.findViewById(R.id.textViewDateOperation);
             balance = itemView.findViewById(R.id.textViewBalanceOpeartion);
             typeOperation = itemView.findViewById(R.id.textViewTypeOperation);
-
         }
     }
 }
