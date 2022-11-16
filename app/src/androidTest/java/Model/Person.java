@@ -1,6 +1,6 @@
 package Model;
 
-public class Personne {
+public class Person {
     int id;
     String last_name;
     String first_name;
@@ -8,7 +8,7 @@ public class Personne {
     String email;
     String address;
 
-    public Personne(int id, String last_name, String first_name, String phone_number, String email, String address) {
+    public Person(int id, String last_name, String first_name, String phone_number, String email, String address) {
         this.id = id;
         this.last_name = last_name;
         this.first_name = first_name;
