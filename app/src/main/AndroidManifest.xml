@@ -20,6 +20,13 @@
                 android:value="" />
         </activity>
         <activity
+            android:name=".UpdatePersonalDetailActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".AddSupplierActivity"
             android:exported="false">
             <meta-data
@@ -49,6 +56,20 @@
         </activity>
         <activity
             android:name=".client_supplier"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".home"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".profile"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

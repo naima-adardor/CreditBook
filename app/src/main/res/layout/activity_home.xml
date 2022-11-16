@@ -125,9 +125,11 @@
             app:layout_rowWeight="1">
 
             <LinearLayout
+                android:id="@+id/profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
+                android:clickable="true"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="12dp">
@@ -152,6 +154,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -164,9 +167,11 @@
             app:layout_rowWeight="1">
 
             <LinearLayout
+                android:id="@+id/creditbook"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
+                android:clickable="true"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="12dp">
@@ -203,9 +208,11 @@
             app:layout_rowWeight="1">
 
             <LinearLayout
+                android:id="@+id/cashbook"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
+                android:clickable="true"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="12dp">

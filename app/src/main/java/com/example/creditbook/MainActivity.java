@@ -7,19 +7,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-private Spinner spinner;
+private EditText name;
 private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        spinner = findViewById(R.id.spinnerCountry);
+        name = findViewById(R.id.nickname);
         button = findViewById(R.id.Next_btn);
         button.setOnClickListener(this);
+
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }
