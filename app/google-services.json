@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "384627938731",
+    "project_id": "firstproject-fb0ee",
+    "storage_bucket": "firstproject-fb0ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:384627938731:android:edb26f3dcf571804bdaeee",
+        "android_client_info": {
+          "package_name": "com.example.creditbook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "384627938731-4qg4rg2hm6ct0nn0ussu4sdrt5if392s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoUCs1kVsniw2JOEBIk8rBLPAGU-ZdmS4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "384627938731-4qg4rg2hm6ct0nn0ussu4sdrt5if392s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

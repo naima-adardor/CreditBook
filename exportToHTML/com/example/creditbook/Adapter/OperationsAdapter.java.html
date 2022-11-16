@@ -1,0 +1,75 @@
+<html>
+<head>
+<title>OperationsAdapter.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+OperationsAdapter.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.creditbook.Adapter</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">android.view.LayoutInflater</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.View</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.view.ViewGroup</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">android.widget.TextView</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">androidx.annotation.NonNull</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">androidx.recyclerview.widget.RecyclerView</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">com.example.creditbook.Model.Operation</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">com.example.creditbook.R</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.util.List</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">OperationsAdapter  </span><span class="s0">extends </span><span class="s1">RecyclerView.Adapter&lt;OperationsAdapter.ViewHolder&gt; {</span>
+
+    <span class="s0">private final </span><span class="s1">List&lt;Operation&gt; opListe</span><span class="s0">;</span>
+
+    <span class="s0">public </span><span class="s1">OperationsAdapter(List&lt;Operation&gt; listOperations) {</span>
+        <span class="s1">opListe = listOperations</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@NonNull</span>
+    <span class="s1">@Override</span>
+    <span class="s0">public </span><span class="s1">OperationsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent</span><span class="s0">, int </span><span class="s1">viewType) {</span>
+
+        <span class="s1">View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.operation_item_list</span><span class="s0">,</span><span class="s1">parent</span><span class="s0">,false</span><span class="s1">)</span><span class="s0">;</span>
+         <span class="s0">return new </span><span class="s1">ViewHolder(view)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">onBindViewHolder(@NonNull OperationsAdapter.ViewHolder holder</span><span class="s0">, int </span><span class="s1">position) {</span>
+          <span class="s1">Operation listItem= opListe.get(position)</span><span class="s0">;</span>
+          <span class="s1">holder.typeOperation.setText(listItem.getType_operation())</span><span class="s0">;</span>
+          <span class="s1">holder.date.setText((listItem.getOperation_date()+</span><span class="s2">&quot; &quot;</span><span class="s1">))</span><span class="s0">;</span>
+          <span class="s1">holder.balance.setText((listItem.getBalance() + </span><span class="s2">&quot;dh&quot;</span><span class="s1">))</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public int </span><span class="s1">getItemCount() {</span>
+        <span class="s0">return </span><span class="s1">opListe.size()</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public class </span><span class="s1">ViewHolder </span><span class="s0">extends </span><span class="s1">RecyclerView.ViewHolder{</span>
+             <span class="s0">public </span><span class="s1">TextView date</span><span class="s0">;</span>
+             <span class="s0">public </span><span class="s1">TextView balance</span><span class="s0">;</span>
+             <span class="s0">public </span><span class="s1">TextView typeOperation</span><span class="s0">;</span>
+        <span class="s0">public </span><span class="s1">ViewHolder(@NonNull View itemView) {</span>
+            <span class="s0">super</span><span class="s1">(itemView)</span><span class="s0">;</span>
+            <span class="s1">date = itemView.findViewById(R.id.textViewDateOperation)</span><span class="s0">;</span>
+            <span class="s1">balance = itemView.findViewById(R.id.textViewBalanceOpeartion)</span><span class="s0">;</span>
+            <span class="s1">typeOperation = itemView.findViewById(R.id.textViewTypeOperation)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>
