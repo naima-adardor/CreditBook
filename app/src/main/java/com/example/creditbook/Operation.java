@@ -2,22 +2,22 @@ package com.example.creditbook;
 
 import java.util.Date;
 
-public class listOperations {
-    private Date operation_date;
+public class Operation {
+    private String operation_date;
     private double balance;
     private String type_operation;
 
-    public listOperations(Date operation_date, double balance, String type_operation) {
+    public Operation(String operation_date, double balance, String type_operation) {
         this.operation_date = operation_date;
         this.balance = balance;
         this.type_operation = type_operation;
     }
 
-    public Date getOperation_date() {
+    public String getOperation_date() {
         return operation_date;
     }
 
-    public void setOperation_date(Date operation_date) {
+    public void setOperation_date(String operation_date) {
         this.operation_date = operation_date;
     }
 
