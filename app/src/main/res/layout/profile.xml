@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tex"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -74,7 +75,7 @@
         app:layout_constraintVertical_bias="0.557" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/updatedetail"
         android:layout_width="316dp"
         android:layout_height="67dp"
         android:drawableLeft="@drawable/document"
@@ -96,21 +97,21 @@
         android:background="@color/DarkBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
 
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="38dp"
-        android:layout_height="42dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView12"
+    <Button
+        android:id="@+id/buttonhome"
+        android:layout_width="54dp"
+        android:layout_height="44dp"
+        android:background="@drawable/home"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.031"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintHorizontal_bias="0.044"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView12"
-        app:layout_constraintVertical_bias="0.533"
-        app:srcCompat="@drawable/home" />
+        app:layout_constraintVertical_bias="0.588" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
