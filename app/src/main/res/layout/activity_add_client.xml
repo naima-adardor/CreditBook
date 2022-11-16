@@ -57,7 +57,7 @@
         android:layout_centerVertical="true"
 
         android:background="@drawable/round_edit_text"
-        android:drawableLeft="@drawable/user"
+        android:drawableLeft="@drawable/useer"
         android:ems="10"
         android:hint="First Name"
         android:inputType="textPersonName"
@@ -149,7 +149,7 @@
         android:layout_marginTop="248dp"
         android:background="@drawable/round_edit_text"
 
-        android:drawableLeft="@drawable/user"
+        android:drawableLeft="@drawable/useer"
         android:ems="10"
         android:hint="Last Name"
 

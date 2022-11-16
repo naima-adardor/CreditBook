@@ -6,6 +6,7 @@ public class Client extends Person {
         super(id, last_name, first_name, phone_number, email, address);
     }
 
+
     @Override
     public int getId() {
         return id;
