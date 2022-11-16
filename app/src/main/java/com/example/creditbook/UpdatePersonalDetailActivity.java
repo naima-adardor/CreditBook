@@ -20,7 +20,7 @@ public class UpdatePersonalDetailActivity extends AppCompatActivity implements V
 
     @Override
     public void onClick(View view) {
-        Intent intent1=new Intent(UpdatePersonalDetailActivity.this,home.class);
+        Intent intent1=new Intent(UpdatePersonalDetailActivity.this,profile.class);
         startActivity(intent1);
     }
 }
