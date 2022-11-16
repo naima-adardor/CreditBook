@@ -1,4 +1,4 @@
-package com.example.creditbook;
+package com.example.creditbook.Adapter;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

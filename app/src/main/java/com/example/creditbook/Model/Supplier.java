@@ -1,11 +1,12 @@
-package Model;
+package com.example.creditbook.Model;
 
-public class Client extends Person {
+public class Supplier extends Person {
     int id;
-    public Client(int id, String last_name, String first_name, String phone_number, String email, String address) {
+
+
+    public Supplier(int id, String last_name, String first_name, String phone_number, String email, String address) {
         super(id, last_name, first_name, phone_number, email, address);
     }
-
 
     @Override
     public int getId() {
@@ -16,6 +17,4 @@ public class Client extends Person {
     public void setId(int id) {
         this.id = id;
     }
-
-
 }

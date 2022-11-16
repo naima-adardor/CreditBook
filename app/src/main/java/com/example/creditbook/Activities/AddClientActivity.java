@@ -1,8 +1,10 @@
-package com.example.creditbook;
+package com.example.creditbook.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.creditbook.R;
 
 public class AddClientActivity extends AppCompatActivity {
 

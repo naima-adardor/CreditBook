@@ -1,4 +1,4 @@
-package com.example.creditbook;
+package com.example.creditbook.Adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,6 +7,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.creditbook.Model.Operation;
+import com.example.creditbook.R;
 
 import java.util.List;
 

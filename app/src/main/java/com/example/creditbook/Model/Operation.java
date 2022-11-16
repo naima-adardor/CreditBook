@@ -1,4 +1,4 @@
-package com.example.creditbook;
+package com.example.creditbook.Model;
 
 import java.util.Date;
 

@@ -1,11 +1,12 @@
-package com.example.creditbook;
+package com.example.creditbook.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.widget.TableLayout;
 
+import com.example.creditbook.Adapter.VPAdapter;
+import com.example.creditbook.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class client_supplier extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.creditbook;
+package com.example.creditbook.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,8 +7,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import java.text.SimpleDateFormat;
-import java.util.List;
+import com.example.creditbook.Adapter.OperationsAdapter;
+import com.example.creditbook.Model.Operation;
+import com.example.creditbook.R;
 
 public class CashBookActivity extends AppCompatActivity {
     TextView CountOp ;

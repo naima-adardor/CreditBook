@@ -1,14 +1,15 @@
-package com.example.creditbook;
+package com.example.creditbook.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-public class home extends AppCompatActivity implements View.OnClickListener {
+import com.example.creditbook.R;
+
+public class HomeAtivity extends AppCompatActivity implements View.OnClickListener {
 private LinearLayout c1;
 private LinearLayout c2;
 private LinearLayout c3;
@@ -29,15 +30,15 @@ private LinearLayout c3;
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.profile:
-                Intent intent1=new Intent(home.this,profile.class);
+                Intent intent1=new Intent(HomeAtivity.this, ProfileActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.cashbook:
-                Intent intent2=new Intent(home.this,CashBookActivity.class);
+                Intent intent2=new Intent(HomeAtivity.this,CashBookActivity.class);
                 startActivity(intent2);
                 break;
             case R.id.creditbook:
-                Intent intent3=new Intent(home.this,client_supplier.class);
+                Intent intent3=new Intent(HomeAtivity.this,client_supplier.class);
                 startActivity(intent3);
                 break;
 
