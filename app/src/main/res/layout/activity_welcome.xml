@@ -71,8 +71,7 @@
 
         android:layout_width="122dp"
         android:layout_height="56dp"
-        android:background="@drawable/round_edit_text"
-        android:backgroundTint="@color/Orange2"
+        android:background="@drawable/round_button"
         android:fontFamily="monospace"
         android:padding="8dp"
         android:text="@string/start"
