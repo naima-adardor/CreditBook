@@ -3,7 +3,7 @@ Mobile application for manipulating credits ,built using java and firebase .
 
 # ScreenShots
 
-![Capture](https://user-images.githubusercontent.com/98922186/200339212-0508188f-a00a-4f04-a04f-50b0f4d6a59c.PNG)
+<img src="https://user-images.githubusercontent.com/98922186/202562359-6de0bfcc-c42f-4ccc-a27c-5bedf9ade372.jpeg" width="260" height="450" />
 
 # Product Vision
 
