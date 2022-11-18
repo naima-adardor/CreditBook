@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background2"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <TextView
         android:id="@+id/textview"
@@ -43,7 +43,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Choose your country"
+        android:text="Enter a nickname "
         android:textColor="@color/Gray"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -52,26 +52,12 @@
         app:layout_constraintTop_toBottomOf="@+id/textview"
         app:layout_constraintVertical_bias="0.178" />
 
-    <Spinner
-        android:id="@+id/spinnerCountry"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:background="@drawable/round_edit_text"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.196" />
-
     <Button
         android:id="@+id/Next_btn"
 
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:background="@drawable/round_edit_text"
-        android:backgroundTint="@color/Orange2"
+        android:background="@drawable/round_button"
         android:fontFamily="monospace"
         android:padding="8dp"
         android:text="Next"
@@ -85,5 +71,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.937" />
+
+    <EditText
+        android:id="@+id/nickname"
+        android:layout_width="215dp"
+        android:layout_height="58dp"
+        android:background="@drawable/round_edit_text"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="naima"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.786" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

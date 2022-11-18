@@ -1,14 +1,13 @@
-package com.example.creditbook;
+package com.example.creditbook.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
+
+import com.example.creditbook.R;
 
 public class InscriptionActivity extends AppCompatActivity implements View.OnClickListener {
 

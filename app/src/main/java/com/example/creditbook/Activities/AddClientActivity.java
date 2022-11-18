@@ -1,13 +1,16 @@
-package com.example.creditbook;
+package com.example.creditbook.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 
-public class profile extends AppCompatActivity {
+import com.example.creditbook.R;
+
+public class AddClientActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.profile);
+        setContentView(R.layout.activity_add_client);
     }
 }

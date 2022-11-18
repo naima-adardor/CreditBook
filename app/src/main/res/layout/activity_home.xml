@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home"
+    tools:context=".Activities.HomeAtivity"
 
 
 
@@ -44,7 +44,7 @@
         app:srcCompat="@drawable/user" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/textViewNameUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -70,7 +70,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewNameUser" />
 
     <ImageView
         android:id="@+id/imageView8"
@@ -79,7 +79,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.964"
-        app:layout_constraintStart_toEndOf="@+id/textView15"
+        app:layout_constraintStart_toEndOf="@+id/textViewNameUser"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
         app:srcCompat="@drawable/book" />
 
@@ -125,9 +125,12 @@
             app:layout_rowWeight="1">
 
             <LinearLayout
+                android:id="@+id/profile"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
+                android:background="@drawable/btn_bg_selector_white"
+                android:clickable="true"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="12dp">
@@ -152,6 +155,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
@@ -164,9 +168,12 @@
             app:layout_rowWeight="1">
 
             <LinearLayout
+                android:id="@+id/creditbook"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
+                android:background="@drawable/btn_bg_selector_white"
+                android:clickable="true"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="12dp">
@@ -203,9 +210,12 @@
             app:layout_rowWeight="1">
 
             <LinearLayout
+                android:id="@+id/cashbook"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical|center_horizontal"
+                android:background="@drawable/btn_bg_selector_white"
+                android:clickable="true"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:padding="12dp">

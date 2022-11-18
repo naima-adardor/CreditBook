@@ -5,11 +5,13 @@
     Take control of your finances.</string>
     <string name="lets_start">Let\'s Start</string>
     <string name="start">Let\'s Start</string>
+    <string name="view_report">View Report</string>
     <string name="Book">Book</string>
-    <string name="operations">Opérations</string>
+    <string name="operations">Operations</string>
     <string name="dateOpertion">Date</string>
     <string name="jaipris">J\'ai pris</string>
     <string name="jaidonne">J\'ai donné</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">home</string>
 </resources>

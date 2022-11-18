@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background2"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
     <TextView
         android:id="@+id/textview"
@@ -60,8 +60,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_marginBottom="40dp"
-        android:background="@drawable/round_edit_text"
-        android:backgroundTint="@color/Orange2"
+        android:background="@drawable/round_button"
         android:fontFamily="monospace"
         android:padding="8dp"
         android:text="Next"
