@@ -250,8 +250,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewOperation"
-        android:layout_width="386dp"
-        android:layout_height="360dp"
+        android:layout_width="390dp"
+        android:layout_height="277dp"
         android:layout_marginTop="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
