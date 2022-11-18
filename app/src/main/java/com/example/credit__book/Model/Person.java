@@ -8,8 +8,8 @@ public class Person {
     String email;
     String address;
 
-    public Person(int id, String last_name, String first_name, String phone_number, String email, String address) {
-        this.id = id;
+    public Person(String last_name, String first_name, String phone_number, String email, String address) {
+
         this.last_name = last_name;
         this.first_name = first_name;
         this.phone_number = phone_number;
