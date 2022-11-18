@@ -1,4 +1,4 @@
-package com.example.creditbook.Activities;
+package com.example.credit__book.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.creditbook.R;
+import com.example.credit__book.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 private EditText name;

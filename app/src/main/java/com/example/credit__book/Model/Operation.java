@@ -1,6 +1,4 @@
-package com.example.creditbook.Model;
-
-import java.util.Date;
+package com.example.credit__book.Model;
 
 public class Operation {
     private String operation_date;

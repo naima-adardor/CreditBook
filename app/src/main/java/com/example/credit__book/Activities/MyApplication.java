@@ -1,8 +1,8 @@
-package com.example.creditbook.Activities;
+package com.example.credit__book.Activities;
 
 import android.app.Application;
 
-import com.example.creditbook.Model.Operation;
+import com.example.credit__book.Model.Operation;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.example.creditbook.Model;
+package com.example.credit__book.Model;
 
 public class Person {
     int id;

@@ -1,4 +1,4 @@
-package com.example.creditbook.Activities;
+package com.example.credit__book.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import com.example.creditbook.R;
+import com.example.credit__book.R;
 
 public class HomeAtivity extends AppCompatActivity implements View.OnClickListener {
 private LinearLayout c1;
