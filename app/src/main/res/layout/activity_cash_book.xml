@@ -194,7 +194,7 @@
 
         <TextView
             android:id="@+id/textViewoperation"
-            android:layout_width="wrap_content"
+            android:layout_width="117dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="12dp"
             android:layout_weight="1"
@@ -243,18 +243,21 @@
         android:background="#EDEBEB"
         app:layout_constraintBottom_toTopOf="@+id/recycleViewOperation"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
-        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintHorizontal_bias="0.874"
         app:layout_constraintStart_toEndOf="@+id/textView32"
         app:layout_constraintTop_toTopOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.764" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewOperation"
-        android:layout_width="379dp"
-        android:layout_height="195dp"
+        android:layout_width="386dp"
+        android:layout_height="360dp"
         android:layout_marginTop="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

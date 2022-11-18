@@ -1,6 +1,9 @@
 package com.example.credit__book.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,9 +15,10 @@ import com.example.credit__book.Model.Operation;
 import com.example.credit__book.R;
 
 
-public class CashBookActivity extends AppCompatActivity  {
+public class CashBookActivity extends AppCompatActivity implements View.OnClickListener  {
     TextView CountOp ;
     OperationsAdapter opAD;
+    Button ViewRepport;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -34,6 +38,15 @@ public class CashBookActivity extends AppCompatActivity  {
         recyclerViewOperation.setHasFixedSize(true);
         CountOp = findViewById(R.id.textViewoperation);
         CountOp.setText("Operations("+opAD.getItemCount()+")");
+        ViewRepport = findViewById(R.id.buttonViewReport);
+        ViewRepport.setOnClickListener(this);
 
+
+    }
+
+    @Override
+    public void onClick(View view) {
+        Intent intent1=new Intent(CashBookActivity.this, ViewReportCashbook.class);
+        startActivity(intent1);
     }
 }
