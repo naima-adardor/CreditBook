@@ -9,7 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.credit__book.Adapter.OperationsAdapter;
 import com.example.credit__book.Model.Operation;
-import com.example.credit__book.R;
+import com.example.creditbook.R;
+
 
 
 public class CashBookActivity extends AppCompatActivity {
@@ -22,6 +23,7 @@ public class CashBookActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cash_book);
 
         MyApplication context = (MyApplication) this.getApplicationContext();
+
 
         for(int i=0 ;i<10;i++){
             Operation listItem = new Operation("11-16-2022",100.00,"Cash in") ;
