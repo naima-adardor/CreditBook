@@ -9,9 +9,9 @@
 
     <TextView
         android:id="@+id/textview"
-        android:layout_width="172dp"
-        android:layout_height="68dp"
-        android:fontFamily="casual"
+        android:layout_width="192dp"
+        android:layout_height="71dp"
+        android:fontFamily="@font/alata"
 
         android:shadowRadius="8"
         android:text="@string/app_name"
@@ -67,10 +67,10 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.839"
+        app:layout_constraintHorizontal_bias="0.832"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.937" />
+        app:layout_constraintVertical_bias="0.94" />
 
     <EditText
         android:id="@+id/nickname"
