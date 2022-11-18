@@ -5,6 +5,10 @@ public class Operation {
     private double balance;
     private String type_operation;
 
+    public Operation(){
+
+    }
+
     public Operation(String operation_date, double balance, String type_operation) {
         this.operation_date = operation_date;
         this.balance = balance;
