@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "384627938731",
-    "project_id": "firstproject-fb0ee",
-    "storage_bucket": "firstproject-fb0ee.appspot.com"
+    "project_number": "246121153517",
+    "project_id": "creditbook-9d8ab",
+    "storage_bucket": "creditbook-9d8ab.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:384627938731:android:edb26f3dcf571804bdaeee",
+        "mobilesdk_app_id": "1:246121153517:android:9128868fc51bef96259de4",
         "android_client_info": {
-          "package_name": "com.example.creditbook"
+          "package_name": "com.example.credit__book"
         }
       },
       "oauth_client": [
         {
-          "client_id": "384627938731-4qg4rg2hm6ct0nn0ussu4sdrt5if392s.apps.googleusercontent.com",
+          "client_id": "246121153517-mjnagbcu8jken4rrejc2qtjh7j2nac5v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.credit__book",
+            "certificate_hash": "3de206449bae69d05ef9ebf9b5a72bed66e28973"
+          }
+        },
+        {
+          "client_id": "246121153517-9edc6afdhpidvntkeg9711ts2ah7919t.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCoUCs1kVsniw2JOEBIk8rBLPAGU-ZdmS4"
+          "current_key": "AIzaSyAoN-3FAVA-zIZv-aT-CaFaSzrtXn9hcjI"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "384627938731-4qg4rg2hm6ct0nn0ussu4sdrt5if392s.apps.googleusercontent.com",
+              "client_id": "246121153517-9edc6afdhpidvntkeg9711ts2ah7919t.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

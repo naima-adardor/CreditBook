@@ -13,8 +13,8 @@
 
     <TextView
         android:id="@+id/textview"
-        android:layout_width="297dp"
-        android:layout_height="62dp"
+        android:layout_width="289dp"
+        android:layout_height="58dp"
         android:fontFamily="fantasy"
         android:shadowRadius="8"
         android:text="@string/welcome_message"
@@ -26,15 +26,15 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.52" />
 
     <TextView
         android:id="@+id/textview2"
-        android:layout_width="92dp"
-        android:layout_height="62dp"
+        android:layout_width="95dp"
+        android:layout_height="56dp"
         android:fontFamily="fantasy"
         android:shadowRadius="8"
         android:text="@string/Book"
@@ -57,7 +57,7 @@
         android:layout_width="388dp"
         android:layout_height="127dp"
         android:text="@string/follow_up_and_speed"
-        android:textColor="@color/Gray"
+        android:textColor="@color/Gray2"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

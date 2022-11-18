@@ -11,7 +11,7 @@
         android:id="@+id/textview"
         android:layout_width="172dp"
         android:layout_height="68dp"
-        android:fontFamily="casual"
+        android:fontFamily="@font/alata"
         android:shadowColor="@color/Orange"
 
         android:shadowRadius="8"
@@ -20,7 +20,7 @@
         android:textColor="@color/LightGray"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:typeface="monospace"
+        android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -59,7 +59,6 @@
 
         android:layout_width="wrap_content"
         android:layout_height="60dp"
-        android:layout_marginBottom="40dp"
         android:background="@drawable/round_button"
         android:fontFamily="monospace"
         android:padding="8dp"
@@ -68,10 +67,11 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.811"
-        app:layout_constraintStart_toStartOf="parent"
 
-        />
+        app:layout_constraintHorizontal_bias="0.808"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.943" />
 
     <EditText
         android:id="@+id/editTextPhone"

@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.creditbook'
+    namespace 'com.example.credit__book'
     compileSdk 32
 
     defaultConfig {
-        applicationId "com.example.creditbook"
+        applicationId "com.example.credit__book"
         minSdk 24
         targetSdk 32
         versionCode 1
@@ -43,8 +43,8 @@ dependencies {
 
     // Import the Firebase BoM
     implementation platform('com.google.firebase:firebase-bom:31.0.3')
-
     // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-database'
 
     // Add the dependency for the Firebase SDK for Google Analytics
     implementation 'com.google.firebase:firebase-analytics'
