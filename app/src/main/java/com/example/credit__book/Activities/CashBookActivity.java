@@ -12,7 +12,7 @@ import com.example.credit__book.Model.Operation;
 import com.example.credit__book.R;
 
 
-public class CashBookActivity extends AppCompatActivity {
+public class CashBookActivity extends AppCompatActivity  {
     TextView CountOp ;
     OperationsAdapter opAD;
     @Override
