@@ -47,7 +47,7 @@
         android:id="@+id/textViewCash"
         android:layout_width="173dp"
         android:layout_height="38dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="sans-serif-black"
         android:text="Cash Book"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -55,7 +55,7 @@
         android:textStyle="bold"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.015"
+        app:layout_constraintHorizontal_bias="0.117"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
@@ -71,7 +71,7 @@
 
         <ImageView
             android:id="@+id/imageView15"
-            android:layout_width="match_parent"
+            android:layout_width="242dp"
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_weight="1"
@@ -80,7 +80,7 @@
 
         <ImageView
             android:id="@+id/imageView16"
-            android:layout_width="match_parent"
+            android:layout_width="258dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="1"
@@ -98,7 +98,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <LinearLayout
-            android:layout_width="208dp"
+            android:layout_width="155dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="7dp"
             android:orientation="vertical"
@@ -106,7 +106,7 @@
 
             <TextView
                 android:id="@+id/textView26"
-                android:layout_width="match_parent"
+                android:layout_width="203dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:fontFamily="@font/alata"
@@ -167,17 +167,17 @@
 
     <Button
         android:id="@+id/buttonViewReport"
-        android:layout_width="139dp"
+        android:layout_width="183dp"
         android:layout_height="50dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="50dp"
-        android:background="@drawable/round_edit_text"
-        android:fontFamily="sans-serif"
-        android:text="@string/view_report"
-        android:textStyle="bold"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/radius_button_client"
+        android:drawableEnd="@drawable/more_than"
+        android:text="View Report"
+        android:textAllCaps="false"
+
+
+        android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
@@ -194,7 +194,7 @@
 
         <TextView
             android:id="@+id/textViewoperation"
-            android:layout_width="wrap_content"
+            android:layout_width="117dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="12dp"
             android:layout_weight="1"
@@ -243,20 +243,25 @@
         android:background="#EDEBEB"
         app:layout_constraintBottom_toTopOf="@+id/recycleViewOperation"
         app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
-        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintHorizontal_bias="0.874"
         app:layout_constraintStart_toEndOf="@+id/textView32"
         app:layout_constraintTop_toTopOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.764" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewOperation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="386dp"
+        android:layout_height="360dp"
+        android:layout_marginTop="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.266"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" >
+
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
+        app:layout_constraintVertical_bias="0.0" />
+
+     
 
     </androidx.recyclerview.widget.RecyclerView>
 
@@ -288,5 +293,6 @@
         app:layout_constraintStart_toEndOf="@+id/buttonCashin"
         app:layout_constraintTop_toBottomOf="@+id/recycleViewOperation"
         app:layout_constraintVertical_bias="1.0" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
