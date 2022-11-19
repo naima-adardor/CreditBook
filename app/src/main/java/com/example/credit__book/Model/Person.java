@@ -1,13 +1,15 @@
 package com.example.credit__book.Model;
 
 public class Person {
-    int id;
+
     String last_name;
     String first_name;
     String phone_number;
     String email;
     String address;
+    public Person (){
 
+    }
     public Person(String last_name, String first_name, String phone_number, String email, String address) {
 
         this.last_name = last_name;
@@ -17,13 +19,7 @@ public class Person {
         this.address = address;
     }
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getLast_name() {
         return last_name;
