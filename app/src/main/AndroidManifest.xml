@@ -64,13 +64,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activities.client_supplier"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Activities.HomeAtivity"
             android:exported="false">
             <meta-data
