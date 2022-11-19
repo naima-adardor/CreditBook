@@ -8,13 +8,5 @@ public class Supplier extends Person {
         super(last_name, first_name, phone_number, email, address);
     }
 
-    @Override
-    public int getId() {
-        return id;
-    }
 
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
 }

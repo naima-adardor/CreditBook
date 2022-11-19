@@ -49,7 +49,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
-        android:id="@+id/editText1"
+        android:id="@+id/editTextFirstName"
 
         android:layout_width="300dp"
         android:layout_height="60dp"
@@ -71,7 +71,7 @@
         app:layout_constraintVertical_bias="0.247" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editTextEmail"
 
         android:layout_width="300dp"
         android:layout_height="60dp"
@@ -93,7 +93,7 @@
         app:layout_constraintVertical_bias="0.517" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editTextAdress"
 
         android:layout_width="295dp"
         android:layout_height="61dp"
@@ -115,7 +115,7 @@
         app:layout_constraintVertical_bias="0.125" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editTextPhone"
 
         android:layout_width="300dp"
         android:layout_height="60dp"
@@ -139,7 +139,7 @@
         app:layout_constraintVertical_bias="0.303" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editTextLastName"
 
         android:layout_width="300dp"
         android:layout_height="60dp"
@@ -163,7 +163,7 @@
         app:layout_constraintVertical_bias="0.018" />
 
     <Button
-        android:id="@+id/next_btn"
+        android:id="@+id/buttonAddClient"
 
         android:layout_width="wrap_content"
         android:layout_height="60dp"
@@ -184,7 +184,7 @@
         app:layout_constraintVertical_bias="0.921" />
 
     <Button
-        android:id="@+id/next_btn2"
+        android:id="@+id/importe_btn"
 
         android:layout_width="123dp"
         android:layout_height="51dp"
@@ -197,7 +197,7 @@
         android:textColor="@color/LightGray"
         android:textStyle="bold"
 
-        app:layout_constraintBottom_toTopOf="@+id/editText1"
+        app:layout_constraintBottom_toTopOf="@+id/editTextFirstName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
@@ -215,10 +215,10 @@
         android:textColor="@color/Gray2"
 
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/next_btn2"
+        app:layout_constraintBottom_toBottomOf="@+id/importe_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="@+id/next_btn2"
+        app:layout_constraintStart_toStartOf="@+id/importe_btn"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
         app:layout_constraintVertical_bias="0.574" />
 
