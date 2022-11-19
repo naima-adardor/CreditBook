@@ -94,7 +94,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="80dp"
             android:orientation="vertical"
             android:paddingLeft="10dp"
             android:paddingTop="10dp">
@@ -123,7 +123,7 @@
                 android:layout_centerHorizontal="false"
                 android:layout_centerVertical="false"
 
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/round_edit_text"
                 android:drawableLeft="@drawable/client_supplier"
 
@@ -140,7 +140,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
 
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
 
                 android:background="@drawable/round_edit_text"
                 android:drawableLeft="@drawable/phone"
@@ -157,7 +157,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
 
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/round_edit_text"
                 android:drawableLeft="@drawable/email"
                 android:ems="10"
@@ -173,7 +173,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
 
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="50dp"
                 android:background="@drawable/round_edit_text"
                 android:drawableLeft="@drawable/address"
                 android:ems="10"
@@ -187,13 +187,14 @@
             android:id="@+id/buttonAddClient"
 
             android:layout_width="309dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_gravity="center"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
             android:background="@drawable/round_button"
 
             android:fontFamily="monospace"
 
+            android:minHeight="32dp"
             android:padding="8dp"
             android:text="Add Client"
             android:textColor="@color/LightGray"

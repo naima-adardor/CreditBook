@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.credit__book.Model.Client;
+import com.example.credit__book.Model.Person;
 import com.example.credit__book.R;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -20,6 +21,7 @@ public class AddClientActivity extends AppCompatActivity {
     private EditText adresse;
     private Button add_client_btn;
     private DatabaseReference DBreference;
+    private FirebaseDatabase DBfirebase;
 
 
     @Override
@@ -34,8 +36,8 @@ public class AddClientActivity extends AppCompatActivity {
         email= findViewById(R.id.editTextEmail);
         adresse = findViewById(R.id.editTextAdress);
         add_client_btn=findViewById(R.id.buttonAddClient);
-
-        DBreference= FirebaseDatabase.getInstance().getReference();
+        DBfirebase = FirebaseDatabase.getInstance();
+        DBreference= DBfirebase.getReference();
 
 
         add_client_btn.setOnClickListener(view -> {
@@ -44,9 +46,8 @@ public class AddClientActivity extends AppCompatActivity {
             String phoneNumber = phone.getText().toString();
             String emailClient = email.getText().toString();
             String adresseClient = adresse.getText().toString();
-
-            Client client = new Client(lastName,firstName,phoneNumber,emailClient,adresseClient);
-            DBreference.child("clients").setValue("client");
+            Person client = new Client(lastName,firstName,phoneNumber,emailClient,adresseClient);
+            DBreference.child("clients").child(String.valueOf(Client.IDclient)).setValue(client);
 
         });
 

@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activities.AddSupplierActivity">
+    tools:context=".Activities.AddClientActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="417dp"
-        android:layout_height="69dp"
+        android:layout_width="0dp"
+        android:layout_height="49dp"
         android:background="@color/DarkBlue"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -21,7 +21,7 @@
         <Button
             android:id="@+id/button_back"
             android:layout_width="51dp"
-            android:layout_height="37dp"
+            android:layout_height="48dp"
             android:background="@drawable/back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -37,8 +37,9 @@
 
             android:text="Add Supplier"
             android:textColor="@color/Gray"
-            android:textStyle="bold"
+            android:textSize="20sp"
 
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
@@ -48,178 +49,157 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/editTextFirstName"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent">
 
-        android:background="@drawable/round_edit_text"
-        android:drawableLeft="@drawable/client_supplier"
-        android:ems="10"
-        android:hint="First Name"
-        android:inputType="textPersonName"
+            <Button
+                android:id="@+id/importe_btn"
 
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.247" />
+                android:layout_width="173dp"
+                android:layout_height="48dp"
+                android:background="@drawable/radius_button_client"
+                android:fontFamily="monospace"
+                android:padding="8dp"
+                android:text=" Import Contact"
+                android:textColor="@color/LightGray"
+                android:textSize="16sp"
 
-    <EditText
-        android:id="@+id/editTextEmail"
+                android:textStyle="bold" />
 
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="217dp"
+                android:layout_height="wrap_content"
 
-        android:background="@drawable/round_edit_text"
+                android:layout_marginStart="10dp"
+                android:clickable="false"
+                android:text="Import contacts from your phone "
 
-        android:drawableLeft="@drawable/email"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.517" />
+                android:textColor="@color/Gray2"
+                android:textStyle="bold" />
+        </LinearLayout>
 
-    <EditText
-        android:id="@+id/editTextAdress"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="80dp"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp">
 
-        android:layout_width="295dp"
-        android:layout_height="61dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+            <EditText
+                android:id="@+id/editTextFirstName"
 
-        android:layout_marginTop="439dp"
-        android:background="@drawable/round_edit_text"
-        android:drawableLeft="@drawable/address"
-        android:ems="10"
-        android:hint="Address"
-        android:inputType="textPersonName"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.125" />
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="false"
+                android:layout_centerVertical="false"
 
-    <EditText
-        android:id="@+id/editTextPhone"
+                android:background="@drawable/round_edit_text"
+                android:drawableLeft="@drawable/client_supplier"
+                android:ems="10"
+                android:hint="First Name"
+                android:inputType="textPersonName"
 
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+                android:textSize="20sp" />
 
-        android:layout_marginTop="332dp"
+            <EditText
+                android:id="@+id/editTextLastName"
 
-        android:background="@drawable/round_edit_text"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="false"
+                android:layout_centerVertical="false"
 
-        android:drawableLeft="@drawable/phone"
-        android:ems="10"
-        android:hint="Phone Number"
-        android:inputType="phone"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.303" />
+                android:layout_marginTop="50dp"
+                android:background="@drawable/round_edit_text"
+                android:drawableLeft="@drawable/client_supplier"
 
-    <EditText
-        android:id="@+id/editTextLastName"
+                android:ems="10"
+                android:hint="Last Name"
+                android:inputType="textPersonName"
+                android:textSize="20sp" />
 
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+            <EditText
+                android:id="@+id/editTextPhone"
 
-        android:layout_marginTop="248dp"
-        android:background="@drawable/round_edit_text"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
 
-        android:drawableLeft="@drawable/client_supplier"
-        android:ems="10"
-        android:hint="Last Name"
+                android:layout_marginTop="50dp"
 
-        android:inputType="textPersonName"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.018" />
+                android:background="@drawable/round_edit_text"
+                android:drawableLeft="@drawable/phone"
+                android:ems="10"
+                android:hint="Phone Number"
+                android:inputType="phone"
+                android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/buttonAddClient"
+            <EditText
+                android:id="@+id/editTextEmail"
 
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/Orange2"
-        android:fontFamily="monospace"
-        android:padding="8dp"
-        android:text="Add"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
 
-        android:textColor="@color/LightGray"
-        android:textStyle="bold"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/round_edit_text"
+                android:drawableLeft="@drawable/email"
+                android:ems="10"
+                android:hint="Email"
+                android:inputType="textEmailAddress"
+                android:textSize="20sp" />
 
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.921" />
+            <EditText
+                android:id="@+id/editTextAdress"
 
-    <Button
-        android:id="@+id/importe_btn"
+                android:layout_width="338dp"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
 
-        android:layout_width="123dp"
-        android:layout_height="51dp"
-        android:background="@drawable/round_button"
-        android:backgroundTint="@color/DarkBlue"
-        android:drawableLeft="@drawable/importer"
-        android:fontFamily="monospace"
-        android:padding="8dp"
-        android:text="Import"
-        android:textColor="@color/LightGray"
-        android:textStyle="bold"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/round_edit_text"
+                android:drawableLeft="@drawable/address"
+                android:ems="10"
+                android:hint="Address"
+                android:inputType="textPersonName"
+                android:textSize="20sp" />
 
-        app:layout_constraintBottom_toTopOf="@+id/editTextFirstName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.694" />
+        </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="102dp"
+        <Button
 
-        android:clickable="false"
-        android:text="Import contacts from your phone "
-        android:textColor="@color/Gray2"
+            android:id="@+id/btnAddSupplier"
+            android:layout_width="309dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
 
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/importe_btn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="@+id/importe_btn"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.574" />
+            android:background="@drawable/round_button"
+
+            android:fontFamily="monospace"
+            android:minHeight="32dp"
+            android:padding="8dp"
+            android:text="Add Supplier"
+            android:textColor="@color/LightGray"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
