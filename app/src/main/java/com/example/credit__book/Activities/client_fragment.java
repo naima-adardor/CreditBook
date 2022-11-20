@@ -2,6 +2,8 @@ package com.example.credit__book.Activities;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,22 +31,30 @@ public class client_fragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_client, container, false);
 
+
+
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
         for (int i = 0; i < 10; i++) {
             OperationClient listItem = new OperationClient("Naima ELJID", "20-11-2022", 500, "You have to get");
             context.getListClientOperation().add(listItem);
         }
         opAD = new OperationClientAdapter(context.getListClientOperation());
-        RecyclerView recyclerViewOperation = getActivity().findViewById(R.id.recyclerViewClient);
-        recyclerViewOperation.setLayoutManager(new LinearLayoutManager(this.getContext()));
+
+        RecyclerView recyclerViewOperation = view.findViewById(R.id.recyclerViewClient);
+        recyclerViewOperation.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewOperation.setAdapter(opAD);
         recyclerViewOperation.setHasFixedSize(true);
-        CountOp = getActivity().findViewById(R.id.textViewoperation);
+        CountOp = view.findViewById(R.id.textViewoperation);
         CountOp.setText("Clients(" + opAD.getItemCount() + ")");
-        count2 = getActivity().findViewById(R.id.textViewBalance);
+        count2 = view.findViewById(R.id.textViewBalance);
         count2.setText("Transactions(" + opAD.getItemCount() + ")");
-
-
-        return view;
     }
 }

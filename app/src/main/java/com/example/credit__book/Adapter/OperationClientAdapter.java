@@ -16,8 +16,8 @@ import java.util.List;
 public class OperationClientAdapter extends RecyclerView.Adapter<OperationClientAdapter.ViewHolder> {
     private final List<OperationClient> opListe;
 
-    public OperationClientAdapter(List<OperationClient> opListe) {
-        this.opListe = opListe;
+    public OperationClientAdapter(List<OperationClient> list) {
+        this.opListe = list;
     }
 
     @NonNull
