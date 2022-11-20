@@ -169,7 +169,7 @@
         android:id="@+id/buttonViewReport"
         android:layout_width="183dp"
         android:layout_height="50dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/radius_button_client"
         android:drawableEnd="@drawable/more_than"
         android:text="View Report"
@@ -223,30 +223,6 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView32"
-        android:layout_width="86dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="24dp"
-        android:background="#EDEBEB"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout3" />
-
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="79dp"
-        android:layout_height="2dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="16dp"
-        android:background="#EDEBEB"
-        app:layout_constraintBottom_toTopOf="@+id/recycleViewOperation"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
-        app:layout_constraintHorizontal_bias="0.874"
-        app:layout_constraintStart_toEndOf="@+id/textView32"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.764" />
 
 
     <androidx.recyclerview.widget.RecyclerView

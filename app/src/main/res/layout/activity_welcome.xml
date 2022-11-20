@@ -11,45 +11,45 @@
     app:layout_constraintTop_toTopOf="parent"
     tools:context=".Activities.WelcomeActivity">
 
-    <TextView
-        android:id="@+id/textview"
-        android:layout_width="289dp"
-        android:layout_height="58dp"
-        android:fontFamily="fantasy"
-        android:shadowRadius="8"
-        android:text="@string/welcome_message"
-        android:textAlignment="center"
-        android:textColor="@color/LightGray"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:typeface="monospace"
-
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="387dp"
+        android:layout_height="64dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/textview2"
-        android:layout_width="95dp"
-        android:layout_height="56dp"
-        android:fontFamily="fantasy"
-        android:shadowRadius="8"
-        android:text="@string/Book"
-        android:textAlignment="center"
-        android:textColor="@color/Orange2"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        <TextView
+            android:id="@+id/textview"
+            android:layout_width="289dp"
+            android:layout_height="58dp"
+            android:fontFamily="fantasy"
+            android:shadowRadius="8"
+            android:text="@string/welcome_message"
+            android:textAlignment="center"
+            android:textColor="@color/LightGray"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
 
-        android:typeface="monospace"
-        app:layout_constraintBottom_toBottomOf="@+id/textview"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/textview"
-        app:layout_constraintTop_toTopOf="@+id/textview"
-        app:layout_constraintVertical_bias="0.0" />
+            />
+
+        <TextView
+            android:id="@+id/textview2"
+            android:layout_width="95dp"
+            android:layout_height="56dp"
+            android:fontFamily="fantasy"
+            android:shadowRadius="8"
+            android:text="@string/Book"
+            android:textAlignment="center"
+            android:textColor="@color/Orange2"
+            android:textSize="30sp"
+            android:textStyle="bold"
+
+            android:typeface="monospace" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView"
@@ -61,30 +61,31 @@
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
+        app:layout_constraintHorizontal_bias="0.695"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textview"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintVertical_bias="0.053" />
 
     <Button
         android:id="@+id/Next_btn3"
 
-        android:layout_width="122dp"
-        android:layout_height="56dp"
+        android:layout_width="143dp"
+        android:layout_height="63dp"
         android:background="@drawable/round_button"
         android:fontFamily="monospace"
         android:padding="8dp"
         android:text="@string/start"
 
         android:textColor="@color/LightGray"
-        android:textStyle="bold"
+        android:textSize="16sp"
 
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.922" />
+        app:layout_constraintVertical_bias="0.871" />
 
     <ImageView
         android:id="@+id/imageView2"

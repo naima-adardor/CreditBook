@@ -21,7 +21,7 @@
 
         <TextView
             android:id="@+id/textViewoperation"
-            android:layout_width="118dp"
+            android:layout_width="184dp"
             android:layout_height="match_parent"
             android:layout_marginLeft="12dp"
             android:layout_weight="1"
@@ -31,7 +31,7 @@
 
         <TextView
             android:id="@+id/textViewBalance"
-            android:layout_width="170dp"
+            android:layout_width="102dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="right"
@@ -50,30 +50,6 @@
             android:textStyle="bold" />
 
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/textView32"
-        android:layout_width="86dp"
-        android:layout_height="2dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="20dp"
-        android:background="#EDEBEB"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout3" />
-
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="79dp"
-        android:layout_height="2dp"
-        android:layout_marginEnd="64dp"
-        android:layout_marginBottom="16dp"
-        android:background="#EDEBEB"
-        app:layout_constraintBottom_toTopOf="@+id/recycleViewOperation"
-        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
-        app:layout_constraintHorizontal_bias="0.911"
-        app:layout_constraintStart_toEndOf="@+id/textView32"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout3"
-        app:layout_constraintVertical_bias="0.648" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewOperation"
@@ -121,56 +97,11 @@
         android:layout_height="43dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.296"
+        app:layout_constraintHorizontal_bias="0.26"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView28"
         app:layout_constraintVertical_bias="0.433"
         app:srcCompat="@drawable/cashin" />
-
-    <ImageView
-        android:id="@+id/imageView14"
-        android:layout_width="43dp"
-        android:layout_height="41dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.66"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView28"
-        app:layout_constraintVertical_bias="0.228"
-        app:srcCompat="@drawable/cashout" />
-
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:text="600.00 dh"
-        android:textColor="#E30C0C"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.662"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView27"
-        app:layout_constraintVertical_bias="0.012" />
-
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="89dp"
-        android:layout_height="21dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/alata"
-        android:gravity="center"
-        android:text="Cash in"
-        android:textAlignment="center"
-        android:textColor="#090909"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.692"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView14" />
 
     <TextView
         android:id="@+id/textView26"
@@ -186,10 +117,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintHorizontal_bias="0.193"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView7"
-        app:layout_constraintVertical_bias="0.042" />
+        app:layout_constraintVertical_bias="0.046" />
 
     <TextView
         android:id="@+id/textView30"
@@ -201,10 +132,55 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.291"
+        app:layout_constraintHorizontal_bias="0.253"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView26"
-        app:layout_constraintVertical_bias="0.005" />
+        app:layout_constraintVertical_bias="0.003" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="43dp"
+        android:layout_height="41dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.687"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView28"
+        app:layout_constraintVertical_bias="0.228"
+        app:srcCompat="@drawable/cashout" />
+
+    <TextView
+        android:id="@+id/textView27"
+        android:layout_width="89dp"
+        android:layout_height="21dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/alata"
+        android:gravity="center"
+        android:text="Cash in"
+        android:textAlignment="center"
+        android:textColor="#090909"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.723"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView14" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:text="600.00 dh"
+        android:textColor="#E30C0C"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.691"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView27"
+        app:layout_constraintVertical_bias="0.012" />
 
     <ImageView
         android:id="@+id/imageView17"
@@ -224,6 +200,8 @@
         android:layout_height="51dp"
         android:background="@drawable/round_button"
         android:text="Dowloand"
+        android:textColor="@color/white"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
