@@ -6,128 +6,103 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     >
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="416dp"
-        android:layout_height="59dp"
-        android:background="@color/DarkBlue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="43dp"
-        android:layout_height="42dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.043"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.516"
-        app:srcCompat="@drawable/female_icon" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Naima ELJID"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="?android:attr/colorPressedHighlight"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.509" />
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
-        android:layout_width="408dp"
-        android:layout_height="48dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.084">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.tabs.TabItem
+        <LinearLayout
+            android:id="@+id/linearLayout4"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:background="@color/DarkBlue"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="5dp">
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="43dp"
+                android:layout_height="42dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/female_icon" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="38dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:text="Naima ELJID"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textColor="?android:attr/colorPressedHighlight"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_gravity="center|right"
+                android:layout_marginRight="0dp"
+                android:layout_weight="1"
+                android:paddingLeft="200dp"
+                app:srcCompat="@drawable/add_user" />
+
+        </LinearLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Clients"
+                tools:layout_editor_absoluteX="1dp"
+                tools:layout_editor_absoluteY="58dp" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Suppliers"
+                tools:layout_editor_absoluteX="205dp"
+                tools:layout_editor_absoluteY="58dp" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Clients"
-            tools:layout_editor_absoluteX="1dp"
-            tools:layout_editor_absoluteY="58dp" />
+            android:layout_height="wrap_content">
 
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Suppliers"
-            tools:layout_editor_absoluteX="205dp"
-            tools:layout_editor_absoluteY="58dp" />
-    </com.google.android.material.tabs.TabLayout>
+        </androidx.viewpager.widget.ViewPager>
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="414dp"
-        android:layout_height="56dp"
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="54dp"
         android:background="@color/DarkBlue"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView4"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintStart_toStartOf="parent">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="40dp"
-        android:layout_height="39dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.972"
-        app:layout_constraintStart_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toTopOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.631"
-        app:srcCompat="@drawable/settings_icon" />
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="40dp"
+            android:layout_height="38dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/home" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="40dp"
-        android:layout_height="38dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/textView6"
-        app:layout_constraintHorizontal_bias="0.016"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.65"
-        app:srcCompat="@drawable/home" />
-
-
-    <ImageView
-        android:id="@+id/clientSettings"
-        android:layout_width="40dp"
-        android:layout_height="38dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="0.956"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.457"
-        app:srcCompat="@drawable/add_user" />
-
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
-        android:layout_width="409dp"
-        android:layout_height="567dp"
-        android:layout_marginTop="108dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/textView4" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
