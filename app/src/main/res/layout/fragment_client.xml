@@ -87,7 +87,7 @@
             android:paddingLeft="24dp">
 
             <TextView
-                android:id="@+id/textView23"
+                android:id="@+id/balanceClient"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -100,7 +100,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView24"
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -241,21 +241,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:paddingTop="0dp">
-
-    </LinearLayout>
+        android:layout_height="29dp"
+        android:orientation="horizontal"></LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycleViewOperation"
+        android:id="@+id/recyclerViewClient"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.266"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" >
+        android:layout_height="335dp">
 
     </androidx.recyclerview.widget.RecyclerView>
+
 </LinearLayout>
