@@ -34,11 +34,11 @@ private LinearLayout c3;
                 startActivity(intent1);
                 break;
             case R.id.cashbook:
-                Intent intent2=new Intent(HomeAtivity.this, CashBookActivity.class);
+                Intent intent2=new Intent(HomeAtivity.this,CashBookActivity.class);
                 startActivity(intent2);
                 break;
             case R.id.creditbook:
-                Intent intent3=new Intent(HomeAtivity.this, client_supplier.class);
+                Intent intent3=new Intent(HomeAtivity.this,client_supplier.class);
                 startActivity(intent3);
                 break;
 
