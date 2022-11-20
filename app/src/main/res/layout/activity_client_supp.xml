@@ -44,16 +44,6 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/imageView9"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_gravity="center|right"
-                android:layout_marginRight="0dp"
-                android:layout_weight="1"
-                android:paddingLeft="200dp"
-                app:srcCompat="@drawable/add_user" />
-
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout

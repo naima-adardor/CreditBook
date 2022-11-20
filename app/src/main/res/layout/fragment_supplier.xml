@@ -239,23 +239,37 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal"
-        android:paddingTop="0dp">
-
-    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleViewOperation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="258dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" >
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="354dp"
+            android:layout_height="59dp"
+            android:layout_marginLeft="200dp"
+            android:layout_weight="1"
+            android:background="@drawable/radius_button_client"
+            android:backgroundTint="@color/DarkBlue"
+            android:drawableLeft="@drawable/add_user"
+            android:foregroundGravity="right"
+            android:text="Add Supplier"
+            android:textColor="@color/Gray" />
+
+    </LinearLayout>
+
 </LinearLayout>
