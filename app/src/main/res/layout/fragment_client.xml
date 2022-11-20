@@ -247,7 +247,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewClient"
         android:layout_width="match_parent"
-        android:layout_height="380dp">
+        android:layout_height="wrap_content">
 
     </androidx.recyclerview.widget.RecyclerView>
 
