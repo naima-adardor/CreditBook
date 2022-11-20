@@ -13,14 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CreditBook"
         tools:targetApi="31">
-        <activity
-            android:name=".MainActivity2"
-            android:name=".Activities.ViewReportCashbook"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+
 
         <activity
             android:name=".Activities.CashBookActivity"
