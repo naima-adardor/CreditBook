@@ -17,21 +17,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Naima ADARDOR"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="?android:attr/colorPressedHighlight"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.235"
-        app:layout_constraintStart_toStartOf="@+id/textView4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.509" />
-
     <ImageView
         android:id="@+id/imageView8"
         android:layout_width="43dp"
@@ -170,11 +155,11 @@
             android:layout_height="36dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/client_supplier"
             android:text="Naima eljid"
             android:textColor="@color/white"
             android:textSize="23dp"
-            android:textStyle="bold"
-            android:drawableLeft="@drawable/client_supplier"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textView11"
@@ -193,9 +178,9 @@
             android:layout_height="36dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/phone"
             android:text="0762389652"
             android:textColor="@color/white"
-            android:drawableLeft="@drawable/phone"
             android:textSize="23dp" />
 
         <TextView
@@ -204,9 +189,9 @@
             android:layout_height="36dp"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
+            android:drawableLeft="@drawable/address"
             android:text="Taroudant,Elqods 378"
             android:textColor="@color/white"
-            android:drawableLeft="@drawable/address"
             android:textSize="23dp" />
 
     </LinearLayout>
@@ -247,5 +232,17 @@
         android:layout_height="224dp"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="382dp" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/background"
+        app:layout_constraintEnd_toStartOf="@+id/clientSettings"
+        app:layout_constraintStart_toEndOf="@+id/imageView8"
+        app:layout_constraintTop_toTopOf="@+id/textView4"
+        app:srcCompat="@drawable/Appeler" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
