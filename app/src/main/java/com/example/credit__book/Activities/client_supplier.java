@@ -1,6 +1,5 @@
 package com.example.credit__book.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -25,10 +24,10 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
-        addsupplier= findViewById(R.id. btnsupplier);
-        addClient= findViewById(R.id.btnclient);
-        addsupplier.setOnClickListener(this);
-        addClient.setOnClickListener(this);
+        //addsupplier= findViewById(R.id. btnsupplier);
+        //addClient= findViewById(R.id.btnclient);
+        //addsupplier.setOnClickListener(this);
+        //addClient.setOnClickListener(this);
 
 
 //        tabLayout.setupWithViewPager2(viewPager);
@@ -59,7 +58,7 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
+       /* switch(view.getId()){
             case R.id.btnsupplier:
                 Intent intent1=new Intent(client_supplier.this, AddSupplierActivity.class);
                 startActivity(intent1);
@@ -69,5 +68,5 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
                 startActivity(intent2);
                 break;
 
-        }}
+        }*/}
 }

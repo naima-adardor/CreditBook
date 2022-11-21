@@ -103,10 +103,13 @@
         android:textSize="17dp"
         app:layout_constraintBottom_toTopOf="@+id/textView26"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.992"
+
+
+        app:layout_constraintHorizontal_bias="0.936"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.382" />
+
 
     <Button
         android:id="@+id/button4"
@@ -213,7 +216,7 @@
         app:layout_constraintVertical_bias="0.383" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
@@ -229,6 +232,7 @@
         app:layout_constraintVertical_bias="0.368" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleview2"
         android:layout_width="409dp"
         android:layout_height="224dp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
@@ -240,14 +244,25 @@
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="65dp"
+        android:layout_height="62dp"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="5dp"
+        android:background="@drawable/appel"
         app:layout_constraintBottom_toTopOf="@+id/background"
         app:layout_constraintEnd_toStartOf="@+id/clientSettings"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="@+id/textView4"
-        app:srcCompat="@drawable/Appeler" />
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/operation"
+        android:layout_width="57dp"
+        android:layout_height="22dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView26"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView26"
+        app:layout_constraintTop_toTopOf="@+id/textView26" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

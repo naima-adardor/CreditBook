@@ -58,5 +58,6 @@ public class supplier_fragment extends Fragment {
         CountOp.setText("Supplier(" + opAD.getItemCount() + ")");
         count2 = view.findViewById(R.id.textViewBalance);
         count2.setText("Transactions(" + opAD.getItemCount() + ")");
+
     }
 }

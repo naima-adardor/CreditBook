@@ -116,7 +116,7 @@
 
     <Button
         android:id="@+id/buttonViewReport"
-        android:layout_width="211dp"
+        android:layout_width="193dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="50dp"
@@ -140,14 +140,14 @@
         <EditText
             android:id="@+id/editTextTextPersonName3"
             android:layout_width="285dp"
-            android:layout_height="63dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/search"
             android:drawableLeft="@drawable/search_icon"
             android:drawableRight="@drawable/multiply"
             android:ems="10"
+            android:hint="    Search for a supplier"
             android:inputType="textPersonName"
-            android:hint="    Search for a client"
             android:textSize="16sp"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -196,9 +196,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
                 android:layout_weight="1"
-                android:text="Clients (2)"
+                android:textSize="15dp"
+                android:text="Client(2)"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#050505" />
+
 
             <TextView
                 android:id="@+id/textView32"
@@ -222,6 +224,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="right"
+                android:textSize="15dp"
                 android:text="Transaction (2)"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#090909" />
@@ -240,23 +243,18 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="29dp"
-        android:orientation="horizontal"></LinearLayout>
-
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewClient"
-        android:layout_width="match_parent"
+        android:id="@+id/recyclerViewSupplier"
+        android:layout_width="399dp"
 
-        android:layout_height="266dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="176dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.266"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
     </androidx.recyclerview.widget.RecyclerView>
 
     <LinearLayout
@@ -265,10 +263,11 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnclient"
-            android:layout_width="354dp"
+            android:id="@+id/btnsupplier"
+            android:layout_width="199dp"
             android:layout_height="59dp"
             android:layout_marginLeft="200dp"
+            android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:background="@drawable/radius_button_client"
             android:backgroundTint="@color/DarkBlue"
