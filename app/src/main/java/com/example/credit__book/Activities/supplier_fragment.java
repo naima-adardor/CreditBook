@@ -2,19 +2,25 @@ package com.example.credit__book.Activities;
 
 import android.os.Bundle;
 
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+
+import androidx.fragment.app.Fragment;
+
 import com.example.credit__book.Adapter.OperationClientAdapter;
 import com.example.credit__book.Model.OperationClient;
+
 import com.example.credit__book.R;
 
 public class supplier_fragment extends Fragment {
@@ -27,6 +33,7 @@ public class supplier_fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_supplier, container, false);
 
         return view;
@@ -50,5 +57,6 @@ public class supplier_fragment extends Fragment {
         CountOp.setText("Supplier(" + opAD.getItemCount() + ")");
         count2 = view.findViewById(R.id.textViewBalance);
         count2.setText("Transactions(" + opAD.getItemCount() + ")");
+
     }
 }
