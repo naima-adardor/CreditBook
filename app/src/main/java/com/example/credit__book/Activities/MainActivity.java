@@ -10,7 +10,10 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.R;
+
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText name;
@@ -23,7 +26,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         name = findViewById(R.id.nickname);
         button = findViewById(R.id.Next_btn);
         button.setOnClickListener(this);
-
+        SessionManager sessionManager = new SessionManager(MainActivity.this);
+        HashMap<String, String> userData = sessionManager.getUserDetails();
+        System.out.println("User Data: " + userData);
         if (getSupportActionBar() != null) {
             getSupportActionBar().hide();
         }

@@ -2,9 +2,12 @@ package com.example.credit__book.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Pair;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -37,8 +40,13 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreenActivity.this, MainActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent(SplashScreenActivity.this, LoginActivity.class);
+                Pair[] paires = new Pair[2];
+                paires[0] = new Pair<View, String>(splashImg, "logo_image");
+                paires[1] = new Pair<View, String>(splashText1, "logo_text");
+
+                ActivityOptions activityOptions = ActivityOptions.makeSceneTransitionAnimation(SplashScreenActivity.this, paires);
+                startActivity(intent, activityOptions.toBundle());
                 finish();
             }
         }, SPLASH_SCREEN);
