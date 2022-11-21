@@ -44,6 +44,11 @@
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"></LinearLayout>
+
         </LinearLayout>
 
         <com.google.android.material.tabs.TabLayout
@@ -69,7 +74,8 @@
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewPager"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            tools:ignore="SpeakableTextPresentCheck">
 
         </androidx.viewpager.widget.ViewPager>
 
