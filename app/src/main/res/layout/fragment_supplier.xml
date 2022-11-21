@@ -147,7 +147,7 @@
             android:drawableRight="@drawable/multiply"
             android:ems="10"
             android:inputType="textPersonName"
-            android:text="    Search for a supplier"
+            android:hint="    Search for a supplier"
             android:textSize="16sp"
             android:textStyle="italic"
             app:layout_constraintBottom_toBottomOf="parent"
