@@ -57,7 +57,6 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
 //        vpAdapter.addFragment(new supplier_fragment(),"supplier");
 
     }
-
     @Override
     public void onClick(View view) {
        /* switch(view.getId()){
@@ -71,8 +70,6 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
                 break;
 
         }*/}
-
-
     @Override
     public void onItemClick(int post) {
         Intent intent1=new Intent(client_supplier.this,ViewDetailsActivity.class);
