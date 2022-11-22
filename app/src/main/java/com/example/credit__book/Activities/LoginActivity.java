@@ -59,7 +59,7 @@ public class LoginActivity extends AppCompatActivity {
 
         SessionManager sessionManager = new SessionManager(LoginActivity.this);
         if (sessionManager.checkLogin()) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
+            startActivity(new Intent(LoginActivity.this, MainDashboardActivity.class));
             finish();
         }
 

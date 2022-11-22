@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.ProfileFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:background="@color/DarkBlue">
+
+
+
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="145dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/man"
+                android:layout_marginTop="50dp"/>
+
+            <TextView
+                android:id="@+id/fullNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Naima ELJID"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Account settings"
+                android:layout_gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@color/Gray" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp"
+                android:orientation="vertical"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_margin="10dp"
+                    android:layout_marginBottom="0dp">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/fullName"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Full Name"
+                        android:textColorHint="@color/black"
+                        app:boxStrokeColor="@color/Orange2"
+                        app:boxStrokeWidth="0.5dp"
+                        app:boxStrokeWidthFocused="0.5dp"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/Orange2"
+                        app:startIconDrawable="@drawable/name">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/fullNameVal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/cantora_one"
+                            android:inputType="textPersonName"
+                            android:shadowColor="@color/DarkBlue"
+                            android:textColor="@color/Orange3"
+                            tools:ignore="TouchTargetSizeCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/telephone"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:enabled="false"
+                        android:hint="Phone Number"
+                        android:textColorHint="@color/black"
+                        android:transitionName="phone"
+                        app:boxStrokeColor="@color/Orange2"
+                        app:boxStrokeWidth="0.5dp"
+                        app:boxStrokeWidthFocused="0.5dp"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/Orange2"
+                        app:startIconDrawable="@drawable/phone30">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/telephoneVal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:enabled="false"
+                            android:fontFamily="@font/cantora_one"
+                            android:inputType="phone"
+                            android:maxLength="10"
+                            android:shadowColor="@color/DarkBlue"
+                            android:textColor="@color/Orange3"
+                            tools:ignore="TouchTargetSizeCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/email"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="Email"
+                        android:textColorHint="@color/black"
+                        app:boxStrokeColor="@color/Orange2"
+                        app:boxStrokeWidth="0.5dp"
+                        app:boxStrokeWidthFocused="0.5dp"
+                        app:endIconMode="clear_text"
+                        app:hintTextColor="@color/Orange2"
+                        app:startIconDrawable="@drawable/email2">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/emailVal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/cantora_one"
+                            android:inputType="textEmailAddress"
+                            android:shadowColor="@color/DarkBlue"
+                            android:textColor="@color/Orange3"
+                            tools:ignore="TouchTargetSizeCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/oldPassword"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="18dp"
+                        android:hint="Old Password"
+                        android:textColorHint="@color/black"
+                        android:transitionName="password"
+                        app:boxStrokeColor="@color/Orange2"
+                        app:boxStrokeWidth="0.5dp"
+                        app:boxStrokeWidthFocused="0.5dp"
+                        app:endIconMode="password_toggle"
+                        app:hintTextColor="@color/Orange2"
+                        app:startIconDrawable="@drawable/password2">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/passwordVal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/cantora_one"
+                            android:inputType="textPassword"
+                            android:shadowColor="@color/DarkBlue"
+                            android:textColor="@color/Orange3"
+                            tools:ignore="TouchTargetSizeCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/newPassword"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:hint="New Password"
+                        android:textColorHint="@color/black"
+                        android:transitionName="password"
+                        app:boxStrokeColor="@color/Orange2"
+                        app:boxStrokeWidth="0.5dp"
+                        app:boxStrokeWidthFocused="0.5dp"
+                        app:endIconMode="password_toggle"
+                        app:hintTextColor="@color/Orange2"
+                        app:startIconDrawable="@drawable/password2">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/confirmPasswordVal"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/cantora_one"
+                            android:inputType="textPassword"
+                            android:shadowColor="@color/DarkBlue"
+                            android:textColor="@color/Orange3"
+                            tools:ignore="TouchTargetSizeCheck" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/update_btn"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:backgroundTint="@color/Orange2"
+                        android:text="Update"
+                        android:transitionName="button_sign" />
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</FrameLayout>
