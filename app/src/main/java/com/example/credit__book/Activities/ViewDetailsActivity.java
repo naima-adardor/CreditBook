@@ -10,8 +10,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.credit__book.Adapter.OperationClientAdapter;
 import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.R;
+import com.example.credit__book.recycleview_client_interface;
 
-public class ViewDetailsActivity extends AppCompatActivity {
+public class ViewDetailsActivity extends AppCompatActivity implements recycleview_client_interface {
     TextView CountOp;
     TextView count2;
     OperationClientAdapter opAD;
@@ -24,7 +25,7 @@ public class ViewDetailsActivity extends AppCompatActivity {
             OperationClient listItem = new OperationClient("Naima ADARDOR", "20-11-2022", 500, "You have to get");
             context.getListClientOperation().add(listItem);
         }
-        OperationClientAdapter opAD = new OperationClientAdapter(context.getListClientOperation());
+        OperationClientAdapter opAD = new OperationClientAdapter(context.getListClientOperation(),  this);
 
         RecyclerView recyclerViewOperation = findViewById(R.id.recycleview2);
         recyclerViewOperation.setLayoutManager(new LinearLayoutManager(this));
@@ -34,4 +35,10 @@ public class ViewDetailsActivity extends AppCompatActivity {
         //CountOp.setText("Supplier(" + opAD.getItemCount() + ")");
        // count2 = findViewById(R.id.balance);
         //count2.setText("Transactions(" + opAD.getItemCount() + ")");
-}}
+}
+
+    @Override
+    public void onItemClick(int post) {
+
+    }
+}

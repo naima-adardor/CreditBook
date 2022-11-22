@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/recyclerClient"
     >
 
     <LinearLayout
@@ -146,7 +147,7 @@
             android:drawableLeft="@drawable/search_icon"
             android:drawableRight="@drawable/multiply"
             android:ems="10"
-            android:hint="    Search for a supplier"
+            android:hint="    Search for a client"
             android:inputType="textPersonName"
             android:textSize="16sp"
             android:textStyle="italic"
@@ -244,7 +245,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewSupplier"
+        android:id="@+id/recyclerViewClient"
         android:layout_width="399dp"
 
         android:layout_height="176dp"
@@ -263,7 +264,7 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnsupplier"
+            android:id="@+id/btnclient"
             android:layout_width="199dp"
             android:layout_height="59dp"
             android:layout_marginLeft="200dp"

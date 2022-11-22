@@ -10,15 +10,17 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.credit__book.Model.Operation;
 import com.example.credit__book.R;
+import com.example.credit__book.recycleview_client_interface;
 
 import java.util.List;
 
 public class OperationsAdapter  extends RecyclerView.Adapter<OperationsAdapter.ViewHolder> {
 
     private final List<Operation> opListe;
-
-    public OperationsAdapter(List<Operation> listOperations) {
+    private final recycleview_client_interface inter;
+    public OperationsAdapter(List<Operation> listOperations, recycleview_client_interface inter) {
         opListe = listOperations;
+        this.inter = inter;
     }
 
     @NonNull
@@ -26,7 +28,7 @@ public class OperationsAdapter  extends RecyclerView.Adapter<OperationsAdapter.V
     public OperationsAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.operation_item_list,parent,false);
-         return new ViewHolder(view);
+         return new ViewHolder(view, inter);
     }
 
     @Override
@@ -42,15 +44,26 @@ public class OperationsAdapter  extends RecyclerView.Adapter<OperationsAdapter.V
         return opListe.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public  static class ViewHolder extends RecyclerView.ViewHolder{
              public TextView date;
              public TextView balance;
              public TextView typeOperation;
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView ,recycleview_client_interface inter) {
             super(itemView);
             date = itemView.findViewById(R.id.textViewDateOperation);
             balance = itemView.findViewById(R.id.textViewBalanceOpeartion);
             typeOperation = itemView.findViewById(R.id.textViewTypeOperation);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(inter !=null){
+                        int pos=getAdapterPosition();
+                        if(pos!=RecyclerView.NO_POSITION){
+                            inter.onItemClick(pos);
+                        }
+                    }
+                }
+            });
         }
     }
 }
