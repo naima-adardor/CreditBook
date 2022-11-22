@@ -12,14 +12,14 @@
         android:layout_width="192dp"
         android:layout_height="71dp"
         android:fontFamily="@font/alata"
-
+        android:shadowColor="@color/Orange"
         android:shadowRadius="8"
         android:text="@string/app_name"
         android:textAlignment="center"
         android:textColor="@color/LightGray"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:typeface="normal"
+        android:typeface="serif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -33,53 +33,60 @@
         android:layout_height="211dp"
         app:layout_constraintBottom_toTopOf="@+id/textview"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.598"
+        app:layout_constraintHorizontal_bias="0.589"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674"
+        app:layout_constraintVertical_bias="0.661"
         app:srcCompat="@drawable/logo" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="213dp"
+        android:layout_height="44dp"
         android:text="Enter a nickname "
         android:textColor="@color/Gray"
         android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.606"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textview"
-        app:layout_constraintVertical_bias="0.178" />
+        app:layout_constraintVertical_bias="0.12" />
 
     <Button
         android:id="@+id/Next_btn"
 
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
         android:background="@drawable/round_button"
+        android:layout_width="95dp"
+        android:layout_height="57dp"
         android:fontFamily="monospace"
         android:padding="8dp"
         android:text="Next"
-
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/LightGray"
+        android:textSize="20sp"
         android:textStyle="bold"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.832"
+        app:layout_constraintHorizontal_bias="0.914"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.94" />
+        app:layout_constraintVertical_bias="0.949" />
 
     <EditText
         android:id="@+id/nickname"
+        style="@style/Widget.AppCompat.AutoCompleteTextView"
         android:layout_width="215dp"
         android:layout_height="58dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="32dp"
         android:background="@drawable/round_edit_text"
         android:ems="10"
+        android:hint="Name"
         android:inputType="textPersonName"
-        android:hint="naima"
+        android:textSize="25sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"

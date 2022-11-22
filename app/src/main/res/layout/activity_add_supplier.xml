@@ -98,7 +98,7 @@
                 android:background="@drawable/round_edit_text"
                 android:drawableLeft="@drawable/client_supplier"
                 android:ems="10"
-                android:hint="First Name"
+                android:hint="   First Name"
                 android:inputType="textPersonName"
 
                 android:textSize="20sp" />
@@ -116,7 +116,7 @@
                 android:drawableLeft="@drawable/client_supplier"
 
                 android:ems="10"
-                android:hint="Last Name"
+                android:hint="   Last Name"
                 android:inputType="textPersonName"
                 android:textSize="20sp" />
 
@@ -133,7 +133,7 @@
                 android:background="@drawable/round_edit_text"
                 android:drawableLeft="@drawable/phone"
                 android:ems="10"
-                android:hint="Phone Number"
+                android:hint="   Phone Number"
                 android:inputType="phone"
                 android:textSize="20sp" />
 
@@ -149,7 +149,7 @@
                 android:background="@drawable/round_edit_text"
                 android:drawableLeft="@drawable/email"
                 android:ems="10"
-                android:hint="Email"
+                android:hint="   Email"
                 android:inputType="textEmailAddress"
                 android:textSize="20sp" />
 
@@ -165,7 +165,7 @@
                 android:background="@drawable/round_edit_text"
                 android:drawableLeft="@drawable/address"
                 android:ems="10"
-                android:hint="Address"
+                android:hint="   Address"
                 android:inputType="textPersonName"
                 android:textSize="20sp" />
 
