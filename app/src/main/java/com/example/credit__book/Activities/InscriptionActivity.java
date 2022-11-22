@@ -1,31 +1,20 @@
-package com.example.credit__book.Activities;
+package com.example.creditbook;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 
-import com.example.credit__book.R;
-
-public class InscriptionActivity extends AppCompatActivity implements View.OnClickListener {
-
+public class InscriptionActivity extends AppCompatActivity {
+    private EditText edittext;
     private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inscription);
-
-        button = findViewById(R.id.Next_btn2);
-        button.setOnClickListener(this);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
+        edittext = findViewById(R.id.editTextPhone);
+        button = findViewById(R.id.Next_btn);
     }
-    public void onClick(View view) {
-
-        Intent intent=new Intent(InscriptionActivity.this,WelcomeActivity.class);
-        startActivity(intent);
-    }
-    }
+}

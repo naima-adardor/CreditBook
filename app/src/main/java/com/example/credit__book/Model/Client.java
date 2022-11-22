@@ -1,19 +1,18 @@
 package com.example.credit__book.Model;
 
 public class Client extends Person {
+ public static int IDclient=1;
+    public Client(){
+        super();
 
-    private String adresse;
-
-    public Client(int id, String full_name, String phone_number, String email,String adresse) {
-        super(id, full_name, phone_number, email);
-        this.adresse = adresse;
+    }
+    public Client(String last_name, String first_name, String phone_number, String email, String address) {
+        super(last_name, first_name, phone_number, email, address);
+        IDclient++;
     }
 
-    public String getAdresse() {
-        return adresse;
-    }
 
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
+
+
+
 }
