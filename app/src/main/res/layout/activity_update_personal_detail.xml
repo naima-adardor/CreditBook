@@ -10,24 +10,18 @@
         android:id="@+id/constraintLayout"
         android:layout_width="415dp"
         android:layout_height="51dp"
-        android:background="@color/DarkBlue"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:background="@color/DarkBlue">
 
         <Button
             android:id="@+id/button_back"
-            android:layout_width="47dp"
-            android:layout_height="39dp"
+            android:layout_width="51dp"
+            android:layout_height="37dp"
             android:background="@drawable/back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.043"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/textView4"
@@ -35,23 +29,23 @@
             android:layout_height="wrap_content"
             android:clickable="false"
 
-            android:text="Naima Adardour"
+            android:text="@string/update_details"
             android:textColor="@color/Orange"
             android:textSize="25dp"
 
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.294" />
+            app:layout_constraintVertical_bias="0.68" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <EditText
-        android:id="@+id/editTextFirstName"
+        android:id="@+id/editText1"
 
         android:layout_width="300dp"
         android:layout_height="60dp"
@@ -63,19 +57,19 @@
         android:drawableLeft="@drawable/client_supplier"
 
         android:ems="10"
-        android:hint="   Name"
+        android:hint="Full Name"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.198" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.691" />
 
     <EditText
-        android:id="@+id/editTextEmail"
+        android:id="@+id/editText3"
 
         android:layout_width="300dp"
         android:layout_height="60dp"
@@ -86,20 +80,20 @@
 
         android:background="@drawable/round_edit_text"
 
+        android:drawableLeft="@drawable/email"
         android:ems="10"
-        android:hint="   Email"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:textSize="20sp"
-        android:drawableLeft="@drawable/email"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.008" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/editText"
 
         android:layout_width="300dp"
         android:layout_height="60dp"
@@ -110,7 +104,7 @@
 
         android:drawableLeft="@drawable/phone"
         android:ems="10"
-        android:hint="   Phone number"
+        android:hint="Number Phone"
         android:inputType="phone"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -121,26 +115,23 @@
         app:layout_constraintVertical_bias="0.348" />
 
     <Button
-        android:id="@+id/buttonAddClient"
+        android:id="@+id/next_btn"
 
         android:layout_width="246dp"
         android:layout_height="58dp"
-        android:layout_marginTop="482dp"
-        android:layout_marginBottom="120dp"
         android:background="@drawable/round_button"
         android:fontFamily="monospace"
         android:padding="8dp"
 
         android:text="Save"
         android:textColor="@color/LightGray"
-        android:textSize="20sp"
         android:textStyle="bold"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/editText3"
+        app:layout_constraintVertical_bias="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
