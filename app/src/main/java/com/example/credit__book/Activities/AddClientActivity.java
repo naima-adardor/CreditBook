@@ -2,40 +2,54 @@ package com.example.credit__book.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.EditText;
 
-<<<<<<< HEAD:app/src/main/java/com/example/creditbook/MainActivity.java
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-private Spinner spinner;
-private Button button;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-         spinner = findViewById(R.id.spinnerCountry);
-        button = findViewById(R.id.Next_btn);
-        button.setOnClickListener(this);
-
-=======
+import com.example.credit__book.Model.Client;
+import com.example.credit__book.Model.Person;
 import com.example.credit__book.R;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AddClientActivity extends AppCompatActivity {
+
+    private EditText first_name;
+    private EditText last_name;
+    private EditText phone;
+    private EditText  email;
+    private EditText adresse;
+    private Button add_client_btn;
+    private DatabaseReference DBreference;
+    private FirebaseDatabase DBfirebase;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_client);
->>>>>>> 0a317c40187149add9397a8b236fa5e489f4f5f6:app/src/main/java/com/example/credit__book/Activities/AddClientActivity.java
-    }
-    public void onClick(View view) {
 
-                  Intent intent=new Intent(MainActivity.this,InscriptionActivity.class);
-                  startActivity(intent);
-}}
+
+        first_name = findViewById(R.id.editTextFirstName);
+        last_name = findViewById(R.id.editTextLastName);
+        phone = findViewById(R.id.editTextPhone);
+        email= findViewById(R.id.editTextEmail);
+        adresse = findViewById(R.id.editTextAdress);
+        add_client_btn=findViewById(R.id.buttonAddClient);
+        DBfirebase = FirebaseDatabase.getInstance();
+        DBreference= DBfirebase.getReference();
+
+
+        add_client_btn.setOnClickListener(view -> {
+            String firstName = first_name.getText().toString();
+            String lastName = last_name.getText().toString();
+            String phoneNumber = phone.getText().toString();
+            String emailClient = email.getText().toString();
+            String adresseClient = adresse.getText().toString();
+            Person client = new Client(lastName,firstName,phoneNumber,emailClient,adresseClient);
+            DBreference.child("clients").child(String.valueOf(Client.IDclient)).setValue(client);
+
+        });
+
+
+    }}

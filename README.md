@@ -4,7 +4,7 @@ Mobile application for manipulating credits ,built using java and firebase .
 
 # ScreenShots
 
-![Capture](https://user-images.githubusercontent.com/98922186/200339212-0508188f-a00a-4f04-a04f-50b0f4d6a59c.PNG)
+<img src="https://user-images.githubusercontent.com/98922186/202562359-6de0bfcc-c42f-4ccc-a27c-5bedf9ade372.jpeg" width="260" height="450" />
 
 # Product Vision
 
@@ -20,16 +20,16 @@ Mobile application for manipulating credits ,built using java and firebase .
 
 <h4> NAIMA ADARDOUR </h4>
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=naima-adardor&count_private=true&show_icons=true&theme=radical)](https://github.com/omarlamin01/Dairy-Farm-Management-System)
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=naima-adardor&count_private=true&show_icons=true&theme=radical)](https://github.com/naima-adardor/CreditBook)
 
 <h4> MARYAM BOUCHHAR </h4>
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=MaryamBouchhar&count_private=true&show_icons=true&theme=tokyonight)](https://github.com/omarlamin01/Dairy-Farm-Management-System)
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=MaryamBouchhar&count_private=true&show_icons=true&theme=tokyonight)](https://github.com/naima-adardor/CreditBook)
 
 <h4> NAIMA ELJID</h4>
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=neimael&count_private=true&show_icons=true&theme=tokyonight)](https://github.com/omarlamin01/Dairy-Farm-Management-System)
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=neimael&count_private=true&show_icons=true&theme=tokyonight)](https://github.com/naima-adardor/CreditBook)
 
 <h4> MOHAMMED ELACHYRY</h4>
 
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=elachyry&count_private=true&show_icons=true&theme=tokyonight)](https://github.com/omarlamin01/Dairy-Farm-Management-System)
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=elachyry&count_private=true&show_icons=true&theme=tokyonight)](https://github.com/naima-adardor/CreditBook)
