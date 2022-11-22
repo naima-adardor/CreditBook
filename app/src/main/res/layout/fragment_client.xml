@@ -126,7 +126,7 @@
         android:drawableEnd="@drawable/more_than"
         android:fontFamily="sans-serif"
         android:gravity="center"
-        android:text="@string/view_report"
+        android:text="view_report"
         android:textStyle="bold" />
 
     <LinearLayout

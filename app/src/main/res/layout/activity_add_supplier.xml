@@ -143,7 +143,7 @@
                 android:layout_marginTop="50dp"
 
                 android:background="@drawable/round_edit_text"
-                android:drawableLeft="@drawable/phone"
+                android:drawableLeft="@drawable/img_2"
                 android:ems="10"
                 android:hint="   Phone Number"
                 android:inputType="phone"

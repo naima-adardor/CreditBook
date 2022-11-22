@@ -102,7 +102,7 @@
 
         android:background="@drawable/round_edit_text"
 
-        android:drawableLeft="@drawable/phone"
+        android:drawableLeft="@drawable/img_2"
         android:ems="10"
         android:hint="Number Phone"
         android:inputType="phone"
