@@ -20,38 +20,12 @@ import java.util.List;
 
 
 public class OperationClientAdapter extends RecyclerView.Adapter<OperationClientAdapter.ViewHolder> {
-    private final List<OperationClient> opListe;
+    private final List<OperationClient> operations;
     private Context context;
 
-    public OperationClientAdapter(List<OperationClient> list, Context context) {
-        this.opListe = list;
+    public OperationClientAdapter(List<OperationClient> operations, Context context) {
+        this.operations = operations;
         this.context = context;
-    }
-
-    @NonNull
-    @Override
-    public OperationClientAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_row, parent, false);
-        return new ViewHolder(view, context);
-    }
-
-    @Override
-    public void onBindViewHolder(@NonNull OperationClientAdapter.ViewHolder holder, int position) {
-        OperationClient listItem = opListe.get(position);
-        holder.nameClient.setText(listItem.getName_client());
-        holder.typeOperation.setText(listItem.getDescription());
-        holder.date.setText((listItem.getOperation_client_date() + " "));
-        holder.balance.setText((listItem.getBalance_client() + "dh"));
-        holder.itemView.setOnClickListener({
-                        Intent intent = new Intent(context, ViewDetailsActivity.class);
-                        startActivity(context, intent, null);
-                    }
-                )
-    }
-
-    @Override
-    public int getItemCount() {
-        return opListe.size();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -68,4 +42,36 @@ public class OperationClientAdapter extends RecyclerView.Adapter<OperationClient
             nameClient = itemView.findViewById(R.id.nameClient);
         }
     }
+
+    @Override
+    public OperationClientAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context)
+                .inflate(R.layout.recycler_view_row, parent, false);
+
+        return new ViewHolder(view, context);
+    }
+
+    @Override
+    public void onBindViewHolder(OperationClientAdapter.ViewHolder holder, int position) {
+        OperationClient operation = operations.get(position);
+
+        holder.nameClient.setText(operation.getName_client());
+        holder.typeOperation.setText(operation.getDescription());
+        holder.date.setText(operation.getOperation_client_date() + " ");
+        holder.balance.setText(operation.getBalance_client() + "dh");
+
+        holder.itemView.setOnClickListener(v -> {
+                    Intent intent = new Intent(context, ViewDetailsActivity.class);
+                    intent.putExtra("position", position);
+                    startActivity(context, intent, null);
+                }
+        );
+    }
+
+    @Override
+    public int getItemCount() {
+        return operations.size();
+    }
+
+
 }

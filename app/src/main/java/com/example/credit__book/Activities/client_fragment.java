@@ -49,7 +49,7 @@ public class client_fragment extends Fragment  implements View.OnClickListener ,
             OperationClient listItem = new OperationClient("Naima ELJID", "20-11-2022", 500, "You have to get");
             context.getListClientOperation().add(listItem);
         }
-        opAD = new OperationClientAdapter(context.getListClientOperation(),  this);
+        opAD = new OperationClientAdapter(context.getListClientOperation(),  this.getContext());
 
         RecyclerView recyclerViewOperation = view.findViewById(R.id.recyclerViewClient);
         recyclerViewOperation.setLayoutManager(new LinearLayoutManager(getContext()));
