@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/alata</item>
+        <item>@font/alice</item>
+        <item>@font/antic</item>
+        <item>@font/bungee</item>
+        <item>@font/cantora_one</item>
+        <item>@font/vollkorn_sc_bold</item>
+    </array>
+</resources>
