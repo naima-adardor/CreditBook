@@ -52,5 +52,4 @@ public class AddClientActivity extends AppCompatActivity {
         });
 
 
-    }
-}
+    }}

@@ -1,40 +1,35 @@
 package com.example.credit__book.Model;
 
 public class Person {
+    private int id;
+    private String full_name;
+    private String phone_number;
+    private String email;
 
-    String last_name;
-    String first_name;
-    String phone_number;
-    String email;
-    String address;
-    public Person (){
-
+    public Person() {
     }
-    public Person(String last_name, String first_name, String phone_number, String email, String address) {
 
-        this.last_name = last_name;
-        this.first_name = first_name;
+    public Person(int id, String full_name, String phone_number, String email) {
+        this.id = id;
+        this.full_name = full_name;
         this.phone_number = phone_number;
         this.email = email;
-        this.address = address;
     }
 
-
-
-    public String getLast_name() {
-        return last_name;
+    public int getId() {
+        return id;
     }
 
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getFirst_name() {
-        return first_name;
+    public String getFull_name() {
+        return full_name;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+    public void setFull_name(String full_name) {
+        this.full_name = full_name;
     }
 
     public String getPhone_number() {
@@ -53,11 +48,4 @@ public class Person {
         this.email = email;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
 }

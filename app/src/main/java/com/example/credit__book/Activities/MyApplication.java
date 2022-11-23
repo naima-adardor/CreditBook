@@ -21,5 +21,4 @@ public class MyApplication extends Application {
     public List<Operation> getListOperations() {
         return listOperations;
     }
-
 }

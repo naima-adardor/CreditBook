@@ -22,7 +22,7 @@ import com.example.credit__book.recycleview_client_interface;
 public class client_fragment extends Fragment  implements View.OnClickListener ,recycleview_client_interface {
 
     TextView CountOp;
-    TextView count2;
+    TextView countTransaction;
     OperationClientAdapter opAD;
     Button ajouter;
 
@@ -57,8 +57,8 @@ public class client_fragment extends Fragment  implements View.OnClickListener ,
         recyclerViewOperation.setHasFixedSize(true);
         CountOp = view.findViewById(R.id.textViewoperation);
         CountOp.setText("Clients(" + opAD.getItemCount() + ")");
-        count2 = view.findViewById(R.id.textViewBalance);
-        count2.setText("Transactions(" + opAD.getItemCount() + ")");
+        countTransaction = view.findViewById(R.id.textViewBalance);
+        countTransaction.setText("Transactions(" + opAD.getItemCount() + ")");
         ajouter= view.findViewById(R.id.btnclient);
         ajouter.setOnClickListener(this);
     }

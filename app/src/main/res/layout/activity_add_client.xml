@@ -126,7 +126,7 @@
             <EditText
                 android:id="@+id/editTextPhone"
 
-                android:layout_width="338dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
@@ -134,7 +134,7 @@
                 android:layout_marginTop="50dp"
 
                 android:background="@drawable/round_edit_text"
-                android:drawableLeft="@drawable/phone"
+                android:drawableLeft="@drawable/img_2"
                 android:ems="10"
                 android:hint="   Phone Number"
                 android:inputType="phone"
