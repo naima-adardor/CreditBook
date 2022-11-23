@@ -13,11 +13,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.credit__book.Adapter.OperationsAdapter;
 import com.example.credit__book.Model.Operation;
 import com.example.credit__book.R;
+import com.example.credit__book.recycleview_client_interface;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class CashBookActivity extends AppCompatActivity implements View.OnClickListener  {
+public class CashBookActivity extends AppCompatActivity implements View.OnClickListener, recycleview_client_interface {
     TextView CountOp ;
     OperationsAdapter opAD;
 
@@ -39,7 +40,7 @@ public class CashBookActivity extends AppCompatActivity implements View.OnClickL
             Operation listItem = new Operation("11-16-2022",100.00,"Cash in") ;
             context.getListOperations().add(listItem);
         }
-        opAD = new OperationsAdapter(context.getListOperations());
+        opAD = new OperationsAdapter(context.getListOperations(), this);
         RecyclerView recyclerViewOperation = findViewById(R.id.recycleViewOperation);
         recyclerViewOperation.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewOperation.setAdapter(opAD);
@@ -61,5 +62,11 @@ public class CashBookActivity extends AppCompatActivity implements View.OnClickL
     public void writeNewOperation(String OpId, String type_op, Double balance,String date) {
         Operation client = new Operation(date,balance,type_op);
         mDatabase.child("clients").child(OpId).setValue(client);
+    }
+
+    @Override
+    public void onItemClick(int post) {
+        Intent intent1=new Intent(CashBookActivity.this,ViewDetailsActivity.class);
+        startActivity(intent1);
     }
 }
