@@ -5,9 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.AddClientActivity">
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -17,29 +15,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
-
-        <Button
+   <Button
             android:id="@+id/button_back"
             android:layout_width="51dp"
             android:layout_height="48dp"
             android:background="@drawable/back"
-            android:text="  "
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.043"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="SpeakableTextPresentCheck" />
+  <TextView
             android:id="@+id/textView4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="false"
-
             android:text="Add Client"
             android:textColor="@color/Gray"
             android:textSize="20sp"
-
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -53,8 +47,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,7 +60,6 @@
 
             <Button
                 android:id="@+id/importe_btn"
-
                 android:layout_width="173dp"
                 android:layout_height="48dp"
                 android:background="@drawable/radius_button_client"
@@ -76,18 +68,15 @@
                 android:text=" Import Contact"
                 android:textColor="@color/LightGray"
                 android:textSize="16sp"
-
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView17"
                 android:layout_width="217dp"
                 android:layout_height="wrap_content"
-
                 android:layout_marginStart="10dp"
                 android:clickable="false"
                 android:text="Import contacts from your phone "
-
                 android:textColor="@color/Gray2"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -186,22 +175,21 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/buttonAddClient"
 
-            android:layout_width="273dp"
-            android:layout_height="137dp"
+            android:id="@+id/btnAddClient"
+            android:layout_width="309dp"
+            android:layout_height="45dp"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
+
             android:background="@drawable/round_button"
 
             android:fontFamily="monospace"
-
             android:minHeight="32dp"
             android:padding="8dp"
             android:text="Add Client"
             android:textColor="@color/LightGray"
             android:textStyle="bold" />
-
-    </LinearLayout>
+  </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

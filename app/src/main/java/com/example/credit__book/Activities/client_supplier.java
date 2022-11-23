@@ -10,9 +10,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.credit__book.Adapter.PageAdapter;
 import com.example.credit__book.R;
+import com.example.credit__book.recycleview_client_interface;
 import com.google.android.material.tabs.TabLayout;
 
-public class client_supplier extends AppCompatActivity implements View.OnClickListener{
+public class client_supplier extends AppCompatActivity implements View.OnClickListener,recycleview_client_interface {
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -25,10 +26,10 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
-        addsupplier= findViewById(R.id. btnsupplier);
+     /*   addsupplier= findViewById(R.id. btnsupplier);
         addClient= findViewById(R.id.btnclient);
         addsupplier.setOnClickListener(this);
-        addClient.setOnClickListener(this);
+        addClient.setOnClickListener(this);*/
 
 
 //        tabLayout.setupWithViewPager2(viewPager);
@@ -56,10 +57,9 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
 //        vpAdapter.addFragment(new supplier_fragment(),"supplier");
 
     }
-
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
+       /* switch(view.getId()){
             case R.id.btnsupplier:
                 Intent intent1=new Intent(client_supplier.this, AddSupplierActivity.class);
                 startActivity(intent1);
@@ -69,5 +69,11 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
                 startActivity(intent2);
                 break;
 
-        }}
+        }*/}
+    @Override
+    public void onItemClick(int post) {
+        Intent intent1=new Intent(client_supplier.this,ViewDetailsActivity.class);
+        startActivity(intent1);
+
+    }
 }

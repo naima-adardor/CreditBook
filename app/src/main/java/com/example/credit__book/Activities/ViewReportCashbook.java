@@ -4,11 +4,8 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.credit__book.Adapter.OperationsAdapter;
-import com.example.credit__book.Model.Operation;
 import com.example.credit__book.R;
 
 public class ViewReportCashbook extends AppCompatActivity {
@@ -18,7 +15,7 @@ public class ViewReportCashbook extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_report_cashbook);
-        MyApplication context = (MyApplication) this.getApplicationContext();
+   /*     MyApplication context = (MyApplication) this.getApplicationContext();
 
         for(int i=0 ;i<10;i++){
             Operation listItem = new Operation("11-16-2022",100.00,"Cash in") ;
@@ -30,6 +27,6 @@ public class ViewReportCashbook extends AppCompatActivity {
         recyclerViewOperation.setAdapter(opAD);
         recyclerViewOperation.setHasFixedSize(true);
         CountOp = findViewById(R.id.textViewoperation);
-        CountOp.setText("Operations("+opAD.getItemCount()+")");
+        CountOp.setText("Operations("+opAD.getItemCount()+")");*/
     }
 }

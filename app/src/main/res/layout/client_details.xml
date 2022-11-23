@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Activities.ViewDetailsActivity">
 
     <TextView
         android:id="@+id/textView4"
@@ -83,7 +84,7 @@
         android:layout_height="wrap_content"
         android:text="@string/operations"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="24sp"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.047"
@@ -95,13 +96,15 @@
         android:id="@+id/btn"
         android:layout_width="160dp"
         android:layout_height="52dp"
+        android:layout_marginTop="264dp"
         android:background="@drawable/radius_button_client"
         android:drawableEnd="@drawable/more_than"
         android:text="View Report"
         android:textAllCaps="false"
         android:textSize="17dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView26"
         app:layout_constraintEnd_toEndOf="parent"
+
 
         app:layout_constraintHorizontal_bias="0.936"
         app:layout_constraintStart_toStartOf="parent"
@@ -132,10 +135,10 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.715"
+        app:layout_constraintHorizontal_bias="0.681"
         app:layout_constraintStart_toEndOf="@+id/button4"
         app:layout_constraintTop_toTopOf="@+id/btn"
-        app:layout_constraintVertical_bias="0.853" />
+        app:layout_constraintVertical_bias="0.851" />
 
     <LinearLayout
         android:id="@+id/background"
@@ -155,7 +158,7 @@
             android:id="@+id/textView10"
             android:layout_width="208dp"
             android:layout_height="36dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="35dp"
             android:layout_marginTop="10dp"
             android:drawableLeft="@drawable/client_supplier"
             android:text="Naima eljid"
@@ -167,7 +170,7 @@
             android:id="@+id/textView11"
             android:layout_width="305dp"
             android:layout_height="36dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="35dp"
             android:layout_marginTop="10dp"
             android:drawableLeft="@drawable/email"
             android:text="Naimaeljid@gmail.com"
@@ -178,7 +181,7 @@
             android:id="@+id/textView12"
             android:layout_width="208dp"
             android:layout_height="36dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="35dp"
             android:layout_marginTop="10dp"
             android:drawableLeft="@drawable/phone"
             android:text="0762389652"
@@ -189,7 +192,7 @@
             android:id="@+id/textView14"
             android:layout_width="303dp"
             android:layout_height="36dp"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="35dp"
             android:layout_marginTop="10dp"
             android:drawableLeft="@drawable/address"
             android:text="Taroudant,Elqods 378"
@@ -214,7 +217,7 @@
         app:layout_constraintVertical_bias="0.383" />
 
     <TextView
-        android:id="@+id/textView8"
+        android:id="@+id/balance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
@@ -230,6 +233,7 @@
         app:layout_constraintVertical_bias="0.368" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleview2"
         android:layout_width="409dp"
         android:layout_height="224dp"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
@@ -241,14 +245,28 @@
 
     <ImageView
         android:id="@+id/imageView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="65dp"
+        android:layout_height="62dp"
         android:layout_marginTop="3dp"
         android:layout_marginBottom="5dp"
+        android:background="@drawable/appel"
         app:layout_constraintBottom_toTopOf="@+id/background"
         app:layout_constraintEnd_toStartOf="@+id/clientSettings"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="@+id/textView4"
-      />
+
+        app:layout_constraintTop_toTopOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/operation"
+        android:layout_width="57dp"
+        android:layout_height="22dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="@+id/textView26"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView26"
+        app:layout_constraintTop_toTopOf="@+id/textView26" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
