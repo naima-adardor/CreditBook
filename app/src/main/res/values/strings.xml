@@ -19,4 +19,7 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="add_supplier">Add Supplier</string>
+    <string name="search_for_a_supplier">Search for a supplier</string>
+    <string name="transaction_2">Transaction (2)</string>
 </resources>
