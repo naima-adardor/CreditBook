@@ -160,7 +160,7 @@ public class LoginActivity extends AppCompatActivity {
                         sessionManager.createUserLoginSession(fullName, phoneNumber, email, password);
                         passwordInput.setErrorEnabled(false);
                         passwordInput.setError(null);
-                        startActivity(new Intent(LoginActivity.this, ProfileActivity.class));
+                        startActivity(new Intent(LoginActivity.this, MainDashboardActivity.class));
                         finish();
                     }else {
                         passwordInput.setError("Wrong Password!");
