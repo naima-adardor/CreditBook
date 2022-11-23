@@ -253,6 +253,7 @@
         app:layout_constraintBottom_toTopOf="@+id/background"
         app:layout_constraintEnd_toStartOf="@+id/clientSettings"
         app:layout_constraintStart_toEndOf="@+id/imageView8"
+
         app:layout_constraintTop_toTopOf="@+id/textView4" />
 
     <TextView
@@ -265,5 +266,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView26"
         app:layout_constraintTop_toTopOf="@+id/textView26" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

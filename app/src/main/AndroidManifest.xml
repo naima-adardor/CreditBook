@@ -22,21 +22,6 @@
                 android:value="" />
         </activity>
 
-
-        <activity
-            android:name=".Activities.CashBookActivity"
-            android:exported="true">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Activities.UpdatePersonalDetailActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
         <activity
           
             android:name=".Activities.ForgotPasswordActivity"
@@ -61,21 +46,13 @@
         </activity>
         <activity
             android:name=".Activities.LoginActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Activities.MainActivity"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
             android:name=".Activities.CashBookActivity"
-            android:name=".Activities.AddSupplierActivity"
             android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
@@ -97,13 +74,6 @@
         </activity>
         <activity
             android:name=".Activities.AddClientActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
-            android:name=".Activities.InscriptionActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
