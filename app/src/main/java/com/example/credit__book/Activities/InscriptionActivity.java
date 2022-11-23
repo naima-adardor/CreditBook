@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.example.credit__book.R;
+
 public class InscriptionActivity extends AppCompatActivity {
     private EditText edittext;
     private Button button;
