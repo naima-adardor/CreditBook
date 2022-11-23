@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/dashboard_nav"
+        android:title="Dashborad"
+        android:icon="@drawable/dashboard_nav"/>
+
+    <item android:id="@+id/credit_nav"
+        android:title="Credit Book"
+        android:icon="@drawable/book_nav"/>
+
+    <item android:id="@+id/cash_nav"
+        android:title="Cash Book"
+        android:icon="@drawable/wallet_nav"/>
+
+    <item android:id="@+id/profile_nav"
+        android:title="Profile"
+        android:icon="@drawable/person_nav"/>
+
+</menu>

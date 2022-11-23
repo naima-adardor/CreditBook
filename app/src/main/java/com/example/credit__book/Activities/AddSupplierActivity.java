@@ -17,7 +17,7 @@ public class AddSupplierActivity extends AppCompatActivity {
     private EditText first_name;
     private EditText last_name;
     private EditText phone;
-    private EditText  email;
+    private EditText email;
     private EditText adresse;
     private Button add_supplier_btn;
     private DatabaseReference DBreference;
@@ -30,11 +30,11 @@ public class AddSupplierActivity extends AppCompatActivity {
         first_name = findViewById(R.id.editTextFirstName);
         last_name = findViewById(R.id.editTextLastName);
         phone = findViewById(R.id.editTextPhone);
-        email= findViewById(R.id.editTextEmail);
+        email = findViewById(R.id.editTextEmail);
         adresse = findViewById(R.id.editTextAdress);
-        add_supplier_btn=findViewById(R.id.btnAddSupplier);
+        add_supplier_btn = findViewById(R.id.btnAddSupplier);
         DBfirebase = FirebaseDatabase.getInstance();
-        DBreference= DBfirebase.getReference();
+        DBreference = DBfirebase.getReference();
         add_supplier_btn.setOnClickListener(view -> {
 
             String firstName = first_name.getText().toString();
@@ -42,7 +42,7 @@ public class AddSupplierActivity extends AppCompatActivity {
             String phoneNumber = phone.getText().toString();
             String emailSupplier = email.getText().toString();
             String adresseSupplier = adresse.getText().toString();
-            Supplier supplier = new Supplier(lastName,firstName,phoneNumber,emailSupplier,adresseSupplier);
+            Supplier supplier = new Supplier(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier);
             DBreference.child("suppliers").child(String.valueOf(Supplier.IDsupplier)).setValue(supplier);
 
 
