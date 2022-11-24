@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.credit__book.Activities.AddClientActivity;
+import com.example.credit__book.Activities.AddSupplierActivity;
 import com.example.credit__book.Adapter.PageAdapter;
 import com.example.credit__book.R;
 import com.google.android.material.tabs.TabLayout;
@@ -69,7 +71,7 @@ public class CreditBookFragment extends Fragment implements View.OnClickListener
                 startActivity(intent1);
                 break;
             case R.id.btnclient:
-                Intent intent2=new Intent(getContext(),AddClientActivity.class);
+                Intent intent2=new Intent(getContext(), AddClientActivity.class);
                 startActivity(intent2);
                 break;
 
