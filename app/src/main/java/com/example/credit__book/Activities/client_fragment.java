@@ -18,13 +18,14 @@ import com.example.credit__book.Adapter.OperationClientAdapter;
 import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.R;
 import com.example.credit__book.recycleview_client_interface;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class client_fragment extends Fragment  implements View.OnClickListener ,recycleview_client_interface {
 
     TextView CountOp;
     TextView countTransaction;
     OperationClientAdapter opAD;
-    Button ajouter;
+   FloatingActionButton ajouter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -59,7 +60,7 @@ public class client_fragment extends Fragment  implements View.OnClickListener ,
         CountOp.setText("Clients(" + opAD.getItemCount() + ")");
         countTransaction = view.findViewById(R.id.textViewBalance);
         countTransaction.setText("Transactions(" + opAD.getItemCount() + ")");
-        ajouter= view.findViewById(R.id.btnsupplier);
+        ajouter= view.findViewById(R.id.btnclient);
         ajouter.setOnClickListener(this);
     }
 
