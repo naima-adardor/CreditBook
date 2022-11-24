@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragments.ProfileFragment">
+    tools:context=".Activities.ProfileFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -24,7 +24,7 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center"
                 app:srcCompat="@drawable/man"
-                android:layout_marginTop="50dp"/>
+                android:layout_marginTop="20dp"/>
 
             <TextView
                 android:id="@+id/fullNameTxt"
@@ -45,11 +45,18 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2"
                 android:textColor="@color/Gray" />
 
+            <ImageView
+                android:id="@+id/logout"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/logout"
+                android:layout_marginTop="20dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 android:orientation="vertical"
                 android:background="@color/white">
 
@@ -205,7 +212,7 @@
                         android:id="@+id/update_btn"
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="50dp"
                         android:layout_marginBottom="5dp"
                         android:backgroundTint="@color/Orange2"
                         android:text="Update"
