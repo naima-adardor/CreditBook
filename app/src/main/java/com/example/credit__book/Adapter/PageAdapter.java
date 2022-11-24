@@ -1,16 +1,13 @@
 package com.example.credit__book.Adapter;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 
-import com.example.credit__book.Activities.client_fragment;
-import com.example.credit__book.Activities.supplier_fragment;
-
-import java.util.ArrayList;
+import com.example.credit__book.Fragments.client_fragment;
+import com.example.credit__book.Fragments.supplier_fragment;
 
 public class PageAdapter extends FragmentPagerAdapter {
 

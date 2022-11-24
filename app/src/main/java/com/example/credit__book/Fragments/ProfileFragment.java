@@ -1,4 +1,4 @@
-package com.example.credit__book.Activities;
+package com.example.credit__book.Fragments;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.credit__book.Activities.ProfileActivity;
 import com.example.credit__book.Model.CheckInternetConnection;
 import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.Model.User;
