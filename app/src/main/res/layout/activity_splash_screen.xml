@@ -5,23 +5,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.SplashScreenActivity"
-    android:background="@color/DarkBlue">
+    android:background="@color/white">
 
     <ImageView
         android:id="@+id/splashImg"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="-250dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="300dp"
+        android:transitionName="logo_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/spash_screen"
-        android:transitionName="logo_image"/>
+        app:srcCompat="@drawable/splash_screen_logo" />
 
     <TextView
         android:id="@+id/splashText1"
@@ -30,7 +31,7 @@
         android:fontFamily="@font/bungee"
         android:gravity="center"
         android:text="Credit Book"
-        android:textColor="@color/Orange2"
+        android:textColor="#205375"
         android:textSize="50sp"
         android:transitionName="logo_text"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,7 +39,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.719" />
+        app:layout_constraintVertical_bias="0.573" />
 
     <TextView
         android:id="@+id/splashText2"
@@ -46,11 +47,12 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/antic"
         android:text="The Best Solution"
-        android:textColor="@color/white"
+        android:textColor="@color/Orange2"
         android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.831" />
+        app:layout_constraintVertical_bias="0.659" />
 </androidx.constraintlayout.widget.ConstraintLayout>
