@@ -10,10 +10,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.credit__book.Adapter.PageAdapter;
 import com.example.credit__book.R;
-import com.example.credit__book.recycleview_client_interface;
 import com.google.android.material.tabs.TabLayout;
 
-public class client_supplier extends AppCompatActivity implements View.OnClickListener,recycleview_client_interface {
+public class client_supplier extends AppCompatActivity implements View.OnClickListener{
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -70,10 +69,10 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
                 break;
 
         }*/}
-    @Override
-    public void onItemClick(int post) {
-        Intent intent1=new Intent(client_supplier.this,ViewDetailsActivity.class);
-        startActivity(intent1);
-
-    }
+//    @Override
+//    public void onItemClick(int post) {
+//        Intent intent1=new Intent(client_supplier.this,ViewDetailsActivity.class);
+//        startActivity(intent1);
+//
+//    }
 }
