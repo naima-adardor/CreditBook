@@ -121,7 +121,7 @@
                      android:layout_marginTop="30dp"
 
                      android:background="@drawable/round_edit_text"
-                     android:drawableLeft="@drawable/img_2"
+                     android:drawableLeft="@drawable/img_3"
                      android:ems="10"
                      android:hint="   Phone Number"
                      android:inputType="phone"

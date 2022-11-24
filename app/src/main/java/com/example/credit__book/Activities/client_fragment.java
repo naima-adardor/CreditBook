@@ -51,7 +51,7 @@ public class client_fragment extends Fragment  implements View.OnClickListener ,
         }
         opAD = new OperationClientAdapter(context.getListClientOperation(),  this.getContext());
 
-        RecyclerView recyclerViewOperation = view.findViewById(R.id.recyclerViewClient);
+        RecyclerView recyclerViewOperation = view.findViewById(R.id.recyclerViewSupplier);
         recyclerViewOperation.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewOperation.setAdapter(opAD);
         recyclerViewOperation.setHasFixedSize(true);
@@ -59,7 +59,7 @@ public class client_fragment extends Fragment  implements View.OnClickListener ,
         CountOp.setText("Clients(" + opAD.getItemCount() + ")");
         countTransaction = view.findViewById(R.id.textViewBalance);
         countTransaction.setText("Transactions(" + opAD.getItemCount() + ")");
-        ajouter= view.findViewById(R.id.btnclient);
+        ajouter= view.findViewById(R.id.btnsupplier);
         ajouter.setOnClickListener(this);
     }
 

@@ -250,7 +250,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewClient"
+        android:id="@+id/recyclerViewSupplier"
         android:layout_width="match_parent"
 
         android:layout_height="wrap_content"
@@ -263,7 +263,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3"></androidx.recyclerview.widget.RecyclerView>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnclient"
+        android:id="@+id/btnsupplier"
         android:layout_width="175dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"

@@ -67,13 +67,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activities.UpdatePersonalDetailActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Activities.AddSupplierActivity"
             android:exported="false">
             <meta-data
