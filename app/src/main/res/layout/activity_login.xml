@@ -13,7 +13,7 @@
         android:id="@+id/logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:srcCompat="@drawable/spash_screen"
+        app:srcCompat="@drawable/app_logo"
         android:transitionName="logo_image"/>
 
     <TextView
