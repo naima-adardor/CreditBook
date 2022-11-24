@@ -252,7 +252,7 @@
         android:id="@+id/recyclerViewSupplier"
         android:layout_width="match_parent"
 
-        android:layout_height="250dp"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
@@ -273,8 +273,9 @@
         android:layout_marginRight="15dp"
         android:clickable="true"
         android:contentDescription="@string/Book"
-        app:backgroundTint="@color/Orange2"
-        app:srcCompat="@drawable/add_user" />
+        app:backgroundTint="@color/DarkBlue"
+        app:srcCompat="@drawable/add_client_supplier"
+        app:tint="@color/Orange2"/>
 
 
 </LinearLayout>

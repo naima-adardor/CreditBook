@@ -272,8 +272,11 @@
         android:layout_marginRight="15dp"
         android:clickable="true"
         android:contentDescription="@string/Book"
-        app:backgroundTint="@color/Orange2"
-        app:srcCompat="@drawable/add_user" />
+        app:Tint="@color/DarkBlue"
+        app:backgroundTint="@color/DarkBlue"
+        app:rippleColor="@color/Orange2"
+        app:srcCompat="@drawable/add_client_supplier"
+        app:tint="@color/Orange2" />
 
 
 </LinearLayout>
