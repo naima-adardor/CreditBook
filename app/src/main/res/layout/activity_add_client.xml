@@ -5,180 +5,227 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Activities.AddClientActivity">
-     <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
 
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="62dp"
-             android:background="@color/DarkBlue"
-             android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-             <androidx.appcompat.widget.AppCompatButton
-                 android:id="@+id/button_back"
-                 style="@style/Theme.MaterialComponents.DayNight.NoActionBar"
-                 android:layout_width="51dp"
-                 android:layout_height="48dp"
-                 android:background="@drawable/back_icon"
-                 app:layout_constraintBottom_toBottomOf="parent"
-                 app:layout_constraintEnd_toEndOf="parent"
-                 app:layout_constraintHorizontal_bias="0.043"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toTopOf="parent"
-                 tools:ignore="SpeakableTextPresentCheck" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="62dp"
+            android:background="@color/DarkBlue"
+            android:orientation="horizontal">
 
-             <TextView
-                 android:id="@+id/textView4"
-                 android:layout_width="wrap_content"
-                 android:layout_height="wrap_content"
-                 android:layout_marginLeft="90dp"
-                 android:clickable="false"
-                 android:gravity="center|center_horizontal"
-                 android:text="Add Client"
-                 android:textColor="@color/Gray"
-                 android:textSize="20sp"
-                 android:textStyle="bold"
-                 app:layout_constraintBottom_toBottomOf="parent"
-                 app:layout_constraintEnd_toEndOf="parent"
-                 app:layout_constraintHorizontal_bias="0.498"
-                 app:layout_constraintStart_toStartOf="parent"
-                 app:layout_constraintTop_toTopOf="parent"
-                 app:layout_constraintVertical_bias="0.68" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/button_back"
+                style="@style/Theme.MaterialComponents.DayNight.NoActionBar"
+                android:layout_width="51dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="6dp"
+                android:background="@drawable/back_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.043"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="SpeakableTextPresentCheck" />
 
-         </LinearLayout>
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="90dp"
+                android:layout_marginTop="6dp"
+                android:clickable="false"
+                android:gravity="center|center_horizontal"
+                android:text="Add Client"
+                android:textColor="@color/Gray"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.68" />
 
-         <LinearLayout
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:orientation="vertical">
+        </LinearLayout>
 
-             <androidx.appcompat.widget.AppCompatButton
-                 android:id="@+id/importe_btn"
-                 android:layout_width="wrap_content"
-                 android:layout_height="48dp"
-                 android:layout_marginLeft="10dp"
-                 android:layout_marginTop="15dp"
-                 android:backgroundTint="@color/LightGray"
-                 android:fontFamily="monospace"
-                 android:padding="8dp"
-                 android:text="Import contacts from your phone "
-                 android:textColor="@color/Gray2"
-                 android:textSize="16sp"
-                 android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
 
-             <LinearLayout
-                 android:layout_width="match_parent"
-                 android:layout_height="wrap_content"
-                 android:layout_marginLeft="10dp"
-                 android:layout_marginTop="30dp"
-                 android:orientation="vertical"
-                 android:paddingLeft="10dp"
-                 android:paddingTop="10dp">
+            >
 
-                 <EditText
-                     android:id="@+id/editTextFirstName"
 
-                     android:layout_width="338dp"
-                     android:layout_height="62dp"
-                     android:layout_centerHorizontal="false"
-                     android:layout_centerVertical="false"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextFirstName"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="First Name"
+                android:textColorHint="@color/black"
+                android:transitionName="First Name"
+                app:boxStrokeColor="@color/Orange2"
+                app:boxStrokeWidth="0.5dp"
+                app:boxStrokeWidthFocused="0.5dp"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/Orange2"
+                app:startIconDrawable="@drawable/client_supplier">
 
-                     android:background="@drawable/round_edit_text"
-                     android:drawableLeft="@drawable/client_supplier"
-                     android:ems="10"
-                     android:hint="   First Name"
-                     android:inputType="textPersonName"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/FirstName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
 
-                     android:textSize="20sp" />
+                    android:fontFamily="@font/cantora_one"
+                    android:inputType="textPersonName"
+                    android:maxLength="10"
 
-                 <EditText
-                     android:id="@+id/editTextLastName"
+                    android:shadowColor="@color/DarkBlue"
+                    android:textColor="@color/Orange3"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                     android:layout_width="338dp"
-                     android:layout_height="62dp"
-                     android:layout_centerHorizontal="false"
-                     android:layout_centerVertical="false"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextLastName"
 
-                     android:layout_marginTop="30dp"
-                     android:background="@drawable/round_edit_text"
-                     android:drawableLeft="@drawable/client_supplier"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:hint="Last Name"
+                android:textColorHint="@color/black"
+                android:transitionName="Last Name"
+                app:boxStrokeColor="@color/Orange2"
+                app:boxStrokeWidth="0.5dp"
+                app:boxStrokeWidthFocused="0.5dp"
+                app:endIconMode="clear_text"
 
-                     android:ems="10"
-                     android:hint="   Last Name"
-                     android:inputType="textPersonName"
-                     android:textSize="20sp" />
+                app:hintTextColor="@color/Orange2"
+                app:startIconDrawable="@drawable/client_supplier">
 
-                 <EditText
-                     android:id="@+id/editTextPhone"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/LastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/cantora_one"
+                    android:inputType="textPersonName"
+                    android:maxLength="10"
+                    android:shadowColor="@color/DarkBlue"
+                    android:textColor="@color/Orange3"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                     android:layout_width="338dp"
-                     android:layout_height="62dp"
-                     android:layout_centerHorizontal="true"
-                     android:layout_centerVertical="true"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/telephone"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:hint="Phone Number"
+                android:textColorHint="@color/black"
+                android:transitionName="phone"
+                app:boxStrokeColor="@color/Orange2"
+                app:boxStrokeWidth="0.5dp"
+                app:boxStrokeWidthFocused="0.5dp"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/Orange2"
+                app:prefixText="+212"
+                app:startIconDrawable="@drawable/phone30">
 
-                     android:layout_marginTop="30dp"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tele"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/cantora_one"
+                    android:inputType="phone"
+                    android:maxLength="10"
+                    android:shadowColor="@color/DarkBlue"
+                    android:textColor="@color/Orange3"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                     android:background="@drawable/round_edit_text"
-                     android:drawableLeft="@drawable/img_3"
-                     android:ems="10"
-                     android:hint="   Phone Number"
-                     android:inputType="phone"
-                     android:textSize="20sp" />
 
-                 <EditText
-                     android:id="@+id/editTextEmail"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextEmail"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:hint="Email"
+                android:textColorHint="@color/black"
+                android:transitionName="email"
+                app:boxStrokeColor="@color/Orange2"
+                app:boxStrokeWidth="0.5dp"
+                app:boxStrokeWidthFocused="0.5dp"
+                app:endIconMode="clear_text"
+                app:hintTextColor="@color/Orange2"
+                app:startIconDrawable="@drawable/email2">
 
-                     android:layout_width="338dp"
-                     android:layout_height="62dp"
-                     android:layout_centerHorizontal="true"
-                     android:layout_centerVertical="true"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/cantora_one"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="10"
+                    android:shadowColor="@color/DarkBlue"
+                    android:textColor="@color/Orange3"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                     android:layout_marginTop="30dp"
-                     android:background="@drawable/round_edit_text"
-                     android:drawableLeft="@drawable/email"
-                     android:ems="10"
-                     android:hint="   Email"
-                     android:inputType="textEmailAddress"
-                     android:textSize="20sp" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/editTextAdress"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:hint="Address"
+                android:textColorHint="@color/black"
+                android:transitionName="address"
+                app:boxStrokeColor="@color/Orange2"
+                app:boxStrokeWidth="0.5dp"
+                app:boxStrokeWidthFocused="0.5dp"
+                app:endIconMode="clear_text"
 
-                 <EditText
-                     android:id="@+id/editTextAdress"
+                app:hintTextColor="@color/Orange2"
+                app:startIconDrawable="@drawable/address">
 
-                     android:layout_width="338dp"
-                     android:layout_height="62dp"
-                     android:layout_centerHorizontal="true"
-                     android:layout_centerVertical="true"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/adress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/cantora_one"
+                    android:inputType="text"
+                    android:maxLength="10"
+                    android:shadowColor="@color/DarkBlue"
+                    android:textColor="@color/Orange3"
+                    tools:ignore="TouchTargetSizeCheck" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-                     android:layout_marginTop="30dp"
-                     android:background="@drawable/round_edit_text"
-                     android:drawableLeft="@drawable/address"
-                     android:ems="10"
-                     android:hint="   Address"
-                     android:inputType="textPersonName"
-                     android:textSize="20sp" />
+            <Button
+                android:id="@+id/AddClient"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="5dp"
+                android:backgroundTint="@color/Orange2"
+                android:text="Add Client"
+                android:transitionName="Add_Client" />
+        </LinearLayout>
 
-             </LinearLayout>
-
-             <androidx.appcompat.widget.AppCompatButton
-
-                 android:id="@+id/btnAddSupplier"
-                 android:layout_width="226dp"
-                 android:layout_height="49dp"
-                 android:layout_gravity="center"
-
-                 android:layout_marginLeft="40dp"
-
-                 android:layout_marginTop="30dp"
-                 android:layout_marginRight="50dp"
-                 android:background="@drawable/round_button"
-                 android:fontFamily="monospace"
-                 android:gravity="center"
-                 android:minHeight="32dp"
-                 android:text="Add Client"
-                 android:textColor="@color/LightGray"
-                 android:textStyle="bold" />
-         </LinearLayout>
-     </LinearLayout>
+    </LinearLayout>
 </RelativeLayout>

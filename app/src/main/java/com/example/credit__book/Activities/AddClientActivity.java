@@ -1,23 +1,18 @@
     package com.example.credit__book.Activities;
 
-    import androidx.appcompat.app.AppCompatActivity;
-
     import android.os.Bundle;
     import android.widget.Button;
-    import android.widget.EditText;
+
+    import androidx.appcompat.app.AppCompatActivity;
 
     import com.example.credit__book.Model.Client;
     import com.example.credit__book.R;
+    import com.google.android.material.textfield.TextInputLayout;
     import com.google.firebase.database.DatabaseReference;
     import com.google.firebase.database.FirebaseDatabase;
 
     public class AddClientActivity extends AppCompatActivity {
-
-        private EditText first_name;
-        private EditText last_name;
-        private EditText phone;
-        private EditText  email;
-        private EditText adresse;
+        TextInputLayout first_name,last_name,email, phone,adresse;
         private Button add_client_btn;
         private DatabaseReference DBreference;
         private FirebaseDatabase DBfirebase;
@@ -31,20 +26,20 @@
 
             first_name = findViewById(R.id.editTextFirstName);
             last_name = findViewById(R.id.editTextLastName);
-            phone = findViewById(R.id.editTextPhone);
+            phone = findViewById(R.id.telephone);
             email= findViewById(R.id.editTextEmail);
             adresse = findViewById(R.id.editTextAdress);
-            add_client_btn=findViewById(R.id.btnAddSupplier);
+            add_client_btn=findViewById(R.id.AddClient);
             DBfirebase = FirebaseDatabase.getInstance();
             DBreference= DBfirebase.getReference();
 
 
             add_client_btn.setOnClickListener(view -> {
-                String firstName = first_name.getText().toString();
-                String lastName = last_name.getText().toString();
-                String phoneNumber = phone.getText().toString();
-                String emailClient = email.getText().toString();
-                String adresseClient = adresse.getText().toString();
+                String firstName = first_name.getEditText().getText().toString();
+                String lastName = last_name.getEditText().getText().toString();
+                String phoneNumber = phone.getEditText().getText().toString();
+                String emailClient = email.getEditText().getText().toString();
+                String adresseClient = adresse.getEditText().getText().toString();
                 Client client = new Client(Client.IDclient, firstName + " " + lastName ,phoneNumber,emailClient,adresseClient);
                 DBreference.child("clients").child(String.valueOf(Client.IDclient)).setValue(client);
 
