@@ -163,7 +163,7 @@
 
              <androidx.appcompat.widget.AppCompatButton
 
-                 android:id="@+id/btnAddClient"
+                 android:id="@+id/btnAddSupplier"
                  android:layout_width="226dp"
                  android:layout_height="49dp"
                  android:layout_gravity="center"

@@ -7,7 +7,6 @@
     import android.widget.EditText;
 
     import com.example.credit__book.Model.Client;
-    import com.example.credit__book.Model.Person;
     import com.example.credit__book.R;
     import com.google.firebase.database.DatabaseReference;
     import com.google.firebase.database.FirebaseDatabase;
@@ -35,7 +34,7 @@
             phone = findViewById(R.id.editTextPhone);
             email= findViewById(R.id.editTextEmail);
             adresse = findViewById(R.id.editTextAdress);
-            add_client_btn=findViewById(R.id.btnAddClient);
+            add_client_btn=findViewById(R.id.btnAddSupplier);
             DBfirebase = FirebaseDatabase.getInstance();
             DBreference= DBfirebase.getReference();
 
