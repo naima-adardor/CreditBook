@@ -35,7 +35,7 @@
             phone = findViewById(R.id.editTextPhone);
             email= findViewById(R.id.editTextEmail);
             adresse = findViewById(R.id.editTextAdress);
-            add_client_btn=findViewById(R.id.buttonAddClient);
+            add_client_btn=findViewById(R.id.btnAddClient);
             DBfirebase = FirebaseDatabase.getInstance();
             DBreference= DBfirebase.getReference();
 
