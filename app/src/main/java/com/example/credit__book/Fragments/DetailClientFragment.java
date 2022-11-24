@@ -1,4 +1,4 @@
-package com.example.credit__book.Activities;
+package com.example.credit__book.Fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

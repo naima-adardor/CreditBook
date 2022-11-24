@@ -1,4 +1,4 @@
-package com.example.credit__book.Activities;
+package com.example.credit__book.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.credit__book.Activities.AddClientActivity;
+import com.example.credit__book.Activities.MyApplication;
 import com.example.credit__book.Adapter.OperationClientAdapter;
 import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.R;
@@ -66,7 +68,7 @@ public class client_fragment extends Fragment  implements View.OnClickListener ,
 
     @Override
     public void onClick(View view) {
-        Intent intent=new Intent(getActivity(),AddClientActivity.class);
+        Intent intent=new Intent(getActivity(), AddClientActivity.class);
         startActivity(intent);
     }
 
