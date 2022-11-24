@@ -1,26 +1,38 @@
 package com.example.credit__book.Fragments;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.credit__book.Activities.LoginActivity;
 import com.example.credit__book.Activities.ProfileActivity;
 import com.example.credit__book.Model.CheckInternetConnection;
 import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.Model.User;
 import com.example.credit__book.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
@@ -29,14 +41,17 @@ public class ProfileFragment extends Fragment {
 
     private TextView fullNameTxt;
     private TextInputLayout fullName,telephone, email, oldPassword, newPassword;
-    private TextInputEditText fullNameVal, telephoneVal, emailVal, passwordVal, confirmPasswordVal;
+    private TextInputEditText fullNameVal, telephoneVal, emailVal, oldPasswordValEdit, newPasswordValEdit;
     private Button update_btn;
     private String oldPasswordSession;
     private ProgressDialog progressDialog;
+    private ImageView logout;
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        logout = view.findViewById(R.id.logout);
         fullNameTxt = view.findViewById(R.id.fullNameTxt);
         fullName = view.findViewById(R.id.fullName);
         telephone = view.findViewById(R.id.telephone);
@@ -46,8 +61,8 @@ public class ProfileFragment extends Fragment {
         fullNameVal = view.findViewById(R.id.fullNameVal);
         telephoneVal = view.findViewById(R.id.telephoneVal);
         emailVal = view.findViewById(R.id.emailVal);
-        passwordVal = view.findViewById(R.id.passwordVal);
-        confirmPasswordVal = view.findViewById(R.id.confirmPasswordVal);
+        oldPasswordValEdit = view.findViewById(R.id.passwordVal);
+        newPasswordValEdit = view.findViewById(R.id.confirmPasswordVal);
         update_btn = view.findViewById(R.id.update_btn);
         progressDialog = new ProgressDialog(view.getContext());
         progressDialog.setTitle("Please wait...");
@@ -79,15 +94,55 @@ public class ProfileFragment extends Fragment {
                 if(!validateFullName(fullNameVal) | !validatePassword(newPasswordVal) | !validateTelephone(telephoneVal) | !validateEmail(emailVal) | !validateOldPassword(oldPasswordVal)){
                     return;
                 }
-                progressDialog.setMessage("Updating Your Informations");
-                progressDialog.show();
-                User user = new User();
-                user.updateUser(telephoneVal, fullNameVal, telephoneVal, emailVal, newPasswordVal, view.getContext());
-                SessionManager sessionManager = new SessionManager(view.getContext());
-                sessionManager.logout();
-                sessionManager.createUserLoginSession(fullNameVal, telephoneVal, emailVal, newPasswordVal);
-                progressDialog.dismiss();
-                startActivity(new Intent(view.getContext(), ProfileActivity.class));
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("Do you want to update your profile?").setCancelable(false)
+                        .setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                progressDialog.setMessage("Updating Your Informations");
+                                progressDialog.show();
+                                User user = new User();
+                                user.updateUser(telephoneVal, fullNameVal, telephoneVal, emailVal, newPasswordVal, view.getContext());
+                                SessionManager sessionManager = new SessionManager(view.getContext());
+                                sessionManager.logout();
+                                sessionManager.createUserLoginSession(fullNameVal, telephoneVal, emailVal, newPasswordVal);
+                                progressDialog.dismiss();
+                                oldPasswordValEdit.setText(null);
+                                newPasswordValEdit.setText(null);
+                                fullName.requestFocus();
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setMessage("Do you really want to logout?").setCancelable(false)
+                        .setPositiveButton("Logout", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                SessionManager sessionManager = new SessionManager(view.getContext());
+                                sessionManager.logout();
+                                startActivity(new Intent(view.getContext(), LoginActivity.class));
+                                getActivity().onBackPressed();
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+
             }
         });
     }

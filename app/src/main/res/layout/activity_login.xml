@@ -69,7 +69,7 @@
                 android:inputType="phone"
                 android:maxLength="10"
                 android:shadowColor="@color/DarkBlue"
-                android:textColor="@color/Orange3"
+                android:textColor="@color/Orange2"
                 tools:ignore="TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -95,7 +95,7 @@
                 android:fontFamily="@font/cantora_one"
                 android:inputType="textPassword"
                 android:shadowColor="@color/DarkBlue"
-                android:textColor="@color/Orange3"
+                android:textColor="@color/Orange2"
                 tools:ignore="TouchTargetSizeCheck" />
         </com.google.android.material.textfield.TextInputLayout>
 
