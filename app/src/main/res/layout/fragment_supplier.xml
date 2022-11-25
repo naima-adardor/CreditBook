@@ -17,7 +17,7 @@
             android:id="@+id/linearLayout2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="5dp"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -127,7 +127,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginLeft="50dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="50dp"
         android:background="@drawable/radius_button_client"
         android:drawableEnd="@drawable/glis"
@@ -139,30 +139,58 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:paddingLeft="5dp"
         android:paddingRight="5dp">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTextFirstName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="340dp"
+            android:layout_height="wrap_content"
+            android:hint="Search..."
+            android:textColorHint="@color/black"
+            android:transitionName="First Name"
+            app:boxStrokeColor="@color/Orange2"
+            app:boxStrokeWidth="0.5dp"
+            app:boxStrokeWidthFocused="0.5dp"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/Orange2"
+            app:startIconDrawable="@drawable/search_icon">
 
-        <EditText
-            android:id="@+id/editTextTextPersonName3"
-            android:layout_width="285dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/search"
-            android:drawableLeft="@drawable/search_icon"
-            android:drawableRight="@drawable/multiply"
-            android:ems="10"
-            android:hint="@string/search_for_a_supplier"
-            android:inputType="textPersonName"
-            android:textSize="16sp"
-            android:textStyle="italic"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.238"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.45" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/FirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:fontFamily="@font/cantora_one"
+                android:inputType="textPersonName"
+                android:maxLength="10"
+
+                android:shadowColor="@color/DarkBlue"
+                android:textColor="@color/Orange3"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+<!--        <EditText-->
+<!--            android:id="@+id/editTextTextPersonName3"-->
+<!--            android:layout_width="285dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="1"-->
+<!--            android:background="@drawable/search"-->
+<!--            android:drawableLeft="@drawable/search_icon"-->
+<!--            android:drawableRight="@drawable/multiply"-->
+<!--            android:ems="10"-->
+<!--            android:hint="@string/search_for_a_supplier"-->
+<!--            android:inputType="textPersonName"-->
+<!--            android:textSize="16sp"-->
+<!--            android:textStyle="italic"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.238"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintVertical_bias="0.45" />-->
 
         <ImageView
             android:id="@+id/imageView7"
@@ -183,7 +211,7 @@
         android:id="@+id/linearLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:paddingRight="10dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -253,9 +281,9 @@
         android:id="@+id/recyclerViewSupplier"
         android:layout_width="match_parent"
 
-        android:layout_height="wrap_content"
+        android:layout_height="300dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.266"
@@ -264,16 +292,18 @@
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnsupplier"
-        android:layout_width="match_parent"
+        android:layout_width="120dp"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
         android:clickable="true"
         android:contentDescription="@string/Book"
-        app:backgroundTint="@color/Orange2"
-        app:srcCompat="@drawable/add_user" />
+        android:minHeight="48dp"
+        app:tint="@color/white"
+        app:backgroundTint="@color/Orange3"
+        app:srcCompat="@drawable/add_client_supplier" />
 
 
 </LinearLayout>
