@@ -13,7 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CreditBook"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Activities.EditSupplierActivity"
+            android:exported="true">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity
             android:name=".Activities.ViewReportCashbook"
             android:exported="false">
@@ -21,9 +27,7 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-
         <activity
-          
             android:name=".Activities.ForgotPasswordActivity"
             android:exported="false">
             <meta-data
@@ -31,7 +35,6 @@
                 android:value="" />
         </activity>
         <activity
-
             android:name=".Activities.MainDashboardActivity"
             android:exported="false">
             <meta-data
@@ -75,7 +78,7 @@
         </activity>
         <activity
             android:name=".Activities.AddClientActivity"
-            android:exported="false">
+            android:exported="true">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />

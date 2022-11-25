@@ -18,5 +18,7 @@
     <color name="DarkBlue">#15133C</color>
     <color name="green">#38E54D</color>
     <color name="red2">#F37878</color>
+    <color name="red3">#FF3131</color>
+    <color name="babyblue">#7EC8E3</color>
 
 </resources>

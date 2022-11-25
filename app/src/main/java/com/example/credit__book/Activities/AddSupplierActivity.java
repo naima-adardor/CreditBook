@@ -1,6 +1,8 @@
 package com.example.credit__book.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,10 +13,10 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class AddSupplierActivity extends AppCompatActivity {
+public class AddSupplierActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextInputLayout first_name,last_name,email, phone,adresse;
-    private Button add_supplier_btn;
+    private Button add_supplier_btn,Back;
     private DatabaseReference DBreference;
     private FirebaseDatabase DBfirebase;
 
@@ -28,20 +30,34 @@ public class AddSupplierActivity extends AppCompatActivity {
         email = findViewById(R.id.editTextEmail);
         adresse = findViewById(R.id.editTextAdress);
         add_supplier_btn = findViewById(R.id.AddSupplier);
-        DBfirebase = FirebaseDatabase.getInstance();
-        DBreference = DBfirebase.getReference();
-        add_supplier_btn.setOnClickListener(view -> {
+        Back=findViewById(R.id.button_back);
+        add_supplier_btn.setOnClickListener(this);
+        Back.setOnClickListener(this);
 
-            String firstName = first_name.getEditText().getText().toString();
-            String lastName = last_name.getEditText().getText().toString();
-            String phoneNumber = phone.getEditText().getText().toString();
-            String emailSupplier = email.getEditText().getText().toString();
-            String adresseSupplier = adresse.getEditText().getText().toString();
-            Supplier supplier = new Supplier(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier);
-            DBreference.child("suppliers").child(String.valueOf(Supplier.IDsupplier)).setValue(supplier);
-
-
-        });
 
     }
-}
+
+    @Override
+    public void onClick(View view) {
+
+        DBfirebase = FirebaseDatabase.getInstance();
+        DBreference = DBfirebase.getReference();
+        switch (view.getId()) {
+            case R.id.button_back:
+                Intent intent1 = new Intent(AddSupplierActivity.this, client_supplier.class);
+                startActivity(intent1);
+                break;
+            case R.id.AddSupplier:
+
+                String firstName = first_name.getEditText().getText().toString();
+                String lastName = last_name.getEditText().getText().toString();
+                String phoneNumber = phone.getEditText().getText().toString();
+                String emailSupplier = email.getEditText().getText().toString();
+                String adresseSupplier = adresse.getEditText().getText().toString();
+                Supplier supplier = new Supplier(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier);
+                DBreference.child("suppliers").child(String.valueOf(Supplier.IDsupplier)).setValue(supplier);
+
+                break;
+        }
+    }
+    }
