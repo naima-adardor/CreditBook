@@ -1,22 +1,26 @@
 package com.example.credit__book.Adapter;
 
+import android.content.Context;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 
 import com.example.credit__book.Fragments.client_fragment;
 import com.example.credit__book.Fragments.supplier_fragment;
 
-public class PageAdapter extends FragmentPagerAdapter {
+public class PageAdapter extends FragmentStatePagerAdapter {
 
-    int counttab;
+    private int totalTabs;
 
-    public PageAdapter(@NonNull FragmentManager fm,int counttab) {
+    public PageAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
-        this.counttab=counttab;
+        this.totalTabs = NumOfTabs;
     }
+
 
     @NonNull
     @Override
@@ -24,8 +28,10 @@ public class PageAdapter extends FragmentPagerAdapter {
         Fragment fragment = new Fragment();
         switch (position){
             case 0:
+                System.out.println("PageAdapter getItem client");
                 fragment = new client_fragment();break;
             case 1 :
+                System.out.println("PageAdapter getItem supllier");
                 fragment = new supplier_fragment();break;
             default: fragment = new client_fragment();
         }
@@ -34,7 +40,7 @@ public class PageAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return counttab;
+        return totalTabs;
     }
 
 //    public void addFragment(Fragment fragment, String title) {

@@ -22,38 +22,26 @@ import com.example.credit__book.R;
 import com.example.credit__book.recycleview_client_interface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class client_fragment extends Fragment  implements View.OnClickListener ,recycleview_client_interface {
+public class client_fragment extends Fragment {
 
     TextView CountOp;
     TextView countTransaction;
     OperationClientAdapter opAD;
-   FloatingActionButton ajouter;
+    FloatingActionButton ajouter;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_client, container, false);
 
-
-
-
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+        System.out.println("clientFragment onCreateView");
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
         for (int i = 0; i < 10; i++) {
             OperationClient listItem = new OperationClient("Naima ELJID", "20-11-2022", 500, "You have to get");
             context.getListClientOperation().add(listItem);
         }
         opAD = new OperationClientAdapter(context.getListClientOperation(),  this.getContext());
-
+        System.out.println("RecyclerView");
         RecyclerView recyclerViewOperation = view.findViewById(R.id.recyclerViewSupplier);
         recyclerViewOperation.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewOperation.setAdapter(opAD);
@@ -63,18 +51,27 @@ public class client_fragment extends Fragment  implements View.OnClickListener ,
         countTransaction = view.findViewById(R.id.textViewBalance);
         countTransaction.setText("Transactions(" + opAD.getItemCount() + ")");
         ajouter= view.findViewById(R.id.btnclient);
-        ajouter.setOnClickListener(this);
+//        ajouter.setOnClickListener(this);
+
+        return view;
     }
 
     @Override
-    public void onClick(View view) {
-        Intent intent=new Intent(getActivity(), AddClientActivity.class);
-        startActivity(intent);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        System.out.println("client_fragment onViewCreated");
     }
 
-
-    @Override
-    public void onItemClick(int post) {
-
-    }
+//    @Override
+//    public void onClick(View view) {
+//        Intent intent=new Intent(getActivity(), AddClientActivity.class);
+//        startActivity(intent);
+//    }
+//
+//
+//    @Override
+//    public void onItemClick(int post) {
+//
+//    }
 }
