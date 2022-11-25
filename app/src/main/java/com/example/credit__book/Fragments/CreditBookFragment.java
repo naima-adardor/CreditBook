@@ -29,9 +29,7 @@ public class CreditBookFragment extends Fragment implements View.OnClickListener
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        System.out.println("onCreateView CreditBook");
         View view = inflater.inflate(R.layout.fragment_credit_book, container, false);
-        System.out.println("onViewCreated CreditBook");
 
         final TabLayout  tabLayout = view.findViewById(R.id.tabLayout);
         final ViewPager viewPager = view.findViewById(R.id.viewPager);
@@ -40,7 +38,6 @@ public class CreditBookFragment extends Fragment implements View.OnClickListener
         viewPager.setAdapter(adapter);
 //        getParentFragmentManager().popBackStack();
 //        getChildFragmentManager ().beginTransaction().replace(R.id.viewPager, adapter.getItem(0)).commit();
-        System.out.println("CreditBook after pageAdapter");
         viewPager.setCurrentItem(0);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
