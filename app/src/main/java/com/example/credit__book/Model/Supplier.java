@@ -33,8 +33,8 @@ public class Supplier extends Person {
     public void setAddress(String address) {
         this.address = address;
     }
-    public void updateSupplier(int id, String full_name, String phone_number, String email, String address, Context context)
-    {
+    public void updateSupplier(String id, String full_name, String phone_number, String email, String address, Context context)
+     {
         databaseReference = FirebaseDatabase.getInstance().getReference();
         Supplier supplier= new Supplier(Integer.parseInt(id),full_name, phone_number,email,  address);
         databaseReference.child("suppliers").child(id).setValue(supplier).addOnCompleteListener(new OnCompleteListener<Void>() {
