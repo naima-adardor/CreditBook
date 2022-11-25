@@ -58,9 +58,43 @@
                     String phoneNumber = phone.getEditText().getText().toString();
                     String emailClient = email.getEditText().getText().toString();
                     String adresseClient = adresse.getEditText().getText().toString();
+                    if(!validateFirstName(firstName) |  !validateLastName(lastName) | !validateTelephone(phoneNumber) ){
+                        return;
+                    }
                     Client client = new Client(Client.IDclient, firstName + " " + lastName ,phoneNumber,emailClient,adresseClient);
                     DBreference.child("clients").child(String.valueOf(Client.IDclient)).setValue(client);
 
                     break;
         }
-    }}
+    }
+        private boolean validateFirstName(String firstname) {
+            if (firstname.isEmpty()) {
+                this.first_name.setError("This Field is Required!");
+                return false;
+          }else {
+                this.first_name.setError(null);
+                this.first_name.setErrorEnabled(false);
+                return true;
+            }
+        }
+        private boolean validateLastName(String lastname) {
+            if (lastname.isEmpty()) {
+                this.last_name.setError("This Field is Required!");
+                return false;
+            }else {
+                this.last_name.setError(null);
+                this.last_name.setErrorEnabled(false);
+                return true;
+            }
+        }
+        private boolean validateTelephone(String telephone) {
+            if (telephone.isEmpty()) {
+                this.phone.setError("This Field is Required!");
+                return false;
+            }else {
+                this.phone.setError(null);
+                this.phone.setErrorEnabled(false);
+                return true;
+            }
+        }
+    }

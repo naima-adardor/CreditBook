@@ -1,11 +1,11 @@
 package com.example.credit__book.Activities;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.credit__book.R;
 
@@ -27,5 +27,6 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         Intent intent=new Intent(WelcomeActivity.this, HomeAtivity.class);
         startActivity(intent);
+        finish();//to not return back
     }
 }

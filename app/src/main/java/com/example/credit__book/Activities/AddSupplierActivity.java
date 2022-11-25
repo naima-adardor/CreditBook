@@ -54,10 +54,43 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
                 String phoneNumber = phone.getEditText().getText().toString();
                 String emailSupplier = email.getEditText().getText().toString();
                 String adresseSupplier = adresse.getEditText().getText().toString();
+                if(!validateFirstName(firstName) |  !validateLastName(lastName) | !validateTelephone(phoneNumber) ){
+                    return;
+                }
                 Supplier supplier = new Supplier(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier);
                 DBreference.child("suppliers").child(String.valueOf(Supplier.IDsupplier)).setValue(supplier);
 
                 break;
+        }
+    }
+    private boolean validateFirstName(String firstname) {
+        if (firstname.isEmpty()) {
+            this.first_name.setError("This Field is Required!");
+            return false;
+        }else {
+            this.first_name.setError(null);
+            this.first_name.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean validateLastName(String lastname) {
+        if (lastname.isEmpty()) {
+            this.last_name.setError("This Field is Required!");
+            return false;
+        }else {
+            this.last_name.setError(null);
+            this.last_name.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean validateTelephone(String telephone) {
+        if (telephone.isEmpty()) {
+            this.phone.setError("This Field is Required!");
+            return false;
+        }else {
+            this.phone.setError(null);
+            this.phone.setErrorEnabled(false);
+            return true;
         }
     }
     }
