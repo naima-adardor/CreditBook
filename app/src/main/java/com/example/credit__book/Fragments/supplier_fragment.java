@@ -26,8 +26,9 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
 
     TextView CountOp;
     TextView count2;
-    FloatingActionButton ajouter;
     OperationClientAdapter opAD;
+    RecyclerView recyclerViewSupplier;
+    FloatingActionButton btnAddsupplier;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,6 +36,7 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_supplier, container, false);
+
 
         return view;
     }
@@ -49,16 +51,27 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
         }
         opAD = new OperationClientAdapter(context.getListClientOperation(),this.getContext());
 
-        RecyclerView recyclerViewOperation = view.findViewById(R.id.recyclerViewSupplier);
-        recyclerViewOperation.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerViewOperation.setAdapter(opAD);
-        recyclerViewOperation.setHasFixedSize(true);
+        recyclerViewSupplier = view.findViewById(R.id.recyclerViewSupplier);
+        recyclerViewSupplier.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerViewSupplier.setAdapter(opAD);
+        recyclerViewSupplier.setHasFixedSize(true);
         CountOp = view.findViewById(R.id.textViewoperation);
         CountOp.setText("Supplier(" + opAD.getItemCount() + ")");
         count2 = view.findViewById(R.id.textViewBalance);
         count2.setText("Transactions(" + opAD.getItemCount() + ")");
-        ajouter=view.findViewById(R.id.btnsupplier);
-        ajouter.setOnClickListener(this);
+        btnAddsupplier=view.findViewById(R.id.btnAddsupplier);
+        btnAddsupplier.setOnClickListener(this);
+        recyclerViewSupplier.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if(dy>0){
+                    btnAddsupplier.hide();
+                }else{
+                    btnAddsupplier.show();
+                }
+            }
+        });
     }
 
     @Override
