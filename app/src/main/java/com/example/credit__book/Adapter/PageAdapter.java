@@ -28,10 +28,8 @@ public class PageAdapter extends FragmentStatePagerAdapter {
         Fragment fragment = new Fragment();
         switch (position){
             case 0:
-                System.out.println("PageAdapter getItem client");
                 fragment = new client_fragment();break;
             case 1 :
-                System.out.println("PageAdapter getItem supllier");
                 fragment = new supplier_fragment();break;
             default: fragment = new client_fragment();
         }
