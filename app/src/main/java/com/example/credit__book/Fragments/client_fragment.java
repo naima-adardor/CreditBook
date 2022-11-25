@@ -27,7 +27,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, r
     TextView CountOp;
     TextView countTransaction;
     OperationClientAdapter opAD;
-    FloatingActionButton ajouter;
+    FloatingActionButton btnajouterClient;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -48,8 +48,19 @@ public class client_fragment extends Fragment implements View.OnClickListener, r
         CountOp.setText("Clients(" + opAD.getItemCount() + ")");
         countTransaction = view.findViewById(R.id.textViewBalance);
         countTransaction.setText("Transactions(" + opAD.getItemCount() + ")");
-        ajouter= view.findViewById(R.id.btnclient);
-        ajouter.setOnClickListener(this);
+        btnajouterClient= view.findViewById(R.id.btnclient);
+        btnajouterClient.setOnClickListener(this);
+        recyclerViewOperation.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if(dy>0){
+                    btnajouterClient.hide();
+                }else{
+                    btnajouterClient.show();
+                }
+            }
+        });
 
         return view;
     }
