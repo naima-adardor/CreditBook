@@ -144,7 +144,7 @@
         android:paddingRight="5dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/editTextFirstName"
+            android:id="@+id/searchinput"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="340dp"
             android:layout_height="wrap_content"
@@ -159,7 +159,7 @@
             app:startIconDrawable="@drawable/search_icon">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/FirstName"
+                android:id="@+id/Search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -279,7 +279,7 @@
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewSupplier"
+        android:id="@+id/recyclerViewClient"
         android:layout_width="match_parent"
 
         android:layout_height="300dp"

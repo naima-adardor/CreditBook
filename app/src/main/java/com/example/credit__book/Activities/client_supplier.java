@@ -1,9 +1,7 @@
 package com.example.credit__book.Activities;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
@@ -16,8 +14,7 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    private Button addsupplier;
-    private Button addClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,10 +22,7 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
-     /*   addsupplier= findViewById(R.id. btnsupplier);
-        addClient= findViewById(R.id.btnclient);
-        addsupplier.setOnClickListener(this);
-        addClient.setOnClickListener(this);*/
+
 
 
 //        tabLayout.setupWithViewPager2(viewPager);
@@ -58,21 +52,5 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
     }
     @Override
     public void onClick(View view) {
-       /* switch(view.getId()){
-            case R.id.btnsupplier:
-                Intent intent1=new Intent(client_supplier.this, AddSupplierActivity.class);
-                startActivity(intent1);
-                break;
-            case R.id.btnclient:
-                Intent intent2=new Intent(client_supplier.this,AddClientActivity.class);
-                startActivity(intent2);
-                break;
-
-        }*/}
-//    @Override
-//    public void onItemClick(int post) {
-//        Intent intent1=new Intent(client_supplier.this,ViewDetailsActivity.class);
-//        startActivity(intent1);
-//
-//    }
+    }
 }
