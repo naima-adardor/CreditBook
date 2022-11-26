@@ -1,24 +1,32 @@
     package com.example.credit__book.Activities;
 
+    import android.app.ProgressDialog;
     import android.content.Intent;
     import android.os.Bundle;
     import android.view.View;
     import android.widget.Button;
+    import android.widget.Toast;
 
+    import androidx.annotation.NonNull;
     import androidx.appcompat.app.AppCompatActivity;
 
     import com.example.credit__book.Model.Client;
+    import com.example.credit__book.Model.SessionManager;
     import com.example.credit__book.R;
+    import com.google.android.gms.tasks.OnCompleteListener;
+    import com.google.android.gms.tasks.Task;
     import com.google.android.material.textfield.TextInputLayout;
     import com.google.firebase.database.DatabaseReference;
     import com.google.firebase.database.FirebaseDatabase;
+
+    import java.util.HashMap;
 
     public class AddClientActivity extends AppCompatActivity implements View.OnClickListener {
         TextInputLayout first_name,last_name,email, phone,adresse;
         private Button add_client_btn ,Back;
         private DatabaseReference DBreference;
         private FirebaseDatabase DBfirebase;
-
+        private ProgressDialog progressDialog;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +43,9 @@
             Back=findViewById(R.id.button_back);
             add_client_btn.setOnClickListener(this);
             Back.setOnClickListener(this);
-
-
-
-
-
-
+            progressDialog = new ProgressDialog(AddClientActivity.this);
+            progressDialog.setTitle("Please wait...");
+            progressDialog.setCanceledOnTouchOutside(false);
         }
 
         @Override
@@ -58,11 +63,27 @@
                     String phoneNumber = phone.getEditText().getText().toString();
                     String emailClient = email.getEditText().getText().toString();
                     String adresseClient = adresse.getEditText().getText().toString();
-                    if(!validateFirstName(firstName) |  !validateLastName(lastName) | !validateTelephone(phoneNumber) ){
+                    if(!validateFirstName(firstName) |  !validateFirstName(lastName) | !validateTelephone(phoneNumber) ){
                         return;
                     }
-                    Client client = new Client(Client.IDclient, firstName + " " + lastName ,phoneNumber,emailClient,adresseClient);
-                    DBreference.child("clients").child(String.valueOf(Client.IDclient)).setValue(client);
+                    progressDialog.setMessage("Verifing Informations");
+                    progressDialog.show();
+                    SessionManager sessionManager = new SessionManager(view.getContext());
+                    HashMap<String, String> data = sessionManager.getUserDetails();
+                    Client client = new Client(Integer.parseInt(phoneNumber), firstName + " " + lastName ,phoneNumber,emailClient,adresseClient, data.get(SessionManager.TELEPHONE));
+                    DBreference.child("clients " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).setValue(client).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            progressDialog.dismiss();
+                            if (task.isSuccessful()) {
+                                Toast.makeText(AddClientActivity.this, "The client has been created successfuly!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(AddClientActivity.this, AddClientActivity.class));
+                                finish();
+                            }else {
+                                Toast.makeText(AddClientActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
 
                     break;
         }
@@ -74,16 +95,6 @@
           }else {
                 this.first_name.setError(null);
                 this.first_name.setErrorEnabled(false);
-                return true;
-            }
-        }
-        private boolean validateLastName(String lastname) {
-            if (lastname.isEmpty()) {
-                this.last_name.setError("This Field is Required!");
-                return false;
-            }else {
-                this.last_name.setError(null);
-                this.last_name.setErrorEnabled(false);
                 return true;
             }
         }
