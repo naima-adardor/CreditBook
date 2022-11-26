@@ -3,8 +3,6 @@ package com.example.credit__book.Fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -21,15 +19,9 @@ import com.google.android.material.tabs.TabLayout;
 
 public class CreditBookFragment extends Fragment implements View.OnClickListener {
 
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
+//    private TabLayout tabLayout;
+//    private ViewPager viewPager;
 
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -37,11 +29,14 @@ public class CreditBookFragment extends Fragment implements View.OnClickListener
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_credit_book, container, false);
 
-        tabLayout = view.findViewById(R.id.tabLayout);
-        viewPager = view.findViewById(R.id.viewPager);
-
-        PageAdapter pageAdapter = new PageAdapter(getParentFragmentManager(),2);
-        viewPager.setAdapter(pageAdapter);
+        final TabLayout  tabLayout = view.findViewById(R.id.tabLayout);
+        final ViewPager viewPager = view.findViewById(R.id.viewPager);
+        viewPager.setSaveEnabled(false);
+        final PageAdapter adapter = new PageAdapter(getParentFragmentManager (), tabLayout.getTabCount());
+        viewPager.setAdapter(adapter);
+//        getParentFragmentManager().popBackStack();
+//        getChildFragmentManager ().beginTransaction().replace(R.id.viewPager, adapter.getItem(0)).commit();
+        viewPager.setCurrentItem(0);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
@@ -66,7 +61,7 @@ public class CreditBookFragment extends Fragment implements View.OnClickListener
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.btnsupplier:
+            case R.id.btnAddsupplier:
                 Intent intent1=new Intent(getContext(), AddSupplierActivity.class);
                 startActivity(intent1);
                 break;

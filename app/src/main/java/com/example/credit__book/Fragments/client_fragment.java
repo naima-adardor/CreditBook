@@ -28,32 +28,28 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class client_fragment extends Fragment  implements View.OnClickListener ,recycleview_client_interface {
+public class client_fragment extends Fragment implements View.OnClickListener, recycleview_client_interface {
 
     TextView CountOp;
     TextView countTransaction;
     OperationClientAdapter opAD;
+
     FloatingActionButton ajouter;
     DatabaseReference db;
     ArrayList<OperationClient> client;
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_client, container, false);
-
-
-
-
         return view;
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
 
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
      /*   for (int i = 0; i < 10; i++) {
@@ -74,6 +70,18 @@ public class client_fragment extends Fragment  implements View.OnClickListener ,
         countTransaction = view.findViewById(R.id.textViewBalance);
         countTransaction.setText("Transactions(" + opAD.getItemCount() + ")");
         ajouter= view.findViewById(R.id.btnclient);
+        recyclerViewOperation.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if(dy>0){
+                    ajouter.hide();
+                }else{
+                    ajouter.show();
+                }
+            }
+        });
+
         db.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -99,6 +107,7 @@ public class client_fragment extends Fragment  implements View.OnClickListener ,
             }
         });
         ajouter.setOnClickListener(this);
+
     }
 
     @Override

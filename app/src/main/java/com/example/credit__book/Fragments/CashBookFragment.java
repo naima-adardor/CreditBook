@@ -20,46 +20,46 @@ import com.google.android.material.tabs.TabLayout;
 
 public class CashBookFragment extends Fragment {
 
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-    private Button addsupplier;
-    private Button addClient;
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
-        tabLayout = view.findViewById(R.id.tabLayout);
-        viewPager = view.findViewById(R.id.viewPager);
-     /*   addsupplier= findViewById(R.id. btnsupplier);
-        addClient= findViewById(R.id.btnclient);
-        addsupplier.setOnClickListener(this);
-        addClient.setOnClickListener(this);*/
-
-
-//        tabLayout.setupWithViewPager2(viewPager);
+//    private TabLayout tabLayout;
+//    private ViewPager viewPager;
+//    private Button addsupplier;
+//    private Button addClient;
 //
-        PageAdapter pageAdapter = new PageAdapter(getParentFragmentManager(),2);
-        viewPager.setAdapter(pageAdapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//
+//        tabLayout = view.findViewById(R.id.tabLayout);
+//        viewPager = view.findViewById(R.id.viewPager);
+//     /*   addsupplier= findViewById(R.id. btnsupplier);
+//        addClient= findViewById(R.id.btnclient);
+//        addsupplier.setOnClickListener(this);
+//        addClient.setOnClickListener(this);*/
+//
+//
+////        tabLayout.setupWithViewPager2(viewPager);
+////
+//        PageAdapter pageAdapter = new PageAdapter(getParentFragmentManager(),2);
+//        viewPager.setAdapter(pageAdapter);
+//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+//        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                viewPager.setCurrentItem(tab.getPosition());
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//        });
 
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
-    }
+//    }
 
 
 
