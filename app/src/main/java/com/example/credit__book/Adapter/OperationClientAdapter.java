@@ -45,8 +45,7 @@ public class OperationClientAdapter extends RecyclerView.Adapter<OperationClient
 
     @Override
     public OperationClientAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context)
-                .inflate(R.layout.recycler_view_row, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.recycler_view_row, parent, false);
 
         return new ViewHolder(view, context);
     }

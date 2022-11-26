@@ -12,8 +12,7 @@
         android:background="@color/DarkBlue">
 
 
-
-    <ImageView
+        <ImageView
         android:id="@+id/imageView3"
         android:layout_width="145dp"
         android:layout_height="80dp"
@@ -41,7 +40,7 @@
         android:textColor="@color/Gray" />
 
 
-    <LinearLayout
+        <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
