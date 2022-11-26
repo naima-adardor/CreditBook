@@ -2,19 +2,18 @@ package com.example.credit__book.Model;
 
 public class OperationClient {
     private String operation_client_date;
-    private double balance_client;
+    private String balance_client;
     private String description;
     private String name_client;
 
-    public OperationClient() {
 
-    }
 
-    public OperationClient(String name_client, String operation_client_date, double balance_client, String description ) {
+    public OperationClient(String name_client, String operation_client_date, String balance_client, String description ) {
         this.operation_client_date = operation_client_date;
         this.balance_client = balance_client;
         this.description = description;
         this.name_client = name_client;
+
     }
 
     public String getOperation_client_date() {
@@ -25,11 +24,11 @@ public class OperationClient {
         this.operation_client_date = operation_client_date;
     }
 
-    public double getBalance_client() {
+    public String getBalance_client() {
         return balance_client;
     }
 
-    public void setBalance_client(double balance_client) {
+    public void setBalance_client(String balance_client) {
         this.balance_client = balance_client;
     }
 

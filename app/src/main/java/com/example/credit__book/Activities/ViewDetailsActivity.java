@@ -33,16 +33,16 @@ public class ViewDetailsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         listitem = new ArrayList<>();
 
-        listitem.add(new OperationClient("Mohammed Elachyry", "11/11/2022", 80.0, "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "11/11/2022", 80.0, "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "12/11/2022", 50.0, "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "12/11/2022", 50.0, "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "13/11/2022", 120.0, "You Gave"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", 90.0, "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", 90.0, "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", 90.0, "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", 30.0, "You Gave"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", 30.0, "You Gave"));
+        listitem.add(new OperationClient("Mohammed Elachyry", "11/11/2022", "80.0", "You Got"));
+        listitem.add(new OperationClient("Mohammed Elachyry", "11/11/2022", "80.0", "You Got"));
+        listitem.add(new OperationClient("Mohammed Elachyry", "12/11/2022", "80.0", "You Got"));
+        listitem.add(new OperationClient("Mohammed Elachyry", "12/11/2022", "80.0", "You Got"));
+        listitem.add(new OperationClient("Mohammed Elachyry", "13/11/2022", "80.0", "You Gave"));
+        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Got"));
+        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Got"));
+        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Got"));
+        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Gave"));
+        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Gave"));
         adapter = new OperationClientDetailstAdapter(ViewDetailsActivity.this, listitem);
         recyclerView.setAdapter(adapter);
         // CountOp = findViewById(R.id.operation);

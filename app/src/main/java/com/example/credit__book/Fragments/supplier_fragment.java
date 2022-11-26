@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,7 +45,7 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
         super.onViewCreated(view, savedInstanceState);
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
         for (int i = 0; i < 10; i++) {
-            OperationClient listItem = new OperationClient("Naima ELJID", "20-11-2022", 500, "You have to get");
+            OperationClient listItem = new OperationClient("Naima ELJID", "20-11-2022", "500", "You have to get");
             context.getListClientOperation().add(listItem);
         }
         opAD = new OperationClientAdapter(context.getListClientOperation(),this.getContext());
