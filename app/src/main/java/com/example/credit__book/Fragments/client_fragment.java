@@ -62,7 +62,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, r
         db= FirebaseDatabase.getInstance().getReference("OperationClients");
         recyclerViewOperation.setLayoutManager(new LinearLayoutManager(getContext()));
         client =new ArrayList<>();
-        opAD = new OperationClientAdapter(client,  this.getContext());
+        opAD = new OperationClientAdapter(context.getListClientOperation(),this.getContext());
 
         recyclerViewOperation.setHasFixedSize(true);
         CountOp = view.findViewById(R.id.textViewoperation);

@@ -1,5 +1,9 @@
 package com.example.credit__book.Adapter;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.credit__book.Activities.ViewDetailsActivity;
 import com.example.credit__book.Model.OperationSupplier;
 import com.example.credit__book.R;
 
@@ -16,9 +21,11 @@ import java.util.List;
 public class OperationSupplierAdapter extends RecyclerView.Adapter<OperationSupplierAdapter.ViewHolder> {
 
     private final List<OperationSupplier> opListe;
+    private Context context;
 
-    public OperationSupplierAdapter(List<OperationSupplier> list) {
+    public OperationSupplierAdapter(List<OperationSupplier> list,Context context) {
         this.opListe = list;
+        this.context=context;
     }
 
 
@@ -37,6 +44,12 @@ public class OperationSupplierAdapter extends RecyclerView.Adapter<OperationSupp
         holder.typeOperation.setText(listItem.getDescription());
         holder.date.setText((listItem.getOperation_supplier_date()+" "));
         holder.balance.setText((listItem.getBalance_supplier() + "dh"));
+        holder.itemView.setOnClickListener(v -> {
+                    Intent intent = new Intent(context, ViewDetailsActivity.class);
+                    intent.putExtra("position", position);
+                    startActivity(context, intent, null);
+                }
+        );
     }
 
     @Override

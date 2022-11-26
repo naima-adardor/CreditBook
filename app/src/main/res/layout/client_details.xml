@@ -19,7 +19,7 @@
         app:layout_constraintVertical_bias="0.076">
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/back"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginLeft="10dp"
@@ -50,10 +50,11 @@
 
 
         <ImageView
-            android:id="@+id/clientSettings"
+            android:id="@+id/clientupdate"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginLeft="105dp"
+            android:clickable="true"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             app:layout_constraintHorizontal_bias="0.956"
@@ -61,7 +62,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.457"
             app:srcCompat="@drawable/edit_user"
-            app:tint="@color/Orange3"/>
+            app:tint="@color/Orange3" />
 
     </LinearLayout>
 
