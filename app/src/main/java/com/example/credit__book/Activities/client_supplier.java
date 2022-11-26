@@ -27,25 +27,25 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
 
 //        tabLayout.setupWithViewPager2(viewPager);
 //
-        PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(),2);
-        viewPager.setAdapter(pageAdapter);
-        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                viewPager.setCurrentItem(tab.getPosition());
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
+//        PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(),2);
+//        viewPager.setAdapter(pageAdapter);
+//        viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+//        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+//            @Override
+//            public void onTabSelected(TabLayout.Tab tab) {
+//                viewPager.setCurrentItem(tab.getPosition());
+//            }
+//
+//            @Override
+//            public void onTabUnselected(TabLayout.Tab tab) {
+//
+//            }
+//
+//            @Override
+//            public void onTabReselected(TabLayout.Tab tab) {
+//
+//            }
+//        });
 //        vpAdapter.addFragment(new client_fragment(),"client");
 //        vpAdapter.addFragment(new supplier_fragment(),"supplier");
 

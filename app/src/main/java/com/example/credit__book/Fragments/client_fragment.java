@@ -22,30 +22,17 @@ import com.example.credit__book.R;
 import com.example.credit__book.recycleview_client_interface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class client_fragment extends Fragment  implements View.OnClickListener ,recycleview_client_interface {
+public class client_fragment extends Fragment implements View.OnClickListener, recycleview_client_interface {
 
     TextView CountOp;
     TextView countTransaction;
     OperationClientAdapter opAD;
-   FloatingActionButton ajouter;
+    FloatingActionButton btnajouterClient;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_client, container, false);
-
-
-
-
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
 
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
         for (int i = 0; i < 10; i++) {
@@ -53,7 +40,6 @@ public class client_fragment extends Fragment  implements View.OnClickListener ,
             context.getListClientOperation().add(listItem);
         }
         opAD = new OperationClientAdapter(context.getListClientOperation(),  this.getContext());
-
         RecyclerView recyclerViewOperation = view.findViewById(R.id.recyclerViewSupplier);
         recyclerViewOperation.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewOperation.setAdapter(opAD);
@@ -62,8 +48,28 @@ public class client_fragment extends Fragment  implements View.OnClickListener ,
         CountOp.setText("Clients(" + opAD.getItemCount() + ")");
         countTransaction = view.findViewById(R.id.textViewBalance);
         countTransaction.setText("Transactions(" + opAD.getItemCount() + ")");
-        ajouter= view.findViewById(R.id.btnclient);
-        ajouter.setOnClickListener(this);
+        btnajouterClient= view.findViewById(R.id.btnclient);
+        btnajouterClient.setOnClickListener(this);
+        recyclerViewOperation.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if(dy>0){
+                    btnajouterClient.hide();
+                }else{
+                    btnajouterClient.show();
+                }
+            }
+        });
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        System.out.println("client_fragment onViewCreated");
     }
 
     @Override
