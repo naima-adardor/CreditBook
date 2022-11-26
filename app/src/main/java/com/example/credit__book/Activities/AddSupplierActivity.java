@@ -1,17 +1,25 @@
 package com.example.credit__book.Activities;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.Model.Supplier;
 import com.example.credit__book.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class AddSupplierActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -19,6 +27,7 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
     private Button add_supplier_btn,Back;
     private DatabaseReference DBreference;
     private FirebaseDatabase DBfirebase;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +42,9 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
         Back=findViewById(R.id.button_back);
         add_supplier_btn.setOnClickListener(this);
         Back.setOnClickListener(this);
-
+        progressDialog = new ProgressDialog(AddSupplierActivity.this);
+        progressDialog.setTitle("Please wait...");
+        progressDialog.setCanceledOnTouchOutside(false);
 
     }
 
@@ -54,11 +65,25 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
                 String phoneNumber = phone.getEditText().getText().toString();
                 String emailSupplier = email.getEditText().getText().toString();
                 String adresseSupplier = adresse.getEditText().getText().toString();
-                if(!validateFirstName(firstName) |  !validateLastName(lastName) | !validateTelephone(phoneNumber) ){
+                if(!validateFirstName(firstName) |  !validateFirstName(lastName) | !validateTelephone(phoneNumber) ){
                     return;
                 }
-                Supplier supplier = new Supplier(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier);
-                DBreference.child("suppliers").child(String.valueOf(Supplier.IDsupplier)).setValue(supplier);
+                SessionManager sessionManager = new SessionManager(view.getContext());
+                HashMap<String, String> data = sessionManager.getUserDetails();
+                Supplier supplier = new Supplier(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier, data.get(SessionManager.TELEPHONE));
+                DBreference.child("suppliers " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).setValue(supplier).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        progressDialog.dismiss();
+                        if (task.isSuccessful()) {
+                            Toast.makeText(AddSupplierActivity.this, "The supplier has been created successfuly!", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(AddSupplierActivity.this, AddClientActivity.class));
+                            finish();
+                        }else {
+                            Toast.makeText(AddSupplierActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
                 break;
         }
@@ -73,16 +98,7 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
             return true;
         }
     }
-    private boolean validateLastName(String lastname) {
-        if (lastname.isEmpty()) {
-            this.last_name.setError("This Field is Required!");
-            return false;
-        }else {
-            this.last_name.setError(null);
-            this.last_name.setErrorEnabled(false);
-            return true;
-        }
-    }
+
     private boolean validateTelephone(String telephone) {
         if (telephone.isEmpty()) {
             this.phone.setError("This Field is Required!");

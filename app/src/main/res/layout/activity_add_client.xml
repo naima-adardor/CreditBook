@@ -69,7 +69,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="First Name"
+                android:hint="First Name(*)"
                 android:textColorHint="@color/black"
                 android:transitionName="First Name"
                 app:boxStrokeColor="@color/Orange2"
@@ -83,11 +83,8 @@
                     android:id="@+id/FirstName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:fontFamily="@font/cantora_one"
                     android:inputType="textPersonName"
-                    android:maxLength="10"
-
                     android:shadowColor="@color/DarkBlue"
                     android:textColor="@color/Orange3"
                     tools:ignore="TouchTargetSizeCheck" />
@@ -100,7 +97,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:hint="Last Name"
+                android:hint="Last Name(*)"
                 android:textColorHint="@color/black"
                 android:transitionName="Last Name"
                 app:boxStrokeColor="@color/Orange2"
@@ -118,7 +115,6 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/cantora_one"
                     android:inputType="textPersonName"
-                    android:maxLength="10"
                     android:shadowColor="@color/DarkBlue"
                     android:textColor="@color/Orange3"
                     tools:ignore="TouchTargetSizeCheck" />
@@ -130,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:hint="Phone Number"
+                android:hint="Phone Number(*)"
                 android:textColorHint="@color/black"
                 android:transitionName="phone"
                 app:boxStrokeColor="@color/Orange2"
@@ -178,7 +174,6 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/cantora_one"
                     android:inputType="textEmailAddress"
-                    android:maxLength="10"
                     android:shadowColor="@color/DarkBlue"
                     android:textColor="@color/Orange3"
                     tools:ignore="TouchTargetSizeCheck" />
@@ -208,7 +203,6 @@
                     android:layout_marginTop="10dp"
                     android:fontFamily="@font/cantora_one"
                     android:inputType="text"
-                    android:maxLength="10"
                     android:shadowColor="@color/DarkBlue"
                     android:textColor="@color/Orange3"
                     tools:ignore="TouchTargetSizeCheck" />

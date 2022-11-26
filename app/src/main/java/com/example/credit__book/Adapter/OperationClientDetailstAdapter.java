@@ -19,7 +19,7 @@ import com.example.credit__book.R;
 import java.util.List;
 
 
-public class OperationClientDetailstAdapter extends RecyclerView.Adapter<OperationClientDetailstAdapter.ViewHolder> {
+    public class OperationClientDetailstAdapter extends RecyclerView.Adapter<OperationClientDetailstAdapter.ViewHolder> {
     private static List<OperationClient> operations;
     private Context context;
 
