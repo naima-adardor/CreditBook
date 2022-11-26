@@ -40,7 +40,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, r
             context.getListClientOperation().add(listItem);
         }
         opAD = new OperationClientAdapter(context.getListClientOperation(),  this.getContext());
-        RecyclerView recyclerViewOperation = view.findViewById(R.id.recyclerViewSupplier);
+        RecyclerView recyclerViewOperation = view.findViewById(R.id.recyclerViewClient);
         recyclerViewOperation.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerViewOperation.setAdapter(opAD);
         recyclerViewOperation.setHasFixedSize(true);
