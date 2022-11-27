@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,13 +22,13 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
     private Button Delete ,Update;
     private DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
-    private Button Back;
+    private ImageView Back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_client_supplier);
-        Back=findViewById(R.id.button_back);
+        Back=findViewById(R.id.back);
         Back.setOnClickListener(this);
    /*     first_nameV = findViewById(R.id.editTextFirstName);
         last_nameV = findViewById(R.id.editTextLastName);
@@ -44,9 +45,8 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.button_back:
-                Intent intent1=new Intent(EditSupplierActivity.this, ViewDetailsActivity.class);
-                startActivity(intent1);
+            case R.id.back:
+                finish();
                 break;
         /*String firstName = first_name.getEditText().getText()+ "";
         String lastName = last_name.getEditText().getText().toString();

@@ -5,6 +5,7 @@
     import android.os.Bundle;
     import android.view.View;
     import android.widget.Button;
+    import android.widget.ImageView;
     import android.widget.Toast;
 
     import androidx.annotation.NonNull;
@@ -23,7 +24,8 @@
 
     public class AddClientActivity extends AppCompatActivity implements View.OnClickListener {
         TextInputLayout first_name,last_name,email, phone,adresse;
-        private Button add_client_btn ,Back;
+        private Button add_client_btn;
+        private ImageView Back;
         private DatabaseReference DBreference;
         private FirebaseDatabase DBfirebase;
         private ProgressDialog progressDialog;
@@ -40,7 +42,7 @@
             email= findViewById(R.id.editTextEmail);
             adresse = findViewById(R.id.editTextAdress);
             add_client_btn=findViewById(R.id.AddClient);
-            Back=findViewById(R.id.button_back);
+            Back=findViewById(R.id.back);
             add_client_btn.setOnClickListener(this);
             Back.setOnClickListener(this);
             progressDialog = new ProgressDialog(AddClientActivity.this);
@@ -53,9 +55,8 @@
             DBfirebase = FirebaseDatabase.getInstance();
             DBreference= DBfirebase.getReference();
             switch(view.getId()){
-                case R.id.button_back:
-                    Intent intent1=new Intent(AddClientActivity.this, client_supplier.class);
-                    startActivity(intent1);
+                case R.id.back:
+                    finish();
                     break;
                 case R.id.AddClient:
                     String firstName = first_name.getEditText().getText().toString();

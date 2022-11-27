@@ -26,7 +26,7 @@ public class ViewDetailsActivity extends AppCompatActivity implements View.OnCli
     private RecyclerView recyclerView;
     private List<OperationClient> listitem;
     private RecyclerView.Adapter adapter;
-    ImageView update,back;
+    ImageView clientupdate,back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,8 +49,8 @@ public class ViewDetailsActivity extends AppCompatActivity implements View.OnCli
         listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Gave"));
         adapter = new OperationClientDetailstAdapter(ViewDetailsActivity.this, listitem);
         recyclerView.setAdapter(adapter);
-       update=findViewById(R.id.clientupdate);
-        update.setOnClickListener(this);
+        clientupdate=findViewById(R.id.clientupdate);
+        clientupdate.setOnClickListener(this);
         back=findViewById(R.id.back);
         back.setOnClickListener(this);
         // CountOp = findViewById(R.id.operation);
@@ -66,10 +66,9 @@ public class ViewDetailsActivity extends AppCompatActivity implements View.OnCli
                 Intent intent=new Intent (ViewDetailsActivity.this,EditSupplierActivity.class);
                 startActivity(intent);
                 break;
-           /* case R.id.back:
-                Intent intent2=new Intent (ViewDetailsActivity.this,(supplier_fragment)getSupportFragmentManager().class);
-                startActivity(intent2);
-                break;*/
+           case R.id.back:
+                finish();
+                break;
 
     }}
 //
