@@ -58,13 +58,15 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_baseline_phone_forwarded_24"
             app:tint="@color/green"
-            android:layout_marginRight="30dp"/>
+            android:layout_marginRight="30dp"
+            android:id="@+id/callClient"/>
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_message"
-            app:tint="@color/Orange3"/>
+            app:tint="@color/Orange3"
+            android:id="@+id/messageClient"/>
 
     </LinearLayout>
 

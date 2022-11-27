@@ -1,6 +1,7 @@
 package com.example.credit__book.Activities;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -19,20 +20,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ViewDetailsActivity extends AppCompatActivity implements View.OnClickListener{
+public class ViewDetailsActivity extends AppCompatActivity {
     TextView CountOp;
     TextView count2;
     OperationClientAdapter opAD;
     private RecyclerView recyclerView;
     private List<OperationClient> listitem;
     private RecyclerView.Adapter adapter;
-    ImageView clientupdate,back;
+    ImageView clientupdate,back, callClient, messageClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_details);
 
         recyclerView = findViewById(R.id.recyclerView2);
+        clientupdate=findViewById(R.id.clientupdate);
+        back=findViewById(R.id.back);
+        callClient = findViewById(R.id.callClient);
+        messageClient = findViewById(R.id.messageClient);
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         listitem = new ArrayList<>();
@@ -49,32 +55,43 @@ public class ViewDetailsActivity extends AppCompatActivity implements View.OnCli
         listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Gave"));
         adapter = new OperationClientDetailstAdapter(ViewDetailsActivity.this, listitem);
         recyclerView.setAdapter(adapter);
-        clientupdate=findViewById(R.id.clientupdate);
-        clientupdate.setOnClickListener(this);
-        back=findViewById(R.id.back);
-        back.setOnClickListener(this);
+
         // CountOp = findViewById(R.id.operation);
         //CountOp.setText("Supplier(" + opAD.getItemCount() + ")");
        // count2 = findViewById(R.id.balance);
         //count2.setText("Transactions(" + opAD.getItemCount() + ")");
-}
+        clientupdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent (ViewDetailsActivity.this,EditSupplierActivity.class));
+            }
+        });
 
-    @Override
-    public void onClick(View view) {
-        switch(view.getId()){
-            case R.id.clientupdate:
-                Intent intent=new Intent (ViewDetailsActivity.this,EditSupplierActivity.class);
-                startActivity(intent);
-                break;
-           case R.id.back:
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
-                break;
+            }
+        });
 
-    }}
-//
-//    @Override
-//    public void onItemClick(int post) {
-//
-//    }
+        callClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:0680346100"));
+                startActivity(intent);
+            }
+        });
+
+        messageClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent smsIntent = new Intent(Intent.ACTION_VIEW);
+                smsIntent.setType("vnd.android-dir/mms-sms");
+                smsIntent.putExtra("address", "0680346100");
+                startActivity(smsIntent);
+            }
+        });
+}
 
 }

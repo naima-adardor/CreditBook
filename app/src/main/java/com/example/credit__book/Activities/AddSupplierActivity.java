@@ -57,8 +57,7 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
         DBreference = DBfirebase.getReference();
         switch (view.getId()) {
             case R.id.back:
-                Intent intent1 = new Intent(AddSupplierActivity.this, client_supplier.class);
-                startActivity(intent1);
+                finish();
                 break;
             case R.id.AddSupplier:
 
