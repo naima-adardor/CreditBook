@@ -66,10 +66,9 @@ public class ViewDetailsActivity extends AppCompatActivity implements View.OnCli
                 Intent intent=new Intent (ViewDetailsActivity.this,EditSupplierActivity.class);
                 startActivity(intent);
                 break;
-           /* case R.id.back:
-                Intent intent2=new Intent (ViewDetailsActivity.this,(supplier_fragment)getSupportFragmentManager().class);
-                startActivity(intent2);
-                break;*/
+           case R.id.back:
+              finish();
+                break;
 
     }}
 //

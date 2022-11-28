@@ -28,13 +28,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class client_fragment extends Fragment implements View.OnClickListener, recycleview_client_interface {
+public class client_fragment<FirebaseRecyclerAdapter> extends Fragment implements View.OnClickListener, recycleview_client_interface {
 
     TextView CountOp;
     TextView countTransaction;
     OperationClientAdapter opAD;
 
     FloatingActionButton ajouter;
+
     DatabaseReference db;
     ArrayList<OperationClient> client;
 
