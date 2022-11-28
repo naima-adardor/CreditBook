@@ -16,7 +16,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.credit__book.Activities.AddSupplierActivity;
 import com.example.credit__book.Activities.MyApplication;
 import com.example.credit__book.Adapter.OperationClientAdapter;
+import com.example.credit__book.Adapter.OperationSupplierAdapter;
 import com.example.credit__book.Model.OperationClient;
+import com.example.credit__book.Model.OperationSupplier;
 import com.example.credit__book.R;
 import com.example.credit__book.recycleview_client_interface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -25,7 +27,7 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
 
     TextView CountOp;
     TextView count2;
-    OperationClientAdapter opAD;
+    OperationSupplierAdapter opAD;
     RecyclerView recyclerViewSupplier;
     FloatingActionButton btnAddsupplier;
 
@@ -44,11 +46,11 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
-        for (int i = 0; i < 10; i++) {
-            OperationClient listItem = new OperationClient("Naima ELJID", "20-11-2022", "500", "You have to get");
-            context.getListClientOperation().add(listItem);
-        }
-        opAD = new OperationClientAdapter(context.getListClientOperation(),this.getContext());
+//        for (int i = 0; i < 10; i++) {
+//            OperationSupplier listItem = new OperationSupplier("Naima ELJID", "20-11-2022", "500", "You have to get");
+//            context.getListClientOperation().add(listItem);
+//        }
+        opAD = new OperationSupplierAdapter(context.getListSupplierOperation(),this.getContext());
 
         recyclerViewSupplier = view.findViewById(R.id.recyclerViewSupplier);
         recyclerViewSupplier.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -57,7 +57,7 @@ public class OperationClientAdapter extends RecyclerView.Adapter<OperationClient
         holder.nameClient.setText(operation.getName_client());
         holder.typeOperation.setText(operation.getDescription());
         holder.date.setText(operation.getOperation_client_date() + " ");
-        holder.balance.setText(operation.getBalance_client() + "dh");
+        holder.balance.setText(operation.getBalance_client());
 
         holder.itemView.setOnClickListener(v -> {
                     Intent intent = new Intent(context, ViewDetailsActivity.class);

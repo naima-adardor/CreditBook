@@ -2,10 +2,12 @@ package com.example.credit__book.Fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,11 +34,12 @@ public class client_fragment extends Fragment implements View.OnClickListener, r
 
     TextView CountOp;
     TextView countTransaction;
-    OperationClientAdapter opAD;
-
-    FloatingActionButton ajouter;
-    DatabaseReference db;
-    ArrayList<OperationClient> client;
+    RecyclerView recyclerViewOperation;
+    FloatingActionButton add_client_btn;
+    OperationClientAdapter operationClientAdapter;
+    DatabaseReference databaseReference;
+    FirebaseDatabase firebaseDatabase;
+//    ArrayList<OperationClient> list_client;
 
 
     @Override
@@ -52,61 +55,55 @@ public class client_fragment extends Fragment implements View.OnClickListener, r
 
 
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
-     /*   for (int i = 0; i < 10; i++) {
-            OperationClient listItem = new OperationClient("Naima ELJID", "20-11-2022", 500, "You have to get");
-            context.getListClientOperation().add(listItem);
-        }*/
 
-
-        RecyclerView recyclerViewOperation = view.findViewById(R.id.recyclerViewClient);
-        db= FirebaseDatabase.getInstance().getReference("OperationClients");
-        recyclerViewOperation.setLayoutManager(new LinearLayoutManager(getContext()));
-        client =new ArrayList<>();
-        opAD = new OperationClientAdapter(client,  this.getContext());
-
-        recyclerViewOperation.setHasFixedSize(true);
+        recyclerViewOperation = view.findViewById(R.id.recyclerViewClient);
         CountOp = view.findViewById(R.id.textViewoperation);
-        CountOp.setText("Clients(" + opAD.getItemCount() + ")");
         countTransaction = view.findViewById(R.id.textViewBalance);
-        countTransaction.setText("Transactions(" + opAD.getItemCount() + ")");
-        ajouter= view.findViewById(R.id.btnclient);
+        add_client_btn= view.findViewById(R.id.btnclient);
+        add_client_btn.setOnClickListener(this);
+        operationClientAdapter = new OperationClientAdapter(context.getListClientOperation(),this.getContext());
+        recyclerViewOperation.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerViewOperation.setHasFixedSize(true);
+
+//        operationClientAdapter = new OperationClientAdapter(context.getListClientOperation(),this.getContext());
+        CountOp.setText("Clients(" + operationClientAdapter.getItemCount() + ")");
+        countTransaction.setText("Transactions(" + operationClientAdapter.getItemCount() + ")");
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference= firebaseDatabase.getReference().child("OperationClients").child("1");
         recyclerViewOperation.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 if(dy>0){
-                    ajouter.hide();
+                    add_client_btn.hide();
                 }else{
-                    ajouter.show();
+                    add_client_btn.show();
                 }
             }
         });
 
-        db.addValueEventListener(new ValueEventListener() {
+        ValueEventListener valueEventListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                client.clear();
-                for(DataSnapshot dataSnapshot :snapshot.child("OperationClients").getChildren()){
-                    if(dataSnapshot.hasChild("operation_client_date")&&dataSnapshot.hasChild("balance_client")&&dataSnapshot.hasChild("description")&&dataSnapshot.hasChild("name_client")){
-                    final String date=dataSnapshot.child("operation_client_date").getValue(String.class);
-                    final String balance_client=dataSnapshot.child("balance_client").getValue(String.class);
-                    final String description=dataSnapshot.child("description").getValue(String.class);
-                    final String name_client=dataSnapshot.child("name_client").getValue(String.class);
-                  /*  OperationClient operationClient= dataSnapshot.getValue(OperationClient.class);
-                    client.add(operationClient);*/
-                    OperationClient operationClient=new OperationClient(name_client,date,balance_client,description);
-                    client.add(operationClient);
-                }}
-                recyclerViewOperation.setAdapter(opAD);
-                opAD.notifyDataSetChanged();
-            }
+                context.getListClientOperation().clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    OperationClient operationClient = dataSnapshot.getValue(OperationClient.class);
+                    context.getListClientOperation().add(operationClient);
 
+                }
+
+                recyclerViewOperation.setAdapter(operationClientAdapter);
+                operationClientAdapter.notifyDataSetChanged();
+                Log.d("omg",context.getListClientOperation().size()+"");
+            }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(getActivity(),"Fail to get data.", Toast.LENGTH_SHORT).show();
             }
-        });
-        ajouter.setOnClickListener(this);
+        };
+
+          databaseReference.addValueEventListener(valueEventListener);
+
 
     }
 

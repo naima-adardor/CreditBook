@@ -1,5 +1,6 @@
 package com.example.credit__book.Adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +18,7 @@ public class OperationSupplierAdapter extends RecyclerView.Adapter<OperationSupp
 
     private final List<OperationSupplier> opListe;
 
-    public OperationSupplierAdapter(List<OperationSupplier> list) {
+    public OperationSupplierAdapter(List<OperationSupplier> list, Context context) {
         this.opListe = list;
     }
 
