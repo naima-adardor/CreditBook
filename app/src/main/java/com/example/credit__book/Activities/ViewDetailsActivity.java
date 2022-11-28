@@ -80,8 +80,12 @@ public class ViewDetailsActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse("tel:0680346100"));
                 startActivity(intent);
+
+
+
             }
         });
+
 
         messageClient.setOnClickListener(new View.OnClickListener() {
             @Override
