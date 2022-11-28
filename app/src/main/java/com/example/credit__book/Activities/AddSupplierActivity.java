@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,7 +25,8 @@ import java.util.HashMap;
 public class AddSupplierActivity extends AppCompatActivity implements View.OnClickListener {
 
     TextInputLayout first_name,last_name,email, phone,adresse;
-    private Button add_supplier_btn,Back;
+    private Button add_supplier_btn;
+    private ImageView Back;
     private DatabaseReference DBreference;
     private FirebaseDatabase DBfirebase;
     private ProgressDialog progressDialog;
@@ -39,7 +41,7 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
         email = findViewById(R.id.editTextEmail);
         adresse = findViewById(R.id.editTextAdress);
         add_supplier_btn = findViewById(R.id.AddSupplier);
-        Back=findViewById(R.id.button_back);
+        Back=findViewById(R.id.back);
         add_supplier_btn.setOnClickListener(this);
         Back.setOnClickListener(this);
         progressDialog = new ProgressDialog(AddSupplierActivity.this);
@@ -54,9 +56,8 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
         DBfirebase = FirebaseDatabase.getInstance();
         DBreference = DBfirebase.getReference();
         switch (view.getId()) {
-            case R.id.button_back:
-                Intent intent1 = new Intent(AddSupplierActivity.this, client_supplier.class);
-                startActivity(intent1);
+            case R.id.back:
+                finish();
                 break;
             case R.id.AddSupplier:
 
