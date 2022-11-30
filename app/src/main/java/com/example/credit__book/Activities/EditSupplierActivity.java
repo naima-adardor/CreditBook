@@ -70,6 +70,7 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
         phoneV.setText(phoneI);
         emailV.setText(emailI);
         adresseV.setText(address);
+        phoneV.setFocusable(false);
 
         Update=findViewById(R.id.Update);
         Delete=findViewById(R.id.Delete);

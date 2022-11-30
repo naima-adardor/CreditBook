@@ -69,6 +69,7 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
         phoneV.setText(phoneI);
         emailV.setText(emailI);
         adresseV.setText(address);
+        phoneV.setFocusable(false);
         Update=findViewById(R.id.Update);
         Delete=findViewById(R.id.Delete);
 
