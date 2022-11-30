@@ -123,7 +123,51 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
 
             }
         });
+        Delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setMessage("Are you sure You want to delete this client").setCancelable(false)
+                        .setPositiveButton("Delete", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
 
+                                progressDialog.setMessage("Deleting");
+                                progressDialog.show();
+                                SessionManager sessionManager = new SessionManager(view.getContext());
+                                HashMap<String, String> data = sessionManager.getUserDetails();
+                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+                                String firstName = first_name.getEditText().getText()+ "";
+                                String lastName = last_name.getEditText().getText().toString();
+                                String phoneNumber = phone.getEditText().getText().toString();
+                                String emailSupplier = email.getEditText().getText().toString();
+                                String adresseSupplier = adresse.getEditText().getText().toString();
+                                databaseReference.child("clients " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        progressDialog.dismiss();
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(EditClientActivity.this, "Your Client has been deleted successfuly!", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(EditClientActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+
+
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+
+            }
+        });
     }
 
     @Override
