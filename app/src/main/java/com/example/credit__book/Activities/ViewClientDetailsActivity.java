@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +28,8 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private ImageView clientupdate,back, callClient, messageClient;
     private String phone, name, email, address;
+    private Button gavebtn;
+    private Button gotbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,8 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
         back=findViewById(R.id.back);
         callClient = findViewById(R.id.callClient);
         messageClient = findViewById(R.id.messageClient);
+        gavebtn=findViewById(R.id.gaveBtn);
+        gotbtn = findViewById(R.id.gotBtn);
 
         clientName.setText(name);
 
@@ -77,6 +82,22 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
                 intent.putExtra("Client Email", email);
                 intent.putExtra("Client Address", address);
                 startActivity(new Intent (intent));
+            }
+        });
+
+        gavebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewClientDetailsActivity.this,CashOutActivity.class);
+                startActivity(new Intent(intent));
+            }
+        });
+
+        gotbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewClientDetailsActivity.this,CashinActivity.class);
+                startActivity(new Intent(intent));
             }
         });
 

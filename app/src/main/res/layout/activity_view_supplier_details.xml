@@ -101,7 +101,7 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView2"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
+                android:layout_height="wrap_content"
                 app:layout_constraintBottom_toTopOf="@+id/iGotBtn"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -111,7 +111,7 @@
                 tools:listitem="@layout/recycler_view_row_client_details" />
 
             <Button
-                android:id="@+id/iGotBtn"
+                android:id="@+id/gotBtn"
                 android:layout_width="151dp"
                 android:layout_height="56dp"
                 android:backgroundTint="@color/green"
@@ -125,7 +125,7 @@
                 app:layout_constraintVertical_bias="0.968" />
 
             <Button
-                android:id="@+id/iGaveBtn"
+                android:id="@+id/gaveBtn"
                 android:layout_width="151dp"
                 android:layout_height="55dp"
                 android:backgroundTint="@color/red2"

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,6 +27,8 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter;
     private ImageView supplierupdate,back, callSupplier, messageSupplier;
     private String phone, name, email, address;
+    private Button gavebtn;
+    private Button gobtn;
 
 
     @Override
@@ -44,6 +47,8 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
         back=findViewById(R.id.back);
         callSupplier = findViewById(R.id.callSupplier);
         messageSupplier = findViewById(R.id.messageSupplier);
+        gobtn = findViewById(R.id.gotBtn);
+        gavebtn = findViewById(R.id.gaveBtn);
 
         supplierName.setText(name);
 
@@ -80,6 +85,22 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
             }
         });
 
+        gavebtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewSupplierDetailsActivity.this,CashOutActivity.class);
+                startActivity(new Intent(intent));
+            }
+        });
+
+        gobtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewSupplierDetailsActivity.this,CashinActivity.class);
+                startActivity(new Intent(intent));
+            }
+        });
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,5 +127,8 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
                 startActivity(smsIntent);
             }
         });
+
+
+
     }
 }
