@@ -130,35 +130,6 @@
             android:paddingLeft="5dp"
             android:paddingRight="5dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/editTextFirstName"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="340dp"
-                android:layout_height="wrap_content"
-                android:hint="Search..."
-                android:textColorHint="@color/black"
-                android:transitionName="First Name"
-                app:boxStrokeColor="@color/Orange2"
-                app:boxStrokeWidth="0.5dp"
-                app:boxStrokeWidthFocused="0.5dp"
-                app:endIconMode="clear_text"
-                app:hintTextColor="@color/Orange2"
-                app:startIconDrawable="@drawable/search_icon">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/FirstName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-
-                    android:fontFamily="@font/cantora_one"
-                    android:inputType="textPersonName"
-                    android:maxLength="10"
-
-                    android:shadowColor="@color/DarkBlue"
-                    android:textColor="@color/Orange3"
-                    tools:ignore="TouchTargetSizeCheck" />
-            </com.google.android.material.textfield.TextInputLayout>
-
 
             <!--        <EditText-->
             <!--            android:id="@+id/editTextTextPersonName3"-->
@@ -179,6 +150,16 @@
             <!--            app:layout_constraintStart_toStartOf="parent"-->
             <!--            app:layout_constraintTop_toTopOf="parent"-->
             <!--            app:layout_constraintVertical_bias="0.45" />-->
+
+            <androidx.appcompat.widget.SearchView
+                android:id="@+id/searchView"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:queryHint="Search ..."
+                app:iconifiedByDefault="false"/>
+
+
 
             <ImageView
                 android:id="@+id/imageView7"

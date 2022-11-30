@@ -29,6 +29,11 @@ public class SupplierAdapter extends RecyclerView.Adapter<SupplierAdapter.MyView
         this.suppliersList = suppliersList;
     }
 
+    public void setFilteredList(ArrayList<Supplier> filtredList) {
+        suppliersList = filtredList;
+        notifyDataSetChanged();
+    }
+
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
