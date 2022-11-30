@@ -1,6 +1,8 @@
 package com.example.credit__book.Model;
 
-import java.util.Date;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 
 public class Client extends Person {
 
@@ -16,6 +18,11 @@ public class Client extends Person {
         this.address = address;
         this.user = user;
         this.dateCreation = dateCreation;
+    }
+    public Client(int id, String full_name, String phone_number, String email, String address) {
+        super(id, full_name, phone_number, email);
+        this.address = address;
+
     }
 
     public String getDateCreation() {
@@ -41,6 +48,23 @@ public class Client extends Person {
     public void setUser(String user) {
         this.user = user;
     }
+    public static void showDialog(Context context) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setMessage("Do you want to update these informations").setCancelable(false)
+                .setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
 
+
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
+                    }
+                }).show();
+
+    }
 
 }
