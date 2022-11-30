@@ -14,7 +14,9 @@ import com.example.credit__book.Model.Client;
 import com.example.credit__book.R;
 import com.example.credit__book.RecycleViewClientInterface;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.MyViewHolder> {
 
@@ -27,6 +29,12 @@ public class ClientAdapter extends RecyclerView.Adapter<ClientAdapter.MyViewHold
         this.clientList = clientList;
         this.clientInterface = clientInterface;
     }
+
+    public void setFilteredList(ArrayList<Client> filtredList) {
+        clientList = filtredList;
+        notifyDataSetChanged();
+    }
+
 
     @NonNull
     @Override
