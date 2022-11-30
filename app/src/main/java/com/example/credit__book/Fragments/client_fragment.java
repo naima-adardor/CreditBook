@@ -1,13 +1,16 @@
 package com.example.credit__book.Fragments;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,11 +19,14 @@ import com.example.credit__book.Activities.AddClientActivity;
 import com.example.credit__book.Activities.MyApplication;
 import com.example.credit__book.Activities.ViewClientDetailsActivity;
 import com.example.credit__book.Adapter.ClientAdapter;
+import com.example.credit__book.Adapter.OperationClientAdapter;
 import com.example.credit__book.Model.Client;
+import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.R;
 import com.example.credit__book.RecycleViewClientInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,13 +35,15 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Locale;
 
 public class client_fragment extends Fragment implements View.OnClickListener, RecycleViewClientInterface {
 
 
     ClientAdapter clientAdapter;
     RecyclerView recyclerView;
-
+    SearchView searchView;
     FloatingActionButton ajouter;
     DatabaseReference database;
     ArrayList<Client> clientList;
@@ -55,6 +63,21 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
         super.onViewCreated(view, savedInstanceState);
 
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
+
+        searchView = view.findViewById(R.id.searchView);
+        searchView.clearFocus();
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                filterList(newText);
+                return true;
+            }
+        });
 
         recyclerView = view.findViewById(R.id.recyclerViewClient);
         SessionManager sessionManager = new SessionManager(context);
@@ -101,6 +124,26 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
             }
         });
 
+
+
+
+
+
+    }
+
+    private void filterList(String text) {
+        ArrayList<Client> filteredList = new ArrayList<>();
+        for (Client item : clientList ){
+            if (item.getFull_name().toLowerCase().contains(text.toLowerCase())){
+                filteredList.add(item);
+            }
+        }
+        if (filteredList.isEmpty()){
+            Toast.makeText(this.getActivity(), "No Data Found !", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            clientAdapter.setFilteredList(filteredList);
+        }
     }
 
     //    @Override
@@ -183,4 +226,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
         intent.putExtra("Client Address", clientList.get(position).getAddress());
         startActivity(intent);
     }
+
+
+
 }
