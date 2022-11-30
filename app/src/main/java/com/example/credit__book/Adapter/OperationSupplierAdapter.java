@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.credit__book.Activities.ViewDetailsActivity;
+import com.example.credit__book.Activities.ViewClientDetailsActivity;
 import com.example.credit__book.Model.OperationSupplier;
 import com.example.credit__book.R;
 
@@ -45,7 +45,7 @@ public class OperationSupplierAdapter extends RecyclerView.Adapter<OperationSupp
         holder.date.setText((listItem.getOperation_supplier_date()+" "));
         holder.balance.setText((listItem.getBalance_supplier() + "dh"));
         holder.itemView.setOnClickListener(v -> {
-                    Intent intent = new Intent(context, ViewDetailsActivity.class);
+                    Intent intent = new Intent(context, ViewClientDetailsActivity.class);
                     intent.putExtra("position", position);
                     startActivity(context, intent, null);
                 }
@@ -65,10 +65,10 @@ public class OperationSupplierAdapter extends RecyclerView.Adapter<OperationSupp
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            date = itemView.findViewById(R.id.dateOperation);
-            balance = itemView.findViewById(R.id.balanceClient);
-            typeOperation = itemView.findViewById(R.id.description);
-            nameSupplier = itemView.findViewById(R.id.nameClient);
+//            date = itemView.findViewById(R.id.dateOperation);
+//            balance = itemView.findViewById(R.id.balanceClient);
+//            typeOperation = itemView.findViewById(R.id.description);
+//            nameSupplier = itemView.findViewById(R.id.nameClient);
         }
     }
 }

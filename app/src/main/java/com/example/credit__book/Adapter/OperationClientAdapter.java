@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.credit__book.Activities.ViewDetailsActivity;
+import com.example.credit__book.Activities.ViewClientDetailsActivity;
 import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.R;
 
@@ -36,10 +36,10 @@ public class OperationClientAdapter extends RecyclerView.Adapter<OperationClient
 
         public ViewHolder(@NonNull View itemView, Context context) {
             super(itemView);
-            date = itemView.findViewById(R.id.dateOperation);
-            balance = itemView.findViewById(R.id.balanceClient);
-            typeOperation = itemView.findViewById(R.id.description);
-            nameClient = itemView.findViewById(R.id.nameClient);
+//            date = itemView.findViewById(R.id.dateOperation);
+//            balance = itemView.findViewById(R.id.balanceClient);
+//            typeOperation = itemView.findViewById(R.id.description);
+//            nameClient = itemView.findViewById(R.id.nameClient);
         }
     }
 
@@ -60,7 +60,7 @@ public class OperationClientAdapter extends RecyclerView.Adapter<OperationClient
         holder.balance.setText(operation.getBalance_client() + "dh");
 
         holder.itemView.setOnClickListener(v -> {
-                    Intent intent = new Intent(context, ViewDetailsActivity.class);
+                    Intent intent = new Intent(context, ViewClientDetailsActivity.class);
                     intent.putExtra("position", position);
                     startActivity(context, intent, null);
                 }

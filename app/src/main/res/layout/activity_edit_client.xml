@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.EditClientActivity">
+
+    <RelativeLayout
+        android:id="@+id/linearLaout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="7dp">
+
+        <ImageView
+            android:id="@+id/back"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="7dp"
+            android:layout_alignParentLeft="true"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"/>
+
+        <TextView
+            android:id="@+id/clientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/alata"
+            android:gravity="center"
+            android:text="Edit"
+            android:textColor="@color/DarkBlue"
+            android:textSize="25dp" />
+
+
+        <ImageView
+            android:id="@+id/clientupdate"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:clickable="true"
+            app:srcCompat="@drawable/edit_user"
+            app:tint="@color/Orange3"
+            android:layout_marginEnd="7dp"
+            android:layout_alignParentEnd="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTextFirstName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="First Name"
+            android:textColorHint="@color/black"
+            android:transitionName="First Name"
+            app:boxStrokeColor="@color/Orange2"
+            app:boxStrokeWidth="0.5dp"
+            app:boxStrokeWidthFocused="0.5dp"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/Orange2"
+            app:startIconDrawable="@drawable/client_supplier">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/FirstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/cantora_one"
+                android:inputType="textPersonName"
+                android:shadowColor="@color/DarkBlue"
+                android:textColor="@color/Orange2"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTextLastName"
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="Last Name"
+            android:textColorHint="@color/black"
+            android:transitionName="Last Name"
+            app:boxStrokeColor="@color/Orange2"
+            app:boxStrokeWidth="0.5dp"
+            app:boxStrokeWidthFocused="0.5dp"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/Orange2"
+            app:startIconDrawable="@drawable/client_supplier">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/LastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cantora_one"
+                android:inputType="textPersonName"
+                android:shadowColor="@color/DarkBlue"
+                android:textColor="@color/Orange2"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/telephone"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="Phone Number"
+            android:textColorHint="@color/black"
+            android:transitionName="phone"
+            app:boxStrokeColor="@color/Orange2"
+            app:boxStrokeWidth="0.5dp"
+            app:boxStrokeWidthFocused="0.5dp"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/Orange2"
+            app:prefixText="+212"
+            app:startIconDrawable="@drawable/phone30">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tele"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cantora_one"
+                android:inputType="phone"
+                android:maxLength="10"
+                android:shadowColor="@color/DarkBlue"
+                android:textColor="@color/Orange2"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTextEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="Email"
+            android:textColorHint="@color/black"
+            android:transitionName="email"
+            app:boxStrokeColor="@color/Orange2"
+            app:boxStrokeWidth="0.5dp"
+            app:boxStrokeWidthFocused="0.5dp"
+            app:endIconMode="clear_text"
+            app:hintTextColor="@color/Orange2"
+            app:startIconDrawable="@drawable/email2">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cantora_one"
+                android:inputType="textEmailAddress"
+                android:shadowColor="@color/DarkBlue"
+                android:textColor="@color/Orange2"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editTextAdress"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:hint="Address"
+            android:textColorHint="@color/black"
+            android:transitionName="address"
+            app:boxStrokeColor="@color/Orange2"
+            app:boxStrokeWidth="0.5dp"
+            app:boxStrokeWidthFocused="0.5dp"
+            app:endIconMode="clear_text"
+
+            app:hintTextColor="@color/Orange2"
+            app:startIconDrawable="@drawable/address">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/adress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/cantora_one"
+                android:inputType="text"
+                android:shadowColor="@color/DarkBlue"
+                android:textColor="@color/Orange2"
+                tools:ignore="TouchTargetSizeCheck" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/Delete"
+                android:layout_width="142dp"
+                android:layout_height="60dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginBottom="5dp"
+                android:backgroundTint="@color/red3"
+                android:text="Delete"
+
+                android:transitionName="Delete_CS" />
+
+            <Button
+                android:id="@+id/Update"
+                android:layout_width="142dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginBottom="5dp"
+                android:backgroundTint="@color/babyblue"
+                android:text="Update"
+                android:transitionName="Update_CS" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

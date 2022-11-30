@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.credit__book.Adapter.OperationClientAdapter;
 import com.example.credit__book.Adapter.OperationClientDetailstAdapter;
 import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.R;
@@ -20,24 +19,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ViewDetailsActivity extends AppCompatActivity {
-    TextView CountOp;
-    TextView count2;
-    OperationClientAdapter opAD;
+public class ViewClientDetailsActivity extends AppCompatActivity {
+
+    private TextView clientName;
     private RecyclerView recyclerView;
     private List<OperationClient> listitem;
     private RecyclerView.Adapter adapter;
-    ImageView clientupdate,back, callClient, messageClient;
+    private ImageView clientupdate,back, callClient, messageClient;
+    private String phone, name, email, address;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_details);
 
+        name = getIntent().getStringExtra("Client Name");
+        phone = getIntent().getStringExtra("Client Phone");
+        email = getIntent().getStringExtra("Client Email");
+        address = getIntent().getStringExtra("Client Address");
+
+        clientName = findViewById(R.id.clientName);
         recyclerView = findViewById(R.id.recyclerView2);
         clientupdate=findViewById(R.id.clientupdate);
         back=findViewById(R.id.back);
         callClient = findViewById(R.id.callClient);
         messageClient = findViewById(R.id.messageClient);
+
+        clientName.setText(name);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -53,7 +61,7 @@ public class ViewDetailsActivity extends AppCompatActivity {
         listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Got"));
         listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Gave"));
         listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Gave"));
-        adapter = new OperationClientDetailstAdapter(ViewDetailsActivity.this, listitem);
+        adapter = new OperationClientDetailstAdapter(ViewClientDetailsActivity.this, listitem);
         recyclerView.setAdapter(adapter);
 
         // CountOp = findViewById(R.id.operation);
@@ -63,7 +71,12 @@ public class ViewDetailsActivity extends AppCompatActivity {
         clientupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent (ViewDetailsActivity.this,EditSupplierActivity.class));
+                Intent intent = new Intent(ViewClientDetailsActivity.this,EditClientActivity.class);
+                intent.putExtra("Client Name", name);
+                intent.putExtra("Client Phone", phone);
+                intent.putExtra("Client Email", email);
+                intent.putExtra("Client Address", address);
+                startActivity(new Intent (intent));
             }
         });
 
@@ -78,7 +91,7 @@ public class ViewDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:0680346100"));
+                intent.setData(Uri.parse("tel:"+phone));
                 startActivity(intent);
 
 
@@ -92,7 +105,7 @@ public class ViewDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent smsIntent = new Intent(Intent.ACTION_VIEW);
                 smsIntent.setType("vnd.android-dir/mms-sms");
-                smsIntent.putExtra("address", "0680346100");
+                smsIntent.putExtra("address", phone);
                 startActivity(smsIntent);
             }
         });
