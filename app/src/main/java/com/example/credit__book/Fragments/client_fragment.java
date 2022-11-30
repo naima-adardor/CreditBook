@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -37,7 +38,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
     ClientAdapter clientAdapter;
     RecyclerView recyclerView;
 
-    FloatingActionButton ajouter;
+    FloatingActionButton add_client_btn;
     DatabaseReference database;
     ArrayList<Client> clientList;
 
@@ -68,8 +69,8 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
         clientAdapter = new ClientAdapter(context, clientList, this);
         recyclerView.setAdapter(clientAdapter);
 
-        ajouter= view.findViewById(R.id.btnclient);
-        ajouter.setOnClickListener(this);
+        add_client_btn= view.findViewById(R.id.btnclient);
+        add_client_btn.setOnClickListener(this);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
