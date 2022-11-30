@@ -3,6 +3,7 @@ package com.example.credit__book.Activities;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -177,7 +178,17 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.back:
-                finish();
+                String firstName = first_name.getEditText().getText()+ "";
+                String lastName = last_name.getEditText().getText().toString();
+                String phoneNumber = phone.getEditText().getText().toString();
+                String emailSupplier = email.getEditText().getText().toString();
+                String adresseSupplier = adresse.getEditText().getText().toString();
+                Intent intent = new Intent(EditSupplierActivity.this, ViewClientDetailsActivity.class);
+                intent.putExtra("Client Name", firstName+" "+lastName);
+                intent.putExtra("Client Phone", phoneNumber);
+                intent.putExtra("Client Email", emailSupplier);
+                intent.putExtra("Client Address", adresseSupplier);
+                startActivity(intent);
                 break;
         /*String firstName = first_name.getEditText().getText()+ "";
         String lastName = last_name.getEditText().getText().toString();
