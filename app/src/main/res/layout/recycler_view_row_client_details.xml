@@ -11,119 +11,124 @@
         android:layout_height="69dp"
         android:layout_marginTop="10dp"
         app:cardBackgroundColor="@color/Gray"
-        app:cardCornerRadius="7dp"
+        app:cardCornerRadius="10dp"
         app:cardElevation="5dp">
 
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
-           android:orientation="horizontal" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-           <ImageView
-               android:layout_width="50dp"
-               android:layout_height="50dp"
-               android:src="@drawable/arrow_up"
-               android:layout_gravity="center"
-               android:layout_marginLeft="7dp"/>
-           <LinearLayout
-               android:layout_width="wrap_content"
-               android:layout_height="match_parent"
-               android:layout_marginLeft="5dp"
-               android:orientation="vertical">
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="7dp"
+                android:src="@drawable/arrow_up" />
 
-               <TextView
-                   android:layout_width="wrap_content"
-                   android:layout_height="wrap_content"
-                   android:id="@+id/oparationDate"
-                   android:text="27/11/2022"
-                   android:layout_marginTop="3dp"
-                   android:textSize="24dp"
-                   android:fontFamily="@font/alata"/>
-               <LinearLayout
-                   android:layout_width="wrap_content"
-                   android:layout_height="match_parent"
-                   android:orientation="horizontal">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical">
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:text="Balance:"
-                       android:textSize="18dp"/>
-                   <TextView
-                       android:id="@+id/balanceClient"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_marginLeft="10dp"
-                       android:text="110.0"
-                       android:textSize="18dp"
-                       android:textColor="@color/green"/>
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_marginLeft="5dp"
-                       android:text="dh"
-                       android:textSize="18dp"
-                       android:textColor="@color/green"/>
+                <TextView
+                    android:id="@+id/oparationDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="sans-serif"
+                    android:text="27-11-2022"
+                    android:textSize="24dp" />
 
-               </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
 
-           </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Balance:"
+                        android:textSize="18dp" />
 
-           <LinearLayout
-               android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/balanceClient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="110.0"
+                        android:textColor="@color/green"
+                        android:textSize="18dp" />
 
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"
-                   android:orientation="horizontal"
-                   android:gravity="end">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="dh"
+                        android:textColor="@color/green"
+                        android:textSize="18dp" />
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:id="@+id/oprationMontant"
-                       android:layout_gravity="center"
-                       android:text="44.0"
-                       android:layout_marginTop="3dp"
-                       android:textSize="24dp"
-                       android:fontFamily="@font/alata"
-                       android:layout_marginEnd="5dp"
-                       android:textColor="@color/red2"/>
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"
-                       android:layout_gravity="center"
-                       android:text="dh"
-                       android:layout_marginTop="3dp"
-                       android:textSize="24dp"
-                       android:fontFamily="@font/alata"
-                       android:layout_marginEnd="9dp"
-                       android:textColor="@color/red2"/>
+                </LinearLayout>
 
-               </LinearLayout>
+            </LinearLayout>
 
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:orientation="horizontal"
-                   android:gravity="end">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
 
-                   <TextView
-                       android:layout_width="wrap_content"
-                       android:layout_height="match_parent"
-                       android:text="I gave"
-                       android:textSize="18dp"
-                       android:layout_marginEnd="20dp"
-                       android:id="@+id/opearationType"
-                       android:layout_gravity="center"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:orientation="horizontal">
 
-               </LinearLayout>
+                    <TextView
+                        android:id="@+id/oprationMontant"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/alata"
+                        android:text="44.0"
+                        android:textColor="@color/red2"
+                        android:textSize="24dp" />
 
-           </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="9dp"
+                        android:fontFamily="@font/alata"
+                        android:text="dh"
+                        android:textColor="@color/red2"
+                        android:textSize="24dp" />
 
-       </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/opearationType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginEnd="20dp"
+                        android:text="I gave"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 

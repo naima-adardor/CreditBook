@@ -298,8 +298,8 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:contentDescription="@string/Book"
+        android:tint="#FBFBFB"
         app:backgroundTint="@color/Orange3"
-        app:srcCompat="@drawable/add_client_supplier"
-        app:tint="@color/DarkBlue" />
+        app:srcCompat="@drawable/add_client_supplier" />
 
 </RelativeLayout>

@@ -33,16 +33,6 @@
             android:textSize="25dp" />
 
 
-        <ImageView
-            android:id="@+id/clientupdate"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:clickable="true"
-            app:srcCompat="@drawable/edit_user"
-            app:tint="@color/Orange3"
-            android:layout_marginEnd="7dp"
-            android:layout_alignParentEnd="true"/>
-
     </RelativeLayout>
 
     <LinearLayout
@@ -223,7 +213,7 @@
                 android:layout_marginTop="50dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginBottom="5dp"
-                android:backgroundTint="@color/babyblue"
+                android:backgroundTint="@color/Orange"
                 android:text="Update"
                 android:transitionName="Update_CS" />
         </LinearLayout>
