@@ -183,11 +183,11 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
                 String phoneNumber = phone.getEditText().getText().toString();
                 String emailSupplier = email.getEditText().getText().toString();
                 String adresseSupplier = adresse.getEditText().getText().toString();
-                Intent intent = new Intent(EditSupplierActivity.this, ViewClientDetailsActivity.class);
-                intent.putExtra("Client Name", firstName+" "+lastName);
-                intent.putExtra("Client Phone", phoneNumber);
-                intent.putExtra("Client Email", emailSupplier);
-                intent.putExtra("Client Address", adresseSupplier);
+                Intent intent = new Intent(EditSupplierActivity.this, ViewSupplierDetailsActivity.class);
+                intent.putExtra("Supplier Name", firstName+" "+lastName);
+                intent.putExtra("Supplier Phone", phoneNumber);
+                intent.putExtra("Supplier Email", emailSupplier);
+                intent.putExtra("Supplier Address", adresseSupplier);
                 startActivity(intent);
                 break;
         /*String firstName = first_name.getEditText().getText()+ "";

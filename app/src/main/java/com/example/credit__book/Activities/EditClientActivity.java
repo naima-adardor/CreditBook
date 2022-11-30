@@ -3,6 +3,7 @@ package com.example.credit__book.Activities;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -89,9 +90,9 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                 String firstName = first_name.getEditText().getText()+ "";
                                 String lastName = last_name.getEditText().getText().toString();
                                 String phoneNumber = phone.getEditText().getText().toString();
-                                String emailSupplier = email.getEditText().getText().toString();
-                                String adresseSupplier = adresse.getEditText().getText().toString();
-                                progressDialog.setMessage("Updating Your supplier informations");
+                                String emailClient= email.getEditText().getText().toString();
+                                String adresseClient = adresse.getEditText().getText().toString();
+                                progressDialog.setMessage("Updating Your client informations");
                                 progressDialog.show();
                                 SessionManager sessionManager = new SessionManager(view.getContext());
                                 HashMap<String, String> data = sessionManager.getUserDetails();
@@ -100,7 +101,7 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
 
                                 Date date = new Date();
                                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-                                Client client = new Client(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier );
+                                Client client = new Client(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailClient, adresseClient );
                                 databaseReference.child("clients " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).setValue(client).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
@@ -141,8 +142,8 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                 String firstName = first_name.getEditText().getText()+ "";
                                 String lastName = last_name.getEditText().getText().toString();
                                 String phoneNumber = phone.getEditText().getText().toString();
-                                String emailSupplier = email.getEditText().getText().toString();
-                                String adresseSupplier = adresse.getEditText().getText().toString();
+                                String emailClient= email.getEditText().getText().toString();
+                                String adresseClient = adresse.getEditText().getText().toString();
                                 databaseReference.child("clients " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
 
                                     @Override
@@ -174,7 +175,17 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.back:
-                finish();
+                String firstName = first_name.getEditText().getText()+ "";
+                String lastName = last_name.getEditText().getText().toString();
+                String phoneNumber = phone.getEditText().getText().toString();
+                String emailClient = email.getEditText().getText().toString();
+                String adresseClient = adresse.getEditText().getText().toString();
+                Intent intent = new Intent(EditClientActivity.this, ViewClientDetailsActivity.class);
+                intent.putExtra("Client Name", firstName+" "+lastName);
+                intent.putExtra("Client Phone", phoneNumber);
+                intent.putExtra("Client Email", emailClient);
+                intent.putExtra("Client Address", adresseClient);
+                startActivity(intent);
                 break;
         /*String firstName = first_name.getEditText().getText()+ "";
         String lastName = last_name.getEditText().getText().toString();
