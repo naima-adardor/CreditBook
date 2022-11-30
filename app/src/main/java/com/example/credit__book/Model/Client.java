@@ -19,6 +19,11 @@ public class Client extends Person {
         this.user = user;
         this.dateCreation = dateCreation;
     }
+    public Client(int id, String full_name, String phone_number, String email, String address) {
+        super(id, full_name, phone_number, email);
+        this.address = address;
+
+    }
 
     public String getDateCreation() {
         return dateCreation;
