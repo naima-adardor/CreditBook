@@ -26,8 +26,8 @@
 
     <TextView
         android:id="@+id/textView29"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="170dp"
+        android:layout_height="46dp"
         android:layout_marginTop="16dp"
         android:text="132.00"
         android:textColor="@color/green"
@@ -53,9 +53,9 @@
 
     <Button
         android:id="@+id/buttonSave"
-        android:layout_width="292dp"
-        android:layout_height="53dp"
-        android:background="@drawable/round_color_green"
+        android:layout_width="324dp"
+        android:layout_height="65dp"
+        android:backgroundTint="#4CAF50"
         android:fontFamily="@font/alata"
         android:text="SAVE"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"

@@ -3,6 +3,7 @@ package com.example.credit__book.Fragments;
 import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,6 +46,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
     RecyclerView recyclerView;
     SearchView searchView;
     FloatingActionButton ajouter;
+    FloatingActionButton add_client_btn;
     DatabaseReference database;
     ArrayList<Client> clientList;
 
@@ -90,17 +92,17 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
         clientAdapter = new ClientAdapter(context, clientList, this);
         recyclerView.setAdapter(clientAdapter);
 
-        ajouter= view.findViewById(R.id.btnclient);
-        ajouter.setOnClickListener(this);
+        add_client_btn= view.findViewById(R.id.btnclient);
+        add_client_btn.setOnClickListener(this);
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 if(dy>0){
-                    ajouter.hide();
+                    add_client_btn.hide();
                 }else{
-                    ajouter.show();
+                    add_client_btn.show();
                 }
             }
         });
@@ -120,7 +122,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(getActivity(),"Fail to get data.", Toast.LENGTH_SHORT).show();
             }
         });
 
