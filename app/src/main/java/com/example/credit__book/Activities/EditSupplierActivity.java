@@ -1,18 +1,31 @@
 package com.example.credit__book.Activities;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.credit__book.Model.SessionManager;
+import com.example.credit__book.Model.Supplier;
 import com.example.credit__book.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
 
 public class EditSupplierActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView fullNameTxt;
@@ -23,6 +36,7 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
     private ProgressDialog progressDialog;
     private ImageView Back;
     private String phoneI, name, emailI, address;
+
 
 
     @Override
@@ -56,6 +70,60 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
         phoneV.setText(phoneI);
         emailV.setText(emailI);
         adresseV.setText(address);
+
+        Update=findViewById(R.id.Update);
+        Delete=findViewById(R.id.Delete);
+
+        progressDialog = new ProgressDialog(EditSupplierActivity.this);
+        progressDialog.setTitle("Please wait...");
+        progressDialog.setCanceledOnTouchOutside(false);
+
+        Update.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+                builder.setMessage("Do you want to update these informations").setCancelable(false)
+                        .setPositiveButton("Update", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                String firstName = first_name.getEditText().getText()+ "";
+                                String lastName = last_name.getEditText().getText().toString();
+                                String phoneNumber = phone.getEditText().getText().toString();
+                                String emailSupplier = email.getEditText().getText().toString();
+                                String adresseSupplier = adresse.getEditText().getText().toString();
+                                progressDialog.setMessage("Updating Your supplier informations");
+                                progressDialog.show();
+                                SessionManager sessionManager = new SessionManager(view.getContext());
+                                HashMap<String, String> data = sessionManager.getUserDetails();
+                                DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
+
+
+                                Date date = new Date();
+                                SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                                Supplier supplier = new Supplier(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier );
+                                databaseReference.child("suppliers " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).setValue(supplier).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        progressDialog.dismiss();
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(EditSupplierActivity.this, "Your Informations has been updated successfuly!", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(EditSupplierActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+                            }
+                        })
+                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.cancel();
+                            }
+                        }).show();
+
+            }
+        });
 
     }
 
