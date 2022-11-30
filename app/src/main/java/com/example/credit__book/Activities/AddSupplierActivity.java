@@ -20,6 +20,8 @@ import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 public class AddSupplierActivity extends AppCompatActivity implements View.OnClickListener {
@@ -71,7 +73,9 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
                 }
                 SessionManager sessionManager = new SessionManager(view.getContext());
                 HashMap<String, String> data = sessionManager.getUserDetails();
-                Supplier supplier = new Supplier(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier, data.get(SessionManager.TELEPHONE));
+                Date date = new Date();
+                SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                Supplier supplier = new Supplier(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier, data.get(SessionManager.TELEPHONE), format.format(date));
                 DBreference.child("suppliers " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).setValue(supplier).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {

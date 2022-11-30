@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,21 +14,31 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.credit__book.Activities.AddSupplierActivity;
 import com.example.credit__book.Activities.MyApplication;
-import com.example.credit__book.Adapter.OperationClientAdapter;
-import com.example.credit__book.Adapter.OperationSupplierAdapter;
-import com.example.credit__book.Model.OperationClient;
-import com.example.credit__book.Model.OperationSupplier;
+import com.example.credit__book.Activities.ViewClientDetailsActivity;
+import com.example.credit__book.Activities.ViewSupplierDetailsActivity;
+import com.example.credit__book.Adapter.SupplierAdapter;
+import com.example.credit__book.Model.SessionManager;
+import com.example.credit__book.Model.Supplier;
 import com.example.credit__book.R;
-import com.example.credit__book.recycleview_client_interface;
+import com.example.credit__book.RecycleViewClientInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-public class supplier_fragment extends Fragment  implements View.OnClickListener, recycleview_client_interface {
+import java.util.ArrayList;
+import java.util.HashMap;
 
-    TextView CountOp;
-    TextView count2;
-    OperationSupplierAdapter opAD;
-    RecyclerView recyclerViewSupplier;
-    FloatingActionButton btnAddsupplier;
+public class supplier_fragment extends Fragment  implements View.OnClickListener, RecycleViewClientInterface {
+
+    SupplierAdapter supplierAdapter;
+    RecyclerView recyclerView;
+
+    FloatingActionButton ajouter;
+    DatabaseReference database;
+    ArrayList<Supplier> suppliersList;
 
 
     @Override
@@ -44,33 +53,52 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
-//        for (int i = 0; i < 10; i++) {
-//            OperationSupplier listItem = new OperationSupplier("Naima ELJID", "20-11-2022", "500", "You have to get");
-//            context.getListClientOperation().add(listItem);
-//        }
-        opAD = new OperationSupplierAdapter(context.getListSupplierOperation(),this.getContext());
 
-        recyclerViewSupplier = view.findViewById(R.id.recyclerViewSupplier);
-        recyclerViewSupplier.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerViewSupplier.setAdapter(opAD);
-        recyclerViewSupplier.setHasFixedSize(true);
-        CountOp = view.findViewById(R.id.textViewoperation);
-        CountOp.setText("Supplier(" + opAD.getItemCount() + ")");
-        count2 = view.findViewById(R.id.textViewBalance);
-        count2.setText("Transactions(" + opAD.getItemCount() + ")");
-        btnAddsupplier=view.findViewById(R.id.btnAddsupplier);
-        btnAddsupplier.setOnClickListener(this);
-        recyclerViewSupplier.addOnScrollListener(new RecyclerView.OnScrollListener() {
+        recyclerView = view.findViewById(R.id.recyclerViewSupplier);
+        SessionManager sessionManager = new SessionManager(context);
+        HashMap<String, String> data = sessionManager.getUserDetails();
+        database = FirebaseDatabase.getInstance().getReference("suppliers "+ data.get(SessionManager.TELEPHONE));
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
+        suppliersList = new ArrayList<>();
+        supplierAdapter = new SupplierAdapter(this, context, suppliersList);
+        recyclerView.setAdapter(supplierAdapter);
+
+        ajouter= view.findViewById(R.id.btnAddsupplier);
+        ajouter.setOnClickListener(this);
+
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
                 super.onScrolled(recyclerView, dx, dy);
                 if(dy>0){
-                    btnAddsupplier.hide();
+                    ajouter.hide();
                 }else{
-                    btnAddsupplier.show();
+                    ajouter.show();
                 }
             }
         });
+
+        database.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                suppliersList.clear();
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Supplier supplier = dataSnapshot.getValue(Supplier.class);
+                    suppliersList.add(supplier);
+                }
+                supplierAdapter.notifyDataSetChanged();
+
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
     }
 
     @Override
@@ -80,7 +108,12 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
     }
 
     @Override
-    public void onItemClick(int post) {
-
+    public void onItemClick(int position) {
+        Intent intent = new Intent(getContext(), ViewSupplierDetailsActivity.class);
+        intent.putExtra("Supplier Name", suppliersList.get(position).getFull_name());
+        intent.putExtra("Supplier Phone", suppliersList.get(position).getPhone_number());
+        intent.putExtra("Supplier Email", suppliersList.get(position).getEmail());
+        intent.putExtra("Supplier Address", suppliersList.get(position).getAddress());
+        startActivity(intent);
     }
 }

@@ -20,6 +20,8 @@
     import com.google.firebase.database.DatabaseReference;
     import com.google.firebase.database.FirebaseDatabase;
 
+    import java.text.SimpleDateFormat;
+    import java.util.Date;
     import java.util.HashMap;
 
     public class AddClientActivity extends AppCompatActivity implements View.OnClickListener {
@@ -64,14 +66,16 @@
                     String phoneNumber = phone.getEditText().getText().toString();
                     String emailClient = email.getEditText().getText().toString();
                     String adresseClient = adresse.getEditText().getText().toString();
-                    if(!validateFirstName(firstName) |  !validateFirstName(lastName) | !validateTelephone(phoneNumber) ){
+                    if(!validateFirstName(firstName) |  !validateLastName(lastName) |  !validateTelephone(phoneNumber) ){
                         return;
                     }
                     progressDialog.setMessage("Verifing Informations");
                     progressDialog.show();
                     SessionManager sessionManager = new SessionManager(view.getContext());
                     HashMap<String, String> data = sessionManager.getUserDetails();
-                    Client client = new Client(Integer.parseInt(phoneNumber), firstName + " " + lastName ,phoneNumber,emailClient,adresseClient, data.get(SessionManager.TELEPHONE));
+                    Date date = new Date();
+                    SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+                    Client client = new Client(Integer.parseInt(phoneNumber), firstName + " " + lastName ,phoneNumber,emailClient,adresseClient, data.get(SessionManager.TELEPHONE), format.format(date));
                     DBreference.child("clients " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).setValue(client).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -96,6 +100,16 @@
           }else {
                 this.first_name.setError(null);
                 this.first_name.setErrorEnabled(false);
+                return true;
+            }
+        }
+        private boolean validateLastName(String firstname) {
+            if (firstname.isEmpty()) {
+                this.last_name.setError("This Field is Required!");
+                return false;
+          }else {
+                this.last_name.setError(null);
+                this.last_name.setErrorEnabled(false);
                 return true;
             }
         }

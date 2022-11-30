@@ -16,6 +16,7 @@ public class Supplier extends Person {
 
     private String address;
     private String user;
+    private String dateCreation;
 
     private DatabaseReference databaseReference;
 
@@ -25,10 +26,11 @@ public class Supplier extends Person {
     }
 
 
-    public Supplier(int id, String full_name, String phone_number, String email, String address, String user) {
+    public Supplier(int id, String full_name, String phone_number, String email, String address, String user, String dateCreation) {
         super(id, full_name, phone_number, email);
         this.address = address;
         this.user = user;
+        this.dateCreation = dateCreation;
     }
 
     public String getAddress() {
@@ -39,20 +41,36 @@ public class Supplier extends Person {
         this.address = address;
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+    public String getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(String dateCreation) {
+        this.dateCreation = dateCreation;
+    }
+
     public void updateSupplier(String id, String full_name, String phone_number, String email, String address, Context context) {
-        databaseReference = FirebaseDatabase.getInstance().getReference();
-        SessionManager sessionManager = new SessionManager(context);
-        HashMap<String, String> data = sessionManager.getUserDetails();
-        Supplier supplier = new Supplier(Integer.parseInt(phone_number), full_name, phone_number, email, address, data.get(SessionManager.TELEPHONE));
-        databaseReference.child("suppliers").child(id).setValue(supplier).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(context, "Your Informations has been updated successfuly!", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(context, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+//        databaseReference = FirebaseDatabase.getInstance().getReference();
+//        SessionManager sessionManager = new SessionManager(context);
+//        HashMap<String, String> data = sessionManager.getUserDetails();
+//        Supplier supplier = new Supplier(Integer.parseInt(phone_number), full_name, phone_number, email, address, data.get(SessionManager.TELEPHONE));
+//        databaseReference.child("suppliers").child(id).setValue(supplier).addOnCompleteListener(new OnCompleteListener<Void>() {
+//            @Override
+//            public void onComplete(@NonNull Task<Void> task) {
+//                if (task.isSuccessful()) {
+//                    Toast.makeText(context, "Your Informations has been updated successfuly!", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    Toast.makeText(context, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
     }
 }

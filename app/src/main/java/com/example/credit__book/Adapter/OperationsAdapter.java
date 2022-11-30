@@ -10,15 +10,15 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.credit__book.Model.Operation;
 import com.example.credit__book.R;
-import com.example.credit__book.recycleview_client_interface;
+import com.example.credit__book.RecycleViewClientInterface;
 
 import java.util.List;
 
 public class OperationsAdapter  extends RecyclerView.Adapter<OperationsAdapter.ViewHolder> {
 
     private final List<Operation> opListe;
-    private final recycleview_client_interface inter;
-    public OperationsAdapter(List<Operation> listOperations, recycleview_client_interface inter) {
+    private final RecycleViewClientInterface inter;
+    public OperationsAdapter(List<Operation> listOperations, RecycleViewClientInterface inter) {
         opListe = listOperations;
         this.inter = inter;
     }
@@ -48,7 +48,7 @@ public class OperationsAdapter  extends RecyclerView.Adapter<OperationsAdapter.V
              public TextView date;
              public TextView balance;
              public TextView typeOperation;
-        public ViewHolder(@NonNull View itemView ,recycleview_client_interface inter) {
+        public ViewHolder(@NonNull View itemView ,RecycleViewClientInterface inter) {
             super(itemView);
             date = itemView.findViewById(R.id.textViewDateOperation);
             balance = itemView.findViewById(R.id.textViewBalanceOpeartion);

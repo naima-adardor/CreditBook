@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/client_items"
+    android:id="@+id/clients"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
@@ -11,86 +11,68 @@
         android:layout_height="69dp"
         android:layout_marginTop="10dp"
         app:cardBackgroundColor="@color/Gray"
-        app:cardCornerRadius="15dp"
-        app:cardElevation="12dp">
+        app:cardCornerRadius="7dp"
+        app:cardElevation="5dp">
 
         <LinearLayout
-            android:layout_width="409dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:gravity="center">
 
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/ic_baseline_person_outline_24"
+                android:layout_gravity="center"
+                android:layout_marginLeft="7dp"/>
             <LinearLayout
-                android:layout_width="222dp"
+                android:layout_width="200dp"
                 android:layout_height="match_parent"
-                android:gravity="center"
+                android:layout_marginLeft="5dp"
                 android:orientation="vertical"
-                android:paddingLeft="10dp">
+                android:gravity="left|center">
 
                 <TextView
-                    android:id="@+id/nameClient"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center|left"
-                    android:text="ELJID Naima"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                    android:textSize="16sp" />
+                    android:id="@+id/clientName"
+                    android:text="Naima ELJID"
+                    android:layout_marginTop="3dp"
+                    android:textSize="19dp"
+                    android:fontFamily="@font/alata"/>
 
                 <TextView
-                    android:id="@+id/dateOperation"
-                    android:layout_width="95dp"
-                    android:layout_height="23dp"
-                    android:layout_gravity="left"
-                    android:text=" 27-02-2022"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="@color/DarkBlue"
-                    android:textSize="16sp" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/creationDate"
+                    android:text="27/11/2022"
+                    android:layout_marginTop="3dp"
+                    android:textSize="16dp"
+                    android:fontFamily="@font/alata"/>
+
 
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center|right"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
+
+                <TextView
+                    android:id="@+id/clientPhone"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:gravity="right"
-                    android:orientation="horizontal">
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/alata"
+                    android:gravity="center"
+                    android:text="0680346100"
+                    android:textColor="@color/red2"
+                    android:textSize="19dp" />
 
-                    <ImageView
-                        android:id="@+id/imageView6"
-                        android:layout_width="31dp"
-                        android:layout_height="24dp"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/logout_rounded_down" />
-
-                    <TextView
-                        android:id="@+id/balanceClient"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:inputType="number"
-                        android:text="5000"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textColor="@android:color/holo_red_dark"
-                        android:textSize="16sp" />
-
-                    <TextView
-                        android:id="@+id/textView25"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginEnd="40dp"
-                        android:text="DH"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textColor="@android:color/holo_red_dark"
-                        android:textSize="16sp" />
-
-                </LinearLayout>
 
                 <TextView
                     android:id="@+id/description"

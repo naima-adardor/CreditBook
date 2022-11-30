@@ -1,5 +1,7 @@
 package com.example.credit__book.Activities;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.view.View;
@@ -7,14 +9,13 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.credit__book.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 
-public class EditSupplierActivity extends AppCompatActivity implements View.OnClickListener {
+public class EditClientActivity extends AppCompatActivity implements View.OnClickListener {
+
     private TextView fullNameTxt;
     private TextInputEditText first_nameV,last_nameV,emailV, phoneV,adresseV;
     private TextInputLayout first_name,last_name, email, phone, adresse;
@@ -23,7 +24,6 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
     private ProgressDialog progressDialog;
     private ImageView Back;
     private String phoneI, name, emailI, address;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,10 +44,10 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
         phoneV = findViewById(R.id.tele);
         adresseV = findViewById(R.id.adress);
 
-        name = getIntent().getStringExtra("Supplier Name");
-        phoneI = getIntent().getStringExtra("Supplier Phone");
-        emailI = getIntent().getStringExtra("Supplier Email");
-        address = getIntent().getStringExtra("Supplier Address");
+        name = getIntent().getStringExtra("Client Name");
+        phoneI = getIntent().getStringExtra("Client Phone");
+        emailI = getIntent().getStringExtra("Client Email");
+        address = getIntent().getStringExtra("Client Address");
 
         String[] arrStr = name.split(" ");
 
@@ -78,5 +78,6 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
         Supplier supplier=new Supplier();
         supplier.updateSupplier(phoneNumber, firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier,EditClientSupplierActivity.this);
 */
+        }
     }
-}}
+}
