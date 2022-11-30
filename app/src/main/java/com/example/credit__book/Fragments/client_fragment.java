@@ -56,7 +56,14 @@ public class client_fragment extends Fragment implements View.OnClickListener, r
 
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
 
-        recyclerViewOperation = view.findViewById(R.id.recyclerViewClient);
+
+        RecyclerView recyclerViewOperation = view.findViewById(R.id.recyclerViewClient);
+        db= FirebaseDatabase.getInstance().getReference("OperationClients");
+        recyclerViewOperation.setLayoutManager(new LinearLayoutManager(getContext()));
+        client =new ArrayList<>();
+        opAD = new OperationClientAdapter(context.getListClientOperation(),this.getContext());
+
+        recyclerViewOperation.setHasFixedSize(true);
         CountOp = view.findViewById(R.id.textViewoperation);
         countTransaction = view.findViewById(R.id.textViewBalance);
         add_client_btn= view.findViewById(R.id.btnclient);

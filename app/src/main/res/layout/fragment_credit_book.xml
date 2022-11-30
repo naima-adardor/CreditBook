@@ -22,41 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
-                android:id="@+id/linearLayout4"
-                android:layout_width="match_parent"
-                android:layout_height="54dp"
-                android:background="@color/DarkBlue"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:paddingLeft="5dp">
 
-                <ImageView
-                    android:id="@+id/imageView8"
-                    android:layout_width="43dp"
-                    android:layout_height="42dp"
-                    android:layout_gravity="center"
-                    app:srcCompat="@drawable/female_icon" />
-
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="38dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="15dp"
-                    android:text="Naima ELJID"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-                    android:textColor="?android:attr/colorPressedHighlight"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal"></LinearLayout>
-
-            </LinearLayout>
 
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabLayout"
@@ -88,26 +54,6 @@
             </androidx.viewpager.widget.ViewPager>
 
         </LinearLayout>
-
-
-        <!--    <LinearLayout-->
-        <!--        android:layout_width="0dp"-->
-        <!--        android:layout_height="54dp"-->
-        <!--        android:background="@color/DarkBlue"-->
-        <!--        android:orientation="horizontal"-->
-        <!--        android:paddingLeft="5dp"-->
-        <!--        app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"-->
-        <!--        app:layout_constraintEnd_toEndOf="parent"-->
-        <!--        app:layout_constraintStart_toStartOf="parent">-->
-
-        <!--        <ImageView-->
-        <!--            android:id="@+id/imageView4"-->
-        <!--            android:layout_width="40dp"-->
-        <!--            android:layout_height="38dp"-->
-        <!--            android:layout_gravity="center"-->
-        <!--            app:srcCompat="@drawable/home" />-->
-
-        <!--    </LinearLayout>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

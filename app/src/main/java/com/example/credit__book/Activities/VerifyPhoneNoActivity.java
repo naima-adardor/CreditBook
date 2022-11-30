@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.Model.User;
 import com.example.credit__book.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -180,6 +181,8 @@ public class VerifyPhoneNoActivity extends AppCompatActivity {
                         progressDialog.dismiss();
                         User user = new User();
                         user.addUser(phone, fullNameVal, phone, emailVal, passwordVal, VerifyPhoneNoActivity.this);
+                        SessionManager sessionManager = new SessionManager(VerifyPhoneNoActivity.this);
+                        sessionManager.createUserLoginSession(fullNameVal, phone, emailVal, passwordVal);
                         Intent intent = new Intent(VerifyPhoneNoActivity.this, MainDashboardActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
