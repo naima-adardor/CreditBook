@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -42,6 +43,7 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
     FloatingActionButton ajouter;
     DatabaseReference database;
     ArrayList<Supplier> suppliersList;
+    TextView nbr_suppliers;
 
 
     @Override
@@ -56,7 +58,7 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
-
+        nbr_suppliers=view.findViewById(R.id.textViewSupplierNbr);
         searchView = view.findViewById(R.id.searchView);
         searchView.clearFocus();
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -107,6 +109,7 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
                     suppliersList.add(supplier);
                 }
                 supplierAdapter.notifyDataSetChanged();
+                nbr_suppliers.setText("Suppliers ("+suppliersList.size()+")");
 
             }
 

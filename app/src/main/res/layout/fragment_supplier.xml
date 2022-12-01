@@ -173,72 +173,29 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayout3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:paddingRight="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/buttonViewReport">
+            android:layout_marginTop="8dp"
+            android:orientation="vertical">
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/textViewSupplierNbr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
                 android:layout_weight="1"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textViewoperation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="12dp"
-                    android:layout_weight="1"
-                    android:text="Suppliers(2)"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#050505"
-                    android:textSize="15dp" />
+                android:text="Suppliers(2)"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#050505"
+                android:textSize="15dp" />
 
 
-                <TextView
-                    android:id="@+id/textView32"
-                    android:layout_width="86dp"
-                    android:layout_height="4dp"
-                    android:layout_marginStart="15dp"
-                    android:background="#EDEBEB" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="right"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textViewBalance"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="right"
-                    android:text="@string/transaction_2"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                    android:textColor="#090909"
-                    android:textSize="15dp" />
-
-                <TextView
-                    android:id="@+id/textView30"
-                    android:layout_width="120dp"
-                    android:layout_height="4dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_weight="1"
-                    android:background="#EDEBEB"
-                    android:gravity="right" />
-
-            </LinearLayout>
+            <TextView
+                android:id="@+id/textView32"
+                android:layout_width="86dp"
+                android:layout_height="4dp"
+                android:layout_marginStart="15dp"
+                android:background="#EDEBEB" />
 
         </LinearLayout>
 
@@ -248,7 +205,7 @@
 
             android:layout_height="match_parent"
             android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="5dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.266"

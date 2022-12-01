@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -45,10 +46,10 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
     ClientAdapter clientAdapter;
     RecyclerView recyclerView;
     SearchView searchView;
-    FloatingActionButton ajouter;
     FloatingActionButton add_client_btn;
     DatabaseReference database;
     ArrayList<Client> clientList;
+    TextView nbr_clients;
 
 
     @Override
@@ -65,6 +66,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
         super.onViewCreated(view, savedInstanceState);
 
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
+        nbr_clients=view.findViewById(R.id.textViewClientNbr);
 
         searchView = view.findViewById(R.id.searchView);
         searchView.clearFocus();
@@ -90,6 +92,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
 
         clientList = new ArrayList<>();
         clientAdapter = new ClientAdapter(context, clientList, this);
+
         recyclerView.setAdapter(clientAdapter);
 
         add_client_btn= view.findViewById(R.id.btnclient);
@@ -114,9 +117,10 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     Client client = dataSnapshot.getValue(Client.class);
                     clientList.add(client);
+
                 }
                 clientAdapter.notifyDataSetChanged();
-
+                nbr_clients.setText("Clients ("+clientList.size()+")");
             }
 
 
@@ -125,11 +129,6 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
                 Toast.makeText(getActivity(),"Fail to get data.", Toast.LENGTH_SHORT).show();
             }
         });
-
-
-
-
-
 
     }
 
