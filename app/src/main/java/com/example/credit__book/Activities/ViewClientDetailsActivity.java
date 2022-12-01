@@ -89,6 +89,7 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ViewClientDetailsActivity.this,CashOutActivity.class);
+                intent.putExtra("Client Phone",phone);
                 startActivity(new Intent(intent));
             }
         });
@@ -97,6 +98,7 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ViewClientDetailsActivity.this,CashinActivity.class);
+                intent.putExtra("Client Phone",phone);
                 startActivity(new Intent(intent));
             }
         });

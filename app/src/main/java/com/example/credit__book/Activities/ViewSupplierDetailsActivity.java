@@ -88,7 +88,9 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
         gavebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ViewSupplierDetailsActivity.this,CashOutActivity.class);
+                Intent intent = new Intent(ViewSupplierDetailsActivity.this,CashOutSupplierActivity.class);
+                intent.putExtra("Supplier Phone",phone);
+
                 startActivity(new Intent(intent));
             }
         });
@@ -96,7 +98,8 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
         gobtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ViewSupplierDetailsActivity.this,CashinActivity.class);
+                Intent intent = new Intent(ViewSupplierDetailsActivity.this,CashInSupplierActivity.class);
+                intent.putExtra("Supplier Phone",phone);
                 startActivity(new Intent(intent));
             }
         });

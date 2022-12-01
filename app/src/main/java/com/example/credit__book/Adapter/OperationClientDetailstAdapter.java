@@ -69,7 +69,7 @@ import java.util.List;
         public ViewHolder(@NonNull View itemView, Context context) {
             super(itemView);
             date = itemView.findViewById(R.id.oparationDate);
-            opeartioBalance = itemView.findViewById(R.id.oprationMontant);
+            opeartioBalance = itemView.findViewById(R.id.oprationBalance);
             typeOperation = itemView.findViewById(R.id.opearationType);
 //            nameClient = itemView.findViewById(R.id.nameClient);
         }

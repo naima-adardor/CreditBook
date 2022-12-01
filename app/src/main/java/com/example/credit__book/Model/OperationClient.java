@@ -4,15 +4,15 @@ public class OperationClient {
     private String operation_client_date;
     private String balance_client;
     private String description;
-    private String name_client;
+    private String operationType;
 
 
 
-    public OperationClient(String name_client, String operation_client_date, String balance_client, String description ) {
+    public OperationClient(String operationType, String operation_client_date, String balance_client, String description ) {
         this.operation_client_date = operation_client_date;
         this.balance_client = balance_client;
         this.description = description;
-        this.name_client = name_client;
+        this.operationType = operationType;
 
     }
 
@@ -41,10 +41,10 @@ public class OperationClient {
     }
 
     public String getName_client() {
-        return name_client;
+        return operationType;
     }
 
     public void setName_client(String name_client) {
-        this.name_client = name_client;
+        this.operationType = name_client;
     }
 }
