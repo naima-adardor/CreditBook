@@ -7,28 +7,41 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.credit__book.Adapter.OperationClientDetailstAdapter;
+import com.example.credit__book.Adapter.OperationSupplierDetailsAdapter;
 import com.example.credit__book.Model.OperationClient;
+import com.example.credit__book.Model.OperationSupplier;
+import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class ViewSupplierDetailsActivity extends AppCompatActivity {
 
     private TextView supplierName;
     private RecyclerView recyclerView;
-    private List<OperationClient> listitem;
+    private List<OperationSupplier> listitem;
     private RecyclerView.Adapter adapter;
     private ImageView supplierupdate,back, callSupplier, messageSupplier;
     private String phone, name, email, address;
     private Button gavebtn;
     private Button gobtn;
+    private DatabaseReference databaseReference;
+    private TextView nbrOperations;
 
 
     @Override
@@ -49,30 +62,37 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
         messageSupplier = findViewById(R.id.messageSupplier);
         gobtn = findViewById(R.id.gotBtn);
         gavebtn = findViewById(R.id.gaveBtn);
+        nbrOperations=findViewById(R.id.nbrOperations);
 
         supplierName.setText(name);
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         listitem = new ArrayList<>();
-
-        listitem.add(new OperationClient("Mohammed Elachyry", "11/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "11/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "12/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "12/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "13/11/2022", "80.0", "You Gave"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Gave"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Gave"));
-        adapter = new OperationClientDetailstAdapter(ViewSupplierDetailsActivity.this, listitem);
+        adapter = new OperationSupplierDetailsAdapter(ViewSupplierDetailsActivity.this, listitem);
         recyclerView.setAdapter(adapter);
+        SessionManager sessionManager = new SessionManager(this);
+        HashMap<String, String> data = sessionManager.getUserDetails();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("OperationsSuppliers").child(data.get(SessionManager.TELEPHONE)).child(phone);
 
-        // CountOp = findViewById(R.id.operation);
-        //CountOp.setText("Supplier(" + opAD.getItemCount() + ")");
-        // count2 = findViewById(R.id.balance);
-        //count2.setText("Transactions(" + opAD.getItemCount() + ")");
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listitem.clear();
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()) {
+                    OperationSupplier opSup = dataSnapshot.getValue(OperationSupplier.class);
+                    listitem.add(opSup);
+                }
+                adapter.notifyDataSetChanged();
+                nbrOperations.setText("Operations ("+listitem.size()+")");
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(ViewSupplierDetailsActivity.this,"Fail to get data.", Toast.LENGTH_SHORT).show();
+            }
+        });
         supplierupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

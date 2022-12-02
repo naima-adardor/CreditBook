@@ -1,7 +1,9 @@
 package com.example.credit__book.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -13,6 +15,8 @@ import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.Model.OperationSupplier;
 import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -53,7 +57,18 @@ public class CashOutSupplierActivity extends AppCompatActivity {
                 String id = databaseReference.push().getKey();
                 if(!TextUtils.isEmpty(balance)){
                     OperationSupplier operationSupplier = new OperationSupplier(format.format(date),balance,note,"cash out");
-                    databaseReference.child("OpearationsSuppliers").child(Objects.requireNonNull(data.get(SessionManager.TELEPHONE))).child(phoneSup).child(id).setValue(operationSupplier);
+                    databaseReference.child("OperationsSuppliers").child(Objects.requireNonNull(data.get(SessionManager.TELEPHONE))).child(phoneSup).child(id).setValue(operationSupplier).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(CashOutSupplierActivity.this, "The operation has been created successfuly!", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(CashOutSupplierActivity.this, CashOutSupplierActivity.class));
+                                finish();
+                            }else {
+                                Toast.makeText(CashOutSupplierActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
                 }
                 else{
                     Toast.makeText(CashOutSupplierActivity.this,"You should enter a balance",Toast.LENGTH_LONG).show();

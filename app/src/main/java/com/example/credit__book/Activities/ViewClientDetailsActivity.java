@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,6 +40,7 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
     private Button gavebtn;
     private Button gotbtn;
     private DatabaseReference databaseReference;
+    private TextView nbrOperations;
 
 
     @Override
@@ -59,6 +61,7 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
         messageClient = findViewById(R.id.messageClient);
         gavebtn=findViewById(R.id.gaveBtn);
         gotbtn = findViewById(R.id.gotBtn);
+        nbrOperations = findViewById(R.id.nbrOperations);
 
         clientName.setText(name);
 
@@ -69,7 +72,7 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
         SessionManager sessionManager = new SessionManager(this);
         HashMap<String, String> data = sessionManager.getUserDetails();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("OpearationsClients").child(data.get(SessionManager.TELEPHONE)).child(phone);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("OperationsClients").child(data.get(SessionManager.TELEPHONE)).child(phone);
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -80,15 +83,16 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
                     listOperation.add(operationClient);
                 }
                   adapter.notifyDataSetChanged();
+                  nbrOperations.setText("Operations ("+listOperation.size()+")");
 
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                Toast.makeText(ViewClientDetailsActivity.this,"Fail to get data.", Toast.LENGTH_SHORT).show();
             }
         });
-        
+
         clientupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -14,22 +14,23 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.credit__book.Model.OperationClient;
+import com.example.credit__book.Model.OperationSupplier;
 import com.example.credit__book.R;
 
 import java.util.List;
 
 
-    public class OperationClientDetailstAdapter extends RecyclerView.Adapter<OperationClientDetailstAdapter.ViewHolder> {
-    private static List<OperationClient> operations;
+public class OperationSupplierDetailsAdapter extends RecyclerView.Adapter<OperationSupplierDetailsAdapter.ViewHolder> {
+    private static List<OperationSupplier> operations;
     private Context context;
 
-    public OperationClientDetailstAdapter(Context context, List operations) {
+    public OperationSupplierDetailsAdapter(Context context, List operations) {
         this.context = context;
         this.operations = operations;
     }
 
 
-    public OperationClientDetailstAdapter(Context context) {
+    public OperationSupplierDetailsAdapter(Context context) {
         this.context = context;
     }
 
@@ -42,20 +43,20 @@ import java.util.List;
     }
 
     @Override
-    public void onBindViewHolder(OperationClientDetailstAdapter.ViewHolder holder, int position) {
-        OperationClient operation = operations.get(position);
+    public void onBindViewHolder(OperationSupplierDetailsAdapter.ViewHolder holder, int position) {
+        OperationSupplier operation = operations.get(position);
 
 //        holder.nameClient.setText(operation.getName_client());
 
         holder.typeOperation.setText(operation.getOperationType());
-        holder.date.setText(operation.getOperation_client_date() + "");
-        holder.opeartioBalance.setText(operation.getBalance_client() +"dh");
+        holder.date.setText(operation.getOperation_supplier_date()+ "");
+        holder.opeartioBalance.setText(operation.getBalance_supplier()+"dh");
         holder.opeartioBalance.setTextColor(Color.RED);
 //        if(operation.getOperationType()=="cash out"){
 //            holder.opeartioBalance.setTextColor(Color.RED);
         if("cash out".equals(holder.typeOperation.getText().toString())) {
-           holder.opeartioBalance.setTextColor(Color.RED);
-           holder.imgOpType.setImageResource(R.drawable.arrow_up);
+            holder.opeartioBalance.setTextColor(Color.RED);
+            holder.imgOpType.setImageResource(R.drawable.arrow_up);
 
         }else{
             holder.opeartioBalance.setTextColor(Color.GREEN);
@@ -76,7 +77,7 @@ import java.util.List;
         private TextView typeOperation;
         private ImageView imgOpType;
 
-        private OperationClientDetailstAdapter adapter;
+
 
         public ViewHolder(@NonNull View itemView, Context context) {
             super(itemView);

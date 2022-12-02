@@ -47,4 +47,12 @@ public class OperationSupplier {
     public void setName_supplier(String name_supplier) {
         this.operationType = name_supplier;
     }
+
+    public String getOperationType() {
+        return operationType;
+    }
+
+    public void setOperationType(String operationType) {
+        this.operationType = operationType;
+    }
 }
