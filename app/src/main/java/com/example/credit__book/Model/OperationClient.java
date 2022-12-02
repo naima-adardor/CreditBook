@@ -15,6 +15,7 @@ public class OperationClient {
         this.operationType = operationType;
 
     }
+    public  OperationClient(){};
 
     public String getOperation_client_date() {
         return operation_client_date;
@@ -46,5 +47,13 @@ public class OperationClient {
 
     public void setName_client(String name_client) {
         this.operationType = name_client;
+    }
+
+    public String getOperationType() {
+        return operationType;
+    }
+
+    public void setOperationType(String operationType) {
+        this.operationType = operationType;
     }
 }

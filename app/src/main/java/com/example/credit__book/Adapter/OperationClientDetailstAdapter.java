@@ -1,9 +1,13 @@
 package com.example.credit__book.Adapter;
 
 import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -41,16 +45,22 @@ import java.util.List;
         OperationClient operation = operations.get(position);
 
 //        holder.nameClient.setText(operation.getName_client());
-        holder.typeOperation.setText(operation.getDescription());
-        holder.date.setText(operation.getOperation_client_date() + " ");
-        holder.opeartioBalance.setText(operation.getBalance_client() + "");
 
-//        holder.itemView.setOnClickListener(v -> {
-//                    Intent intent = new Intent(context, ViewDetailsActivity.class);
-//                    intent.putExtra("position", position);
-//                    startActivity(context, intent, null);
-//                }
-//        );
+        holder.typeOperation.setText(operation.getOperationType());
+        holder.date.setText(operation.getOperation_client_date() + "");
+        holder.opeartioBalance.setText(operation.getBalance_client() +"dh");
+        holder.opeartioBalance.setTextColor(Color.RED);
+//        if(operation.getOperationType()=="cash out"){
+//            holder.opeartioBalance.setTextColor(Color.RED);
+        if("cash out".equals(holder.typeOperation.getText().toString())) {
+           holder.opeartioBalance.setTextColor(Color.RED);
+           holder.imgOpType.setImageResource(R.drawable.arrow_up);
+
+        }else{
+            holder.opeartioBalance.setTextColor(Color.GREEN);
+            holder.imgOpType.setImageResource(R.drawable.arrow_in);
+        }
+
     }
 
     @Override
@@ -63,6 +73,8 @@ import java.util.List;
         private TextView date;
         private TextView opeartioBalance;
         private TextView typeOperation;
+        private ImageView imgOpType;
+
         //        public TextView nameClient;
         private OperationClientDetailstAdapter adapter;
 
@@ -71,7 +83,7 @@ import java.util.List;
             date = itemView.findViewById(R.id.oparationDate);
             opeartioBalance = itemView.findViewById(R.id.oprationBalance);
             typeOperation = itemView.findViewById(R.id.opearationType);
-//            nameClient = itemView.findViewById(R.id.nameClient);
+            imgOpType= itemView.findViewById(R.id.iconTypeOperation);
         }
 
         public ViewHolder linkAdapter(OperationClientDetailstAdapter adapter) {

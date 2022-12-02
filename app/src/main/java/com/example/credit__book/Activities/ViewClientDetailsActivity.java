@@ -8,15 +8,23 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.credit__book.Adapter.OperationClientDetailstAdapter;
 import com.example.credit__book.Model.OperationClient;
+import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -24,12 +32,14 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
 
     private TextView clientName;
     private RecyclerView recyclerView;
-    private List<OperationClient> listitem;
+    private List<OperationClient> listOperation;
     private RecyclerView.Adapter adapter;
     private ImageView clientupdate,back, callClient, messageClient;
     private String phone, name, email, address;
     private Button gavebtn;
     private Button gotbtn;
+    private DatabaseReference databaseReference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,25 +64,31 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
 
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        listitem = new ArrayList<>();
-
-        listitem.add(new OperationClient("Mohammed Elachyry", "11/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "11/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "12/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "12/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "13/11/2022", "80.0", "You Gave"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Got"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Gave"));
-        listitem.add(new OperationClient("Mohammed Elachyry", "14/11/2022", "80.0", "You Gave"));
-        adapter = new OperationClientDetailstAdapter(ViewClientDetailsActivity.this, listitem);
+        listOperation = new ArrayList<>();
+        adapter = new OperationClientDetailstAdapter(ViewClientDetailsActivity.this, listOperation);
         recyclerView.setAdapter(adapter);
+        SessionManager sessionManager = new SessionManager(this);
+        HashMap<String, String> data = sessionManager.getUserDetails();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("OpearationsClients").child(data.get(SessionManager.TELEPHONE)).child(phone);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                listOperation.clear();
+                for (DataSnapshot dataSnapshot: snapshot.getChildren())
+                {
+                    OperationClient operationClient = dataSnapshot.getValue(OperationClient.class);
+                    listOperation.add(operationClient);
+                }
+                  adapter.notifyDataSetChanged();
 
-        // CountOp = findViewById(R.id.operation);
-        //CountOp.setText("Supplier(" + opAD.getItemCount() + ")");
-       // count2 = findViewById(R.id.balance);
-        //count2.setText("Transactions(" + opAD.getItemCount() + ")");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        
         clientupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
