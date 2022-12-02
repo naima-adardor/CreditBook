@@ -163,6 +163,10 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                 phoneV.setText("");
                                 emailV.setText("");
                                 adresseV.setText("");
+
+                               /* Intent intent  = new Intent(EditClientActivity.this, client_supplier.class);
+                                intent.putExtra("Fragmentone", 0); //pass zero for Fragmentone.
+                                startActivity(intent);*/
                             }
                         })
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

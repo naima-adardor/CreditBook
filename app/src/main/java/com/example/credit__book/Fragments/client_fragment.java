@@ -1,9 +1,7 @@
 package com.example.credit__book.Fragments;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,14 +18,11 @@ import com.example.credit__book.Activities.AddClientActivity;
 import com.example.credit__book.Activities.MyApplication;
 import com.example.credit__book.Activities.ViewClientDetailsActivity;
 import com.example.credit__book.Adapter.ClientAdapter;
-import com.example.credit__book.Adapter.OperationClientAdapter;
 import com.example.credit__book.Model.Client;
-import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.R;
 import com.example.credit__book.RecycleViewClientInterface;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -36,8 +31,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
 
 public class client_fragment extends Fragment implements View.OnClickListener, RecycleViewClientInterface {
 
@@ -54,6 +47,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+      /*  int strtext = getArguments().getInt("key",0);*/
         View view = inflater.inflate(R.layout.fragment_client, container, false);
 
 
