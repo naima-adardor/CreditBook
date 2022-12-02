@@ -115,6 +115,7 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                 });
                             }
                         })
+
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -157,7 +158,11 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                     }
                                 });
 
-
+                                first_nameV.setText("");
+                                last_nameV.setText("");
+                                phoneV.setText("");
+                                emailV.setText("");
+                                adresseV.setText("");
                             }
                         })
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

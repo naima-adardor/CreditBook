@@ -158,6 +158,11 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
                                         }
                                     }
                                 });
+                                first_nameV.setText("");
+                                last_nameV.setText("");
+                                phoneV.setText("");
+                                emailV.setText("");
+                                adresseV.setText("");
 
 
                             }
