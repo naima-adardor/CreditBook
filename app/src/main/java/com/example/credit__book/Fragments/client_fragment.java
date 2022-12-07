@@ -48,7 +48,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-      /*  int strtext = getArguments().getInt("key",0);*/
+       /*int strtext = getArguments().getInt("key",0);*/
         View view = inflater.inflate(R.layout.fragment_client, container, false);
 
 

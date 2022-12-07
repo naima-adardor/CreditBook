@@ -1,9 +1,10 @@
 package com.example.credit__book.Adapter;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
-import android.content.res.ColorStateList;
+import android.content.Intent;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.credit__book.Activities.EditClientOperationActivity;
 import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.R;
 
@@ -62,6 +64,7 @@ import java.util.List;
             holder.imgOpType.setImageResource(R.drawable.arrow_in);
         }
 
+
     }
 
     @Override
@@ -84,7 +87,23 @@ import java.util.List;
             opeartioBalance = itemView.findViewById(R.id.oprationBalance);
             typeOperation = itemView.findViewById(R.id.opearationType);
             imgOpType= itemView.findViewById(R.id.iconTypeOperation);
+           itemView.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            int position = getLayoutPosition(); // gets item position
+                            OperationClient oc = operations.get(position);
+
+                            Intent intent = new Intent(context, EditClientOperationActivity.class);
+                            intent.putExtra("Solde", oc.getBalance_client());
+                            intent.putExtra("note", oc.getDescription());
+                            startActivity(context,intent,null);
+                        }
+                    }
+            );
         }
+
+
 //
 //        public ViewHolder linkAdapter(OperationClientDetailstAdapter adapter) {
 //            this.adapter = adapter;

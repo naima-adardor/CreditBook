@@ -163,6 +163,9 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
                                 phoneV.setText("");
                                 emailV.setText("");
                                 adresseV.setText("");
+                                Intent I=new Intent(EditSupplierActivity.this,MainDashboardActivity.class);
+                             
+                                startActivity(I);
 
 
                             }

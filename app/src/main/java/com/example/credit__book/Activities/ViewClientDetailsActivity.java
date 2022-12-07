@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class ViewClientDetailsActivity extends AppCompatActivity {
+public class ViewClientDetailsActivity extends AppCompatActivity  {
 
     private TextView clientName;
     private RecyclerView recyclerView;
@@ -70,6 +70,7 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
         listOperation = new ArrayList<>();
         adapter = new OperationClientDetailstAdapter(ViewClientDetailsActivity.this, listOperation);
         recyclerView.setAdapter(adapter);
+
         SessionManager sessionManager = new SessionManager(this);
         HashMap<String, String> data = sessionManager.getUserDetails();
         databaseReference = FirebaseDatabase.getInstance().getReference().child("OperationsClients").child(data.get(SessionManager.TELEPHONE)).child(phone);
@@ -152,6 +153,15 @@ public class ViewClientDetailsActivity extends AppCompatActivity {
                 startActivity(smsIntent);
             }
         });
+
 }
+    /*@Override
+    public void onItemClick(int position) {
+        Intent intent = new Intent(ViewClientDetailsActivity.this, EditClientOperationActivity.class);
+        intent.putExtra("Solde", listOperation.get(position).getBalance_client());
+        intent.putExtra("note", listOperation.get(position).getDescription());
+        startActivity(intent);
+    }*/
+
 
 }
