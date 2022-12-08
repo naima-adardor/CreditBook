@@ -19,6 +19,7 @@ import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.R;
 import com.google.firebase.database.DataSnapshot;
+
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -36,7 +37,8 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
     private List<OperationClient> listOperation;
     private RecyclerView.Adapter adapter;
     private ImageView clientupdate,back, callClient, messageClient;
-    private String phone, name, email, address;
+    private String  name, email, address,id;
+    public String phone;
     private Button gavebtn;
     private Button gotbtn;
     private DatabaseReference databaseReference;
@@ -53,6 +55,8 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         email = getIntent().getStringExtra("Client Email");
         address = getIntent().getStringExtra("Client Address");
 
+        id = getIntent().getStringExtra("ID");
+
         clientName = findViewById(R.id.clientName);
         recyclerView = findViewById(R.id.recyclerView2);
         clientupdate=findViewById(R.id.clientupdate);
@@ -68,7 +72,20 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         listOperation = new ArrayList<>();
-        adapter = new OperationClientDetailstAdapter(ViewClientDetailsActivity.this, listOperation);
+
+        adapter = new OperationClientDetailstAdapter(ViewClientDetailsActivity.this, listOperation, new OperationClientDetailstAdapter.ItemClickListener() {
+            @Override
+            public void onItemClickListener(OperationClient op) {
+                Intent intent = new Intent(ViewClientDetailsActivity.this, EditClientOperationActivity.class);
+                intent.putExtra("Solde",    op.getBalance_client());
+                intent.putExtra("note", op.getDescription());
+                intent.putExtra("Client Phone", phone);
+                intent.putExtra("ID", id);
+
+                startActivity(intent);
+
+            }
+        });
         recyclerView.setAdapter(adapter);
 
         SessionManager sessionManager = new SessionManager(this);
@@ -155,6 +172,8 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         });
 
 }
+
+
     /*@Override
     public void onItemClick(int position) {
         Intent intent = new Intent(ViewClientDetailsActivity.this, EditClientOperationActivity.class);

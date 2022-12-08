@@ -1,9 +1,6 @@
 package com.example.credit__book.Adapter;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.credit__book.Activities.EditClientOperationActivity;
 import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.R;
 
@@ -24,10 +20,12 @@ import java.util.List;
     public class OperationClientDetailstAdapter extends RecyclerView.Adapter<OperationClientDetailstAdapter.ViewHolder> {
     private static List<OperationClient> operations;
     private Context context;
+    private ItemClickListener itemListener;
 
-    public OperationClientDetailstAdapter(Context context, List operations) {
+    public OperationClientDetailstAdapter(Context context, List operations,ItemClickListener item) {
         this.context = context;
         this.operations = operations;
+        this.itemListener=item;
     }
 
 
@@ -64,12 +62,20 @@ import java.util.List;
             holder.imgOpType.setImageResource(R.drawable.arrow_in);
         }
 
+        holder.itemView.setOnClickListener(
+                view -> {
+                    itemListener.onItemClickListener(operation);
+                }
+        );
 
     }
 
     @Override
     public int getItemCount() {
         return operations.size();
+    }
+    public interface ItemClickListener{
+        void onItemClickListener(OperationClient op);
     }
 
 
@@ -83,11 +89,12 @@ import java.util.List;
 
         public ViewHolder(@NonNull View itemView, Context context) {
             super(itemView);
+
             date = itemView.findViewById(R.id.oparationDate);
             opeartioBalance = itemView.findViewById(R.id.oprationBalance);
             typeOperation = itemView.findViewById(R.id.opearationType);
             imgOpType= itemView.findViewById(R.id.iconTypeOperation);
-           itemView.setOnClickListener(
+           /* itemView.setOnClickListener(
                     new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -97,10 +104,12 @@ import java.util.List;
                             Intent intent = new Intent(context, EditClientOperationActivity.class);
                             intent.putExtra("Solde", oc.getBalance_client());
                             intent.putExtra("note", oc.getDescription());
+
+
                             startActivity(context,intent,null);
                         }
                     }
-            );
+            );*/
         }
 
 

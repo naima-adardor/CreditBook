@@ -15,6 +15,13 @@ public class OperationClient {
         this.operationType = operationType;
 
     }
+    public OperationClient(String balance_client, String description ) {
+
+        this.balance_client = balance_client;
+        this.description = description;
+
+
+    }
     public  OperationClient(){};
 
     public String getOperation_client_date() {
