@@ -9,10 +9,6 @@
         android:title="Credit Book"
         android:icon="@drawable/book_nav"/>
 
-    <item android:id="@+id/cash_nav"
-        android:title="Cash Book"
-        android:icon="@drawable/wallet_nav"/>
-
     <item android:id="@+id/profile_nav"
         android:title="Profile"
         android:icon="@drawable/person_nav"/>

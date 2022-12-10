@@ -43,9 +43,9 @@ public class MainDashboardActivity extends AppCompatActivity {
                     case R.id.dashboard_nav:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, dashboard).commit();
                         return true;
-                    case R.id.cash_nav:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, cash).commit();
-                        return true;
+//                    case R.id.cash_nav:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.container, cash).commit();
+//                        return true;
                     case R.id.credit_nav:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, credit).commit();
                         return true;
