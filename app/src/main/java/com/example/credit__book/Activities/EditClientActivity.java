@@ -14,6 +14,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.credit__book.Fragments.CreditBookFragment;
 import com.example.credit__book.Model.Client;
 import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.R;
@@ -164,9 +165,13 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                 emailV.setText("");
                                 adresseV.setText("");
 
-                               /* Intent intent  = new Intent(EditClientActivity.this, client_supplier.class);
-                                intent.putExtra("Fragmentone", 0); //pass zero for Fragmentone.
-                                startActivity(intent);*/
+//                                Intent intent  = new Intent(EditClientActivity.this, CreditBookFragment.class);
+//                                intent.putExtra("Fragmentone", 0); //pass zero for Fragmentone.
+//                                startActivity(intent);
+//                                getSupportFragmentManager().beginTransaction()
+//                                        .replace(R.id.container, new CreditBookFragment())
+//                                        .addToBackStack(EditClientActivity.class.getSimpleName())
+//                                        .commit();
                             }
                         })
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
