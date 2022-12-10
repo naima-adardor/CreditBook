@@ -23,7 +23,7 @@ import java.util.HashMap;
 
 public class DashboardFragment extends Fragment {
 
-    DatabaseReference databaseReference;
+    DatabaseReference client, supplier, cashIn, cashOut;
     TextView clientCount, cashOutCount, cashinCount, supplierCount;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,14 +35,47 @@ public class DashboardFragment extends Fragment {
         supplierCount = view.findViewById(R.id.supplierCount);
         SessionManager sessionManager = new SessionManager(getContext());
         HashMap<String, String> data = sessionManager.getUserDetails();
-        databaseReference = FirebaseDatabase.getInstance().getReference("clients "+ data.get(SessionManager.TELEPHONE));
-        databaseReference.child("clients " + data.get(SessionManager.TELEPHONE)).addValueEventListener(new ValueEventListener() {
+        client = FirebaseDatabase.getInstance().getReference("clients "+ data.get(SessionManager.TELEPHONE));
+        supplier = FirebaseDatabase.getInstance().getReference("suppliers "+ data.get(SessionManager.TELEPHONE));
+        cashIn = FirebaseDatabase.getInstance().getReference("OperationsClients");
+        cashOut = FirebaseDatabase.getInstance().getReference("clients "+ data.get(SessionManager.TELEPHONE));
+        client.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                     clientCount.setText(snapshot.getChildrenCount() + "");
                 }else {
-                    clientCount.setText("null");
+                    clientCount.setText("0");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        supplier.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    supplierCount.setText(snapshot.getChildrenCount() + "");
+                }else {
+                    supplierCount.setText("0");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+        cashIn.child(data.get(SessionManager.TELEPHONE)).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    supplierCount.setText(snapshot.getChildrenCount() + "");
+                }else {
+                    supplierCount.setText("null");
                 }
             }
 
