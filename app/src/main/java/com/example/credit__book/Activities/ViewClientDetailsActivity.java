@@ -43,6 +43,7 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
     private Button gotbtn;
     private DatabaseReference databaseReference;
     private TextView nbrOperations;
+    private String key ="";
 
 
     @Override
@@ -72,10 +73,13 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         listOperation = new ArrayList<>();
-
+        SessionManager sessionManager = new SessionManager(this);
+        HashMap<String, String> data = sessionManager.getUserDetails();
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("OperationsClients").child(data.get(SessionManager.TELEPHONE)).child(phone);
         adapter = new OperationClientDetailstAdapter(ViewClientDetailsActivity.this, listOperation, new OperationClientDetailstAdapter.ItemClickListener() {
             @Override
             public void onItemClickListener(OperationClient op) {
+
                 Intent intent = new Intent(ViewClientDetailsActivity.this, EditClientOperationActivity.class);
                 intent.putExtra("Solde",    op.getBalance_client());
                 intent.putExtra("note", op.getDescription());
@@ -88,9 +92,8 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         });
         recyclerView.setAdapter(adapter);
 
-        SessionManager sessionManager = new SessionManager(this);
-        HashMap<String, String> data = sessionManager.getUserDetails();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("OperationsClients").child(data.get(SessionManager.TELEPHONE)).child(phone);
+
+
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -73,8 +73,9 @@ public class EditClientOperationActivity extends AppCompatActivity {
 
                                 Date date = new Date();
                                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-                                String id = databaseReference.push().getKey();
-                                OperationClient operationClient = new OperationClient(Solde,Notee);
+                               /* String id = databaseReference.push().getKey();*/
+
+                                OperationClient operationClient = new OperationClient("cash in", format.format(date),Solde,Notee);
                                 databaseReference.child("OperationsClients").child(data.get(SessionManager.TELEPHONE)).child(phoneSup).child(id).setValue(operationClient).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.R;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.List;
 
@@ -21,6 +22,9 @@ import java.util.List;
     private static List<OperationClient> operations;
     private Context context;
     private ItemClickListener itemListener;
+    public String Key="";
+    private DatabaseReference reference;
+
 
     public OperationClientDetailstAdapter(Context context, List operations,ItemClickListener item) {
         this.context = context;
@@ -65,8 +69,10 @@ import java.util.List;
         holder.itemView.setOnClickListener(
                 view -> {
                     itemListener.onItemClickListener(operation);
+
                 }
         );
+
 
     }
 
