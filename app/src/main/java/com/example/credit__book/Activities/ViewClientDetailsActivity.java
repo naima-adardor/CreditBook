@@ -388,6 +388,8 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
             public void onClick(View v) {
                 balance = Sold.getText().toString().trim();
                 description = Note.getText().toString().trim();
+                loader.setMessage("Updating Your Operation");
+                loader.show();
                 Date date = new Date();
                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
@@ -396,7 +398,7 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
                 databaseReference.child(key).setValue(op).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-
+                        loader.dismiss();
                         if (task.isSuccessful()){
                             Toast.makeText(ViewClientDetailsActivity.this, "Data has been updated successfully", Toast.LENGTH_SHORT).show();
                         }else {
@@ -414,9 +416,13 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         Delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                                loader.setMessage("Deleting");
+                                loader.show();
                 databaseReference.child(key).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
+                        loader.dismiss();
                         if (task.isSuccessful()){
                             Toast.makeText(ViewClientDetailsActivity.this, "Operation deleted successfully", Toast.LENGTH_SHORT).show();
                         }else {
@@ -428,6 +434,7 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
                 dialog.dismiss();
             }
         });
+
 
         dialog.show();
 

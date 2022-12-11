@@ -124,7 +124,7 @@ public class EditClientOperationActivity extends AppCompatActivity {
                                         progressDialog.dismiss();
                                         if (task.isSuccessful()) {
                                             Toast.makeText(EditClientOperationActivity.this, "Your Operation has been deleted successfuly!", Toast.LENGTH_SHORT).show();
-                                     finish();
+                                            finish();
                                         } else {
                                             Toast.makeText(EditClientOperationActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
                                         }
