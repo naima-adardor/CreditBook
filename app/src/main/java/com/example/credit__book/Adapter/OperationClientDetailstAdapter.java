@@ -1,9 +1,7 @@
 package com.example.credit__book.Adapter;
 
 import android.content.Context;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.R;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.List;
 
@@ -22,10 +21,15 @@ import java.util.List;
     public class OperationClientDetailstAdapter extends RecyclerView.Adapter<OperationClientDetailstAdapter.ViewHolder> {
     private static List<OperationClient> operations;
     private Context context;
+    private ItemClickListener itemListener;
+    public String Key="";
+    private DatabaseReference reference;
 
-    public OperationClientDetailstAdapter(Context context, List operations) {
+
+    public OperationClientDetailstAdapter(Context context, List operations,ItemClickListener item) {
         this.context = context;
         this.operations = operations;
+        this.itemListener=item;
     }
 
 
@@ -62,11 +66,22 @@ import java.util.List;
             holder.imgOpType.setImageResource(R.drawable.arrow_in);
         }
 
+        holder.itemView.setOnClickListener(
+                view -> {
+                    itemListener.onItemClickListener(operation);
+
+                }
+        );
+
+
     }
 
     @Override
     public int getItemCount() {
         return operations.size();
+    }
+    public interface ItemClickListener{
+        void onItemClickListener(OperationClient op);
     }
 
 
@@ -80,11 +95,30 @@ import java.util.List;
 
         public ViewHolder(@NonNull View itemView, Context context) {
             super(itemView);
+
             date = itemView.findViewById(R.id.oparationDate);
             opeartioBalance = itemView.findViewById(R.id.oprationBalance);
             typeOperation = itemView.findViewById(R.id.opearationType);
             imgOpType= itemView.findViewById(R.id.iconTypeOperation);
+           /* itemView.setOnClickListener(
+                    new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            int position = getLayoutPosition(); // gets item position
+                            OperationClient oc = operations.get(position);
+
+                            Intent intent = new Intent(context, EditClientOperationActivity.class);
+                            intent.putExtra("Solde", oc.getBalance_client());
+                            intent.putExtra("note", oc.getDescription());
+
+
+                            startActivity(context,intent,null);
+                        }
+                    }
+            );*/
         }
+
+
 //
 //        public ViewHolder linkAdapter(OperationClientDetailstAdapter adapter) {
 //            this.adapter = adapter;
