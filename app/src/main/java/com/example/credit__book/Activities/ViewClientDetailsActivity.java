@@ -378,6 +378,9 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         final EditText  Note=view.findViewById(R.id.editTextNote);
         final Button Update=view.findViewById(R.id.Update);
         final Button Delete=view.findViewById(R.id.Delete);
+        final TextView typeOp=view.findViewById(R.id.type);
+
+        typeOp.setText(typeop);
         Sold.setText(balance);
         Sold.setSelection(balance.length());
         Note.setText(description);

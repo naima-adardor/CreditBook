@@ -78,6 +78,7 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
 
 
 
+
         loader = new ProgressDialog(this);
         supplierName.setText(name);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("OperationsSuppliers").child( new SessionManager(this).getUserDetails().get(SessionManager.TELEPHONE)).child(phone);
@@ -337,10 +338,14 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
         final EditText  Note=view.findViewById(R.id.editTextNote);
         final Button Update=view.findViewById(R.id.Update);
         final Button Delete=view.findViewById(R.id.Delete);
+        final TextView typeOp=view.findViewById(R.id.type);
         Sold.setText(balance);
         Sold.setSelection(balance.length());
         Note.setText(description);
         Note.setSelection(description.length());
+        typeOp.setText(typeop);
+
+
 
         Update.setOnClickListener(new View.OnClickListener() {
             @Override
