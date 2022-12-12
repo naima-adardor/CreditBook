@@ -21,7 +21,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.credit__book.Model.OperationClient;
+import com.example.credit__book.Model.OperationSupplier;
 import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.R;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -183,8 +183,8 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
                     loader.setMessage("Adding your data");
                     loader.setCanceledOnTouchOutside(false);
                     loader.show();
-                    OperationClient operationClient = new OperationClient("cash in", format.format(date),balance,note);
-                    databaseReference.child(id).setValue(operationClient).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    OperationSupplier operationSupplier = new OperationSupplier( format.format(date),balance,note,"cash in");
+                    databaseReference.child(id).setValue(operationSupplier).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
@@ -252,8 +252,8 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
                     loader.setMessage("Adding your data");
                     loader.setCanceledOnTouchOutside(false);
                     loader.show();
-                    OperationClient operationClient = new OperationClient("cash out", format.format(date),balance,note);
-                    databaseReference.child(id).setValue(operationClient).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    OperationSupplier operationSupplier = new OperationSupplier( format.format(date),balance,note,"cash out");
+                    databaseReference.child(id).setValue(operationSupplier).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
@@ -281,15 +281,15 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseRecyclerOptions<OperationClient> options=new FirebaseRecyclerOptions.Builder<OperationClient>()
-                .setQuery(databaseReference, OperationClient.class)
+        FirebaseRecyclerOptions<OperationSupplier> options=new FirebaseRecyclerOptions.Builder<OperationSupplier>()
+                .setQuery(databaseReference, OperationSupplier.class)
                 .build();
-        FirebaseRecyclerAdapter<OperationClient, ViewClientDetailsActivity.MyViewHolder> adapter = new FirebaseRecyclerAdapter<OperationClient, ViewClientDetailsActivity.MyViewHolder>(options) {
+        FirebaseRecyclerAdapter<OperationSupplier, ViewSupplierDetailsActivity.MyViewHolder> adapter = new FirebaseRecyclerAdapter<OperationSupplier, ViewSupplierDetailsActivity.MyViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull ViewClientDetailsActivity.MyViewHolder holder, final int position, @NonNull final OperationClient op) {
+            protected void onBindViewHolder(@NonNull ViewSupplierDetailsActivity.MyViewHolder holder, final int position, @NonNull final OperationSupplier op) {
                 holder.typeOperation.setText(op.getOperationType());
-                holder.datetv.setText(op.getOperation_client_date() + "");
-                holder.opeartioBalance.setText(op.getBalance_client() +"dh");
+                holder.datetv.setText(op.getOperation_supplier_date() + "");
+                holder.opeartioBalance.setText(op.getBalance_supplier() +"dh");
                 holder.opeartioBalance.setTextColor(Color.RED);
 //        if(operation.getOperationType()=="cash out"){
 //            holder.opeartioBalance.setTextColor(Color.RED);
@@ -306,7 +306,7 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         key=getRef(holder.getAdapterPosition()).getKey();
-                        balance = op.getBalance_client();
+                        balance = op.getBalance_supplier();
                         description=op.getDescription();
                         typeop=op.getOperationType();
 
@@ -317,9 +317,9 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
             }
             @NonNull
             @Override
-            public ViewClientDetailsActivity.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            public ViewSupplierDetailsActivity.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_row_client_details, parent, false);
-                return new ViewClientDetailsActivity.MyViewHolder(view);
+                return new ViewSupplierDetailsActivity.MyViewHolder(view);
             }
         };
         recyclerView.setAdapter(adapter);
@@ -352,9 +352,10 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
                 Date date = new Date();
                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
-                OperationClient op = new OperationClient(typeop, format.format(date),balance,description);
+                OperationSupplier op = new OperationSupplier( format.format(date),balance,description,typeop);
 
                 databaseReference.child(key).setValue(op).addOnCompleteListener(new OnCompleteListener<Void>() {
+
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         loader.dismiss();
