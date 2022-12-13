@@ -17,6 +17,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.credit__book.Activities.AddClientActivity;
 import com.example.credit__book.Activities.MyApplication;
@@ -53,6 +54,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
     float cashIn = 0;
     float cashOut = 0;
 
+    SwipeRefreshLayout swipeRefreshLayout;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         /*int strtext = getArguments().getInt("key",0);*/
@@ -101,6 +103,15 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
 
         add_client_btn = view.findViewById(R.id.btnclient);
         add_client_btn.setOnClickListener(this);
+
+        swipeRefreshLayout=view.findViewById(R.id.refresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                displayCashinAndCashOut();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override

@@ -189,6 +189,9 @@
                 android:background="#EDEBEB" />
 
         </LinearLayout>
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresh" android:layout_height="match_parent"
+            android:layout_width="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewClient"
@@ -204,7 +207,7 @@
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         </androidx.recyclerview.widget.RecyclerView>
-
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     </LinearLayout>
 
