@@ -17,6 +17,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.credit__book.Activities.AddSupplierActivity;
 import com.example.credit__book.Activities.MyApplication;
@@ -53,7 +54,7 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
     TextView Cashin, Cashout;
     float cashIn = 0;
     float cashOut = 0;
-
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -90,6 +91,15 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
         database = FirebaseDatabase.getInstance().getReference("suppliers "+ data.get(SessionManager.TELEPHONE));
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
+        swipeRefreshLayout=view.findViewById(R.id.refresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                displayCashinAndCashOut();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
 
         suppliersList = new ArrayList<>();
         supplierAdapter = new SupplierAdapter(this, context, suppliersList);
