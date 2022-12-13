@@ -1,7 +1,10 @@
 package com.example.credit__book.Fragments;
 
+import static java.lang.Float.parseFloat;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,17 +17,18 @@ import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.example.credit__book.Activities.AddSupplierActivity;
 import com.example.credit__book.Activities.MyApplication;
-import com.example.credit__book.Activities.ViewClientDetailsActivity;
 import com.example.credit__book.Activities.ViewSupplierDetailsActivity;
 import com.example.credit__book.Adapter.SupplierAdapter;
-import com.example.credit__book.Model.Client;
 import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.Model.Supplier;
 import com.example.credit__book.R;
 import com.example.credit__book.RecycleViewClientInterface;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,8 +36,11 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
+import java.util.Objects;
 
 public class supplier_fragment extends Fragment  implements View.OnClickListener, RecycleViewClientInterface {
 
@@ -44,7 +51,10 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
     DatabaseReference database;
     ArrayList<Supplier> suppliersList;
     TextView nbr_suppliers;
-
+    TextView Cashin, Cashout;
+    float cashIn = 0;
+    float cashOut = 0;
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -58,6 +68,7 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
+        displayCashinAndCashOut();
         nbr_suppliers=view.findViewById(R.id.textViewSupplierNbr);
         searchView = view.findViewById(R.id.searchView);
         searchView.clearFocus();
@@ -81,10 +92,20 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
+        swipeRefreshLayout=view.findViewById(R.id.refresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                displayCashinAndCashOut();
+                swipeRefreshLayout.setRefreshing(false);
+            }
+        });
+
         suppliersList = new ArrayList<>();
         supplierAdapter = new SupplierAdapter(this, context, suppliersList);
         recyclerView.setAdapter(supplierAdapter);
-
+        Cashin = view.findViewById(R.id.cashin);
+        Cashout = view.findViewById(R.id.cashout);
         ajouter= view.findViewById(R.id.btnAddsupplier);
         ajouter.setOnClickListener(this);
 
@@ -151,5 +172,35 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
         intent.putExtra("Supplier Email", suppliersList.get(position).getEmail());
         intent.putExtra("Supplier Address", suppliersList.get(position).getAddress());
         startActivity(intent);
+    }
+    public void displayCashinAndCashOut() {
+        FirebaseDatabase dbRef = FirebaseDatabase.getInstance();
+
+        dbRef.getReference("OperationsSuppliers").child(Objects.requireNonNull(new SessionManager(getContext()).getUserDetails().get(SessionManager.TELEPHONE))).get().addOnSuccessListener(new OnSuccessListener<DataSnapshot>() {
+            @Override
+            public void onSuccess(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        for (DataSnapshot snapshot1 : snapshot.getChildren()) {
+                            if (snapshot1.child("operationType").getValue().toString().equalsIgnoreCase("Cash In")) {
+                                cashIn += parseFloat(snapshot1.child("balance_supplier").getValue().toString());
+                            } else {
+                                cashOut += parseFloat(snapshot1.child("balance_supplier").getValue().toString());
+                            }
+                        }
+                    }
+                }
+                Log.i("debug", "cashIn: " + cashIn + " cashOut: " + cashOut);
+                // format to morrocan dirham
+                NumberFormat formatter = NumberFormat.getCurrencyInstance(new Locale("fr", "MA"));
+                Cashin.setText(formatter.format(cashIn));
+                Cashout.setText(formatter.format(cashOut));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.e("debug", "onFailure: " + e.getMessage());
+            }
+        });
     }
 }

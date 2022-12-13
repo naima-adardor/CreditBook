@@ -51,7 +51,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView25"
+                    android:id="@+id/cashin"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -92,7 +92,7 @@
                     android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/description"
+                    android:id="@+id/cashout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
@@ -105,22 +105,6 @@
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/buttonViewReport"
-            android:layout_width="190dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/radius_button_client"
-            android:backgroundTint="#F1EBEB"
-            android:drawableEnd="@drawable/glis"
-            android:fontFamily="sans-serif"
-            android:gravity="center"
-            android:text="view report"
-            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -198,7 +182,10 @@
                 android:background="#EDEBEB" />
 
         </LinearLayout>
-
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresh"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerViewSupplier"
             android:layout_width="match_parent"
@@ -212,7 +199,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/linearLayout3"></androidx.recyclerview.widget.RecyclerView>
 
-
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
