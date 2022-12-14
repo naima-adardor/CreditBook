@@ -68,7 +68,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        displayCashinAndCashOut();
+       /* displayCashinAndCashOut();*/
 
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
         nbr_clients = view.findViewById(R.id.textViewClientNbr);
@@ -108,7 +108,10 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                cashIn=0;
+                cashOut=0;
                 displayCashinAndCashOut();
+
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
