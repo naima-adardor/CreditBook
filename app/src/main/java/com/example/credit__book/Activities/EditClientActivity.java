@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.credit__book.Fragments.CreditBookFragment;
 import com.example.credit__book.Model.Client;
 import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.R;
@@ -164,6 +163,9 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                 phoneV.setText("");
                                 emailV.setText("");
                                 adresseV.setText("");
+
+                                Intent I=new Intent(EditClientActivity.this,MainDashboardActivity.class);
+                                startActivity(I);
 
 //                                Intent intent  = new Intent(EditClientActivity.this, CreditBookFragment.class);
 //                                intent.putExtra("Fragmentone", 0); //pass zero for Fragmentone.
