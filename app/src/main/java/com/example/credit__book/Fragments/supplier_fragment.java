@@ -68,7 +68,7 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
-        displayCashinAndCashOut();
+displayCashinAndCashOut();
         nbr_suppliers=view.findViewById(R.id.textViewSupplierNbr);
         searchView = view.findViewById(R.id.searchView);
         searchView.clearFocus();
@@ -96,7 +96,9 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                displayCashinAndCashOut();
+                cashOut=0;
+                cashIn=0;
+               displayCashinAndCashOut();
                 swipeRefreshLayout.setRefreshing(false);
             }
         });

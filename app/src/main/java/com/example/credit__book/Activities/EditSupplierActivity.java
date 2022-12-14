@@ -152,6 +152,8 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
                                     public void onComplete(@NonNull Task<Void> task) {
                                         progressDialog.dismiss();
                                         if (task.isSuccessful()) {
+                                            databaseReference.child("OperationsSuppliers").child( new SessionManager(getApplicationContext()).getUserDetails().get(SessionManager.TELEPHONE)).child(phoneNumber).removeValue();
+
                                             Toast.makeText(EditSupplierActivity.this, "Your Supplier has been deleted successfuly!", Toast.LENGTH_SHORT).show();
                                         } else {
                                             Toast.makeText(EditSupplierActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
@@ -164,8 +166,7 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
                                 emailV.setText("");
                                 adresseV.setText("");
                                 Intent I=new Intent(EditSupplierActivity.this,MainDashboardActivity.class);
-                             
-                                startActivity(I);
+                               startActivity(I);
 
 
                             }

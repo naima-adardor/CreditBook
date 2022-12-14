@@ -14,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.credit__book.Fragments.CreditBookFragment;
 import com.example.credit__book.Model.Client;
 import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.R;
@@ -146,12 +145,14 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                 String phoneNumber = phone.getEditText().getText().toString();
                                 String emailClient= email.getEditText().getText().toString();
                                 String adresseClient = adresse.getEditText().getText().toString();
+
                                 databaseReference.child("clients " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
 
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         progressDialog.dismiss();
                                         if (task.isSuccessful()) {
+                                            databaseReference.child("OperationsClients").child( new SessionManager(getApplicationContext()).getUserDetails().get(SessionManager.TELEPHONE)).child(phoneNumber).removeValue();
                                             Toast.makeText(EditClientActivity.this, "Your Client has been deleted successfuly!", Toast.LENGTH_SHORT).show();
                                         } else {
                                             Toast.makeText(EditClientActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
@@ -164,6 +165,9 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                 phoneV.setText("");
                                 emailV.setText("");
                                 adresseV.setText("");
+
+                                Intent I=new Intent(EditClientActivity.this,MainDashboardActivity.class);
+                                startActivity(I);
 
 //                                Intent intent  = new Intent(EditClientActivity.this, CreditBookFragment.class);
 //                                intent.putExtra("Fragmentone", 0); //pass zero for Fragmentone.

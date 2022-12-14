@@ -51,8 +51,8 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
     ArrayList<Client> clientList;
     TextView nbr_clients;
     TextView Cashin, Cashout;
-    float cashIn = 0;
-    float cashOut = 0;
+    float cashIn;
+    float cashOut;
 
     SwipeRefreshLayout swipeRefreshLayout;
     @Override
@@ -108,7 +108,10 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
+                cashIn=0;
+                cashOut=0;
                 displayCashinAndCashOut();
+
                 swipeRefreshLayout.setRefreshing(false);
             }
         });
