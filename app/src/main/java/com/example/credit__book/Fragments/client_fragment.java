@@ -51,8 +51,8 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
     ArrayList<Client> clientList;
     TextView nbr_clients;
     TextView Cashin, Cashout;
-    float cashIn = 0;
-    float cashOut = 0;
+    float cashIn;
+    float cashOut;
 
     SwipeRefreshLayout swipeRefreshLayout;
     @Override
@@ -68,7 +68,7 @@ public class client_fragment extends Fragment implements View.OnClickListener, R
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-       /* displayCashinAndCashOut();*/
+        displayCashinAndCashOut();
 
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
         nbr_clients = view.findViewById(R.id.textViewClientNbr);

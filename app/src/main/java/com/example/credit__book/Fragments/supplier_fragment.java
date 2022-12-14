@@ -68,7 +68,7 @@ public class supplier_fragment extends Fragment  implements View.OnClickListener
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         MyApplication context = (MyApplication) this.getActivity().getApplicationContext();
-
+displayCashinAndCashOut();
         nbr_suppliers=view.findViewById(R.id.textViewSupplierNbr);
         searchView = view.findViewById(R.id.searchView);
         searchView.clearFocus();
