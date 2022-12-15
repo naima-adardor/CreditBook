@@ -3,9 +3,15 @@ package com.example.credit__book.Activities;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import com.example.credit__book.Model.Client;
+
 import android.graphics.Color;
+import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +19,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,9 +28,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.credit__book.Model.Client;
 import com.example.credit__book.Model.OperationClient;
 import com.example.credit__book.Model.SessionManager;
 import com.example.credit__book.R;
+import com.example.credit__book.databinding.ActivityMainDashboardBinding;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,6 +40,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -51,6 +64,8 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
     private Button gotbtn;
     private DatabaseReference databaseReference;
 
+    ArrayList<Client> clientList;
+
     private TextView nbrOperations;
     private String key ="";
 
@@ -59,16 +74,39 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
     private String typeop;
     private ProgressDialog loader;
 
+    private ImageView generate_pdf;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.client_details);
+
+        generate_pdf = findViewById(R.id.pdfCl);
+        generate_pdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewClientDetailsActivity.this, PDF_client.class);
+                intent.putExtra("Client Name", name);
+                intent.putExtra("Client Phone", phone);
+                intent.putExtra("Client Email", email);
+                intent.putExtra("Client Address", address);
+
+
+                startActivity(intent);
+            }
+        });
+
 
         name = getIntent().getStringExtra("Client Name");
         phone = getIntent().getStringExtra("Client Phone");
         email = getIntent().getStringExtra("Client Email");
         address = getIntent().getStringExtra("Client Address");
+
+
 
 
 
@@ -90,43 +128,10 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         listOperation = new ArrayList<>();
-         /* adapter = new OperationClientDetailstAdapter(ViewClientDetailsActivity.this, listOperation, new OperationClientDetailstAdapter.ItemClickListener() {
-            @Override
-            public void onItemClickListener(OperationClient op) {
-
-                Intent intent = new Intent(ViewClientDetailsActivity.this, EditClientOperationActivity.class);
-                intent.putExtra("Solde",    op.getBalance_client());
-                intent.putExtra("note", op.getDescription());
-                intent.putExtra("Client Phone", phone);
-                intent.putExtra("ID", id);
-
-                startActivity(intent);
-
-            }
-        });
-        recyclerView.setAdapter(adapter);*/
 
 
 
-       /* databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                listOperation.clear();
-                for (DataSnapshot dataSnapshot: snapshot.getChildren())
-                {
-                    OperationClient operationClient = dataSnapshot.getValue(OperationClient.class);
-                    listOperation.add(operationClient);
-                }
-                  adapter.notifyDataSetChanged();
-                  nbrOperations.setText("Operations ("+listOperation.size()+")");
 
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(ViewClientDetailsActivity.this,"Fail to get data.", Toast.LENGTH_SHORT).show();
-            }
-        });*/
 
         clientupdate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -184,7 +189,12 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
             }
         });
 
+
+
     }
+
+
+
 
     private void addGot() {
         AlertDialog.Builder myDialog=new AlertDialog.Builder(this);
@@ -253,6 +263,8 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
 
         dialog.show();
     }
+
+
 
     private void addGave() {
         AlertDialog.Builder myDialog=new AlertDialog.Builder(this);
@@ -444,13 +456,7 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
     }
 
 
-    /*@Override
-    public void onItemClick(int position) {
-        Intent intent = new Intent(ViewClientDetailsActivity.this, EditClientOperationActivity.class);
-        intent.putExtra("Solde", listOperation.get(position).getBalance_client());
-        intent.putExtra("note", listOperation.get(position).getDescription());
-        startActivity(intent);
-    }*/
+
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         View mView;
         TextView datetv,opeartioBalance,typeOperation;
@@ -469,6 +475,8 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
 
 
     }
+
+
 
 
 }

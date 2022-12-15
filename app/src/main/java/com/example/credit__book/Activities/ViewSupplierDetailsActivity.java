@@ -52,6 +52,7 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
     private String description;
     private String typeop;
     private ProgressDialog loader;
+    private ImageView generate_pdf;
 
 
 
@@ -59,6 +60,22 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_supplier_details);
+
+        generate_pdf = findViewById(R.id.pdf);
+        generate_pdf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ViewSupplierDetailsActivity.this, PDF_supplier.class);
+                intent.putExtra("Supplier Name", name);
+                intent.putExtra("Supplier Phone", phone);
+                intent.putExtra("Supplier Email", email);
+                intent.putExtra("Supplier Address", address);
+
+
+
+                startActivity(intent);
+            }
+        });
 
         name = getIntent().getStringExtra("Supplier Name");
         phone = getIntent().getStringExtra("Supplier Phone");
@@ -73,6 +90,7 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
         messageSupplier = findViewById(R.id.messageSupplier);
         gotbtn = findViewById(R.id.gotBtn);
         gavebtn = findViewById(R.id.gaveBtn);
+
 
 
 
