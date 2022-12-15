@@ -66,50 +66,56 @@
             android:layout_height="wrap_content"
             android:src="@drawable/baseline_message"
             app:tint="@color/Orange3"
+            android:layout_marginRight="30dp"
             android:id="@+id/messageSupplier"/>
+
+        <ImageView
+            android:id="@+id/pdf"
+            android:layout_width="51dp"
+            android:layout_height="match_parent"
+            app:srcCompat="@drawable/export_pdf" />
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLaout22"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_below="@id/linearLaout2"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="105dp"
         android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
+            android:layout_height="485dp">
 
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="378dp"
+                android:layout_height="392dp"
 
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
-
-                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintTop_toTopOf="parent"
                 tools:listitem="@layout/recycler_view_row_client_details" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="69dp"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/gotBtn"
                 android:layout_width="151dp"
                 android:layout_height="56dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="30dp"
                 android:backgroundTint="@color/green"
                 android:text="I GOT"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.126"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.968" />
+                android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/gaveBtn"
@@ -117,15 +123,8 @@
                 android:layout_height="55dp"
                 android:backgroundTint="@color/red2"
                 android:text="I GAVE"
-                android:textColor="@color/white"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.861"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.967" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                android:textColor="@color/white" />
+        </LinearLayout>
 
     </LinearLayout>
 

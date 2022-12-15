@@ -15,15 +15,14 @@
         android:id="@+id/textview"
         android:layout_width="297dp"
         android:layout_height="62dp"
-        android:fontFamily="fantasy"
         android:paddingLeft="7dp"
         android:shadowRadius="8"
         android:text="@string/welcome_message"
         android:textAlignment="center"
         android:textColor="@color/LightGray"
+
         android:textSize="30sp"
         android:textStyle="bold"
-
         android:typeface="monospace"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

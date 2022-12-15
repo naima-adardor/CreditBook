@@ -139,27 +139,12 @@
 
             <androidx.appcompat.widget.SearchView
                 android:id="@+id/searchView"
-                android:layout_width="340dp"
+                android:layout_width="386dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
-                app:queryHint="Search ..."
-                app:iconifiedByDefault="false"/>
+                app:iconifiedByDefault="false"
+                app:queryHint="Search ..." />
 
-
-
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="match_parent"
-                android:layout_height="42dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.914"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.442"
-                app:srcCompat="@drawable/export_pdf" />
 
         </LinearLayout>
 
