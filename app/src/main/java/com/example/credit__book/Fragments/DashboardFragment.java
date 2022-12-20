@@ -35,6 +35,7 @@ public class DashboardFragment extends Fragment {
         supplierCount = view.findViewById(R.id.supplierCount);
         SessionManager sessionManager = new SessionManager(getContext());
         HashMap<String, String> data = sessionManager.getUserDetails();
+        System.out.println("testtttttttttt" + data.get(SessionManager.TELEPHONE));
         client = FirebaseDatabase.getInstance().getReference("clients "+ data.get(SessionManager.TELEPHONE));
         supplier = FirebaseDatabase.getInstance().getReference("suppliers "+ data.get(SessionManager.TELEPHONE));
         cashIn = FirebaseDatabase.getInstance().getReference("OperationsClients");
@@ -69,21 +70,21 @@ public class DashboardFragment extends Fragment {
 
             }
         });
-        cashIn.child(data.get(SessionManager.TELEPHONE)).addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists()){
-                    supplierCount.setText(snapshot.getChildrenCount() + "");
-                }else {
-                    supplierCount.setText("null");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+//        cashIn.child(data.get(SessionManager.TELEPHONE)).addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                if (snapshot.exists()){
+//                    supplierCount.setText(snapshot.getChildrenCount() + "");
+//                }else {
+//                    supplierCount.setText("null");
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
         return view;
     }
 }
