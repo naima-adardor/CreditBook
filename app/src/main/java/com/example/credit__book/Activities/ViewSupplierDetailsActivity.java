@@ -210,8 +210,7 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 Toast.makeText(ViewSupplierDetailsActivity.this, "The operation has been created successfuly!", Toast.LENGTH_SHORT).show();
                                 loader.dismiss();
-
-
+                                sessionManager.addCashIn();
                             }else {
                                 Toast.makeText(ViewSupplierDetailsActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
                                 loader.dismiss();
@@ -279,6 +278,7 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
                             if (task.isSuccessful()){
                                 Toast.makeText(ViewSupplierDetailsActivity.this, "The operation has been created successfuly!", Toast.LENGTH_SHORT).show();
                                 loader.dismiss();
+                                sessionManager.addCashOut();
                             }else {
                                 Toast.makeText(ViewSupplierDetailsActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
                                 loader.dismiss();
@@ -399,6 +399,8 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
         Delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SessionManager sessionManager = new SessionManager(view.getContext());
+
 
                 loader.setMessage("Deleting");
                 loader.show();
@@ -407,6 +409,11 @@ public class ViewSupplierDetailsActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         loader.dismiss();
                         if (task.isSuccessful()){
+                            if(typeop.equals("cash in")) {
+                                sessionManager.subCashIn();
+                            }else {
+                                sessionManager.subCashOut();
+                            }
                             Toast.makeText(ViewSupplierDetailsActivity.this, "Operation deleted successfully", Toast.LENGTH_SHORT).show();
                         }else {
                             String err = task.getException().toString();

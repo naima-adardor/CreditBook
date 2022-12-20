@@ -70,21 +70,9 @@ public class DashboardFragment extends Fragment {
 
             }
         });
-//        cashIn.child(data.get(SessionManager.TELEPHONE)).addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot snapshot) {
-//                if (snapshot.exists()){
-//                    supplierCount.setText(snapshot.getChildrenCount() + "");
-//                }else {
-//                    supplierCount.setText("null");
-//                }
-//            }
-//
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError error) {
-//
-//            }
-//        });
+
+        cashinCount.setText(sessionManager.getCashin() +"");
+        cashOutCount.setText(sessionManager.getCashOut() + "");
         return view;
     }
 }

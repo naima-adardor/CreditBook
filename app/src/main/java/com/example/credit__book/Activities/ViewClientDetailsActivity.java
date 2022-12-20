@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+
 import com.example.credit__book.Model.Client;
 
 import android.graphics.Color;
@@ -51,14 +52,14 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class ViewClientDetailsActivity extends AppCompatActivity  {
+public class ViewClientDetailsActivity extends AppCompatActivity {
 
     private TextView clientName;
     private RecyclerView recyclerView;
     private List<OperationClient> listOperation;
     /* private RecyclerView.Adapter adapter;*/
-    private ImageView clientupdate,back, callClient, messageClient;
-    private String  name, email, address;
+    private ImageView clientupdate, back, callClient, messageClient;
+    private String name, email, address;
     public String phone;
     private Button gavebtn;
     private Button gotbtn;
@@ -67,7 +68,7 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
     ArrayList<Client> clientList;
 
     private TextView nbrOperations;
-    private String key ="";
+    private String key = "";
 
     private String balance;
     private String description;
@@ -75,7 +76,6 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
     private ProgressDialog loader;
 
     private ImageView generate_pdf;
-
 
 
     @Override
@@ -107,21 +107,18 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         address = getIntent().getStringExtra("Client Address");
 
 
-
-
-
         clientName = findViewById(R.id.clientName);
         recyclerView = findViewById(R.id.recyclerView2);
-        clientupdate=findViewById(R.id.clientupdate);
-        back=findViewById(R.id.back);
+        clientupdate = findViewById(R.id.clientupdate);
+        back = findViewById(R.id.back);
         callClient = findViewById(R.id.callClient);
         messageClient = findViewById(R.id.messageClient);
-        gavebtn=findViewById(R.id.gaveBtn);
+        gavebtn = findViewById(R.id.gaveBtn);
         gotbtn = findViewById(R.id.gotBtn);
 
         loader = new ProgressDialog(this);
         clientName.setText(name);
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("OperationsClients").child( new SessionManager(this).getUserDetails().get(SessionManager.TELEPHONE)).child(phone);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("OperationsClients").child(new SessionManager(this).getUserDetails().get(SessionManager.TELEPHONE)).child(phone);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setReverseLayout(true);
         linearLayoutManager.setStackFromEnd(true);
@@ -130,18 +127,15 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         listOperation = new ArrayList<>();
 
 
-
-
-
         clientupdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ViewClientDetailsActivity.this,EditClientActivity.class);
+                Intent intent = new Intent(ViewClientDetailsActivity.this, EditClientActivity.class);
                 intent.putExtra("Client Name", name);
                 intent.putExtra("Client Phone", phone);
                 intent.putExtra("Client Email", email);
                 intent.putExtra("Client Address", address);
-                startActivity(new Intent (intent));
+                startActivity(new Intent(intent));
             }
         });
 
@@ -170,9 +164,8 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:"+phone));
+                intent.setData(Uri.parse("tel:" + phone));
                 startActivity(intent);
-
 
 
             }
@@ -190,26 +183,23 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         });
 
 
-
     }
 
 
-
-
     private void addGot() {
-        AlertDialog.Builder myDialog=new AlertDialog.Builder(this);
-        LayoutInflater inflater= LayoutInflater.from(this);
+        AlertDialog.Builder myDialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
 
-        View myview=inflater.inflate(R.layout.activity_cashin,null);
+        View myview = inflater.inflate(R.layout.activity_cashin, null);
         myDialog.setView(myview);
 
-        final AlertDialog dialog=myDialog.create();
+        final AlertDialog dialog = myDialog.create();
         dialog.setCancelable(false);
 
-        final EditText balance_EDIT_TEXT=myview.findViewById(R.id.editTextBalance);
-        final EditText note_EDIT_TEXT=myview.findViewById(R.id.editTextNote);
+        final EditText balance_EDIT_TEXT = myview.findViewById(R.id.editTextBalance);
+        final EditText note_EDIT_TEXT = myview.findViewById(R.id.editTextNote);
         Button savebtn = myview.findViewById(R.id.buttonSave);
-        Button cancel = myview.findViewById(R.id. buttoncancel);
+        Button cancel = myview.findViewById(R.id.buttoncancel);
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -221,7 +211,7 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
             @Override
             public void onClick(View v) {
 
-                String balance  = balance_EDIT_TEXT.getText().toString();
+                String balance = balance_EDIT_TEXT.getText().toString();
                 String note = note_EDIT_TEXT.getText().toString();
                 Date date = new Date();
                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
@@ -230,11 +220,11 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
 
 
                 String id = databaseReference.push().getKey();
-                if(!TextUtils.isEmpty(balance)){
+                if (!TextUtils.isEmpty(balance)) {
                     loader.setMessage("Adding your data");
                     loader.setCanceledOnTouchOutside(false);
                     loader.show();
-                    OperationClient operationClient = new OperationClient("cash in", format.format(date),balance,note);
+                    OperationClient operationClient = new OperationClient("cash in", format.format(date), balance, note);
                     databaseReference.child(id).setValue(operationClient).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
@@ -242,17 +232,16 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
                             if (task.isSuccessful()) {
                                 Toast.makeText(ViewClientDetailsActivity.this, "The operation has been created successfuly!", Toast.LENGTH_SHORT).show();
                                 loader.dismiss();
+                                sessionManager.addCashIn();
 
-
-                            }else {
+                            } else {
                                 Toast.makeText(ViewClientDetailsActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
                                 loader.dismiss();
                             }
                         }
                     });
-                }
-                else{
-                    Toast.makeText(ViewClientDetailsActivity.this,"You should enter a balance",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(ViewClientDetailsActivity.this, "You should enter a balance", Toast.LENGTH_LONG).show();
                 }
 
                 dialog.dismiss();
@@ -260,26 +249,24 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         });
 
 
-
         dialog.show();
     }
 
 
-
     private void addGave() {
-        AlertDialog.Builder myDialog=new AlertDialog.Builder(this);
-        LayoutInflater inflater= LayoutInflater.from(this);
+        AlertDialog.Builder myDialog = new AlertDialog.Builder(this);
+        LayoutInflater inflater = LayoutInflater.from(this);
 
-        View myview=inflater.inflate(R.layout.activity_cashout,null);
+        View myview = inflater.inflate(R.layout.activity_cashout, null);
         myDialog.setView(myview);
 
-        final AlertDialog dialog=myDialog.create();
+        final AlertDialog dialog = myDialog.create();
         dialog.setCancelable(false);
 
-        final EditText balance_EDIT_TEXT= myview.findViewById(R.id.editTextBalance);
-        final EditText note_EDIT_TEXT=myview.findViewById(R.id.editTextNote);
-        Button savebtn =myview.findViewById(R.id.buttonSave);
-        Button cancel = myview.findViewById(R.id. buttoncancel);
+        final EditText balance_EDIT_TEXT = myview.findViewById(R.id.editTextBalance);
+        final EditText note_EDIT_TEXT = myview.findViewById(R.id.editTextNote);
+        Button savebtn = myview.findViewById(R.id.buttonSave);
+        Button cancel = myview.findViewById(R.id.buttoncancel);
 
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -290,30 +277,30 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         savebtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String balance  = balance_EDIT_TEXT.getText().toString().trim();
+                String balance = balance_EDIT_TEXT.getText().toString().trim();
                 String note = note_EDIT_TEXT.getText().toString().trim();
                 Date date = new Date();
                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
                 SessionManager sessionManager = new SessionManager(v.getContext());
                 HashMap<String, String> data = sessionManager.getUserDetails();
                 String id = databaseReference.push().getKey();
-                if(TextUtils.isEmpty(balance)){
+                if (TextUtils.isEmpty(balance)) {
                     balance_EDIT_TEXT.setError("Balance is Required");
                     return;
-                }
-                else{
+                } else {
                     loader.setMessage("Adding your data");
                     loader.setCanceledOnTouchOutside(false);
                     loader.show();
-                    OperationClient operationClient = new OperationClient("cash out", format.format(date),balance,note);
+                    OperationClient operationClient = new OperationClient("cash out", format.format(date), balance, note);
                     databaseReference.child(id).setValue(operationClient).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
-                            if (task.isSuccessful()){
+                            if (task.isSuccessful()) {
                                 Toast.makeText(ViewClientDetailsActivity.this, "The operation has been created successfuly!", Toast.LENGTH_SHORT).show();
+                                sessionManager.addCashOut();
                                 loader.dismiss();
-                            }else {
+                            } else {
                                 Toast.makeText(ViewClientDetailsActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
                                 loader.dismiss();
                             }
@@ -327,14 +314,13 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         });
 
 
-
         dialog.show();
     }
 
     protected void onStart() {
         super.onStart();
 
-        FirebaseRecyclerOptions<OperationClient> options=new FirebaseRecyclerOptions.Builder<OperationClient>()
+        FirebaseRecyclerOptions<OperationClient> options = new FirebaseRecyclerOptions.Builder<OperationClient>()
                 .setQuery(databaseReference, OperationClient.class)
                 .build();
         FirebaseRecyclerAdapter<OperationClient, MyViewHolder> adapter = new FirebaseRecyclerAdapter<OperationClient, MyViewHolder>(options) {
@@ -342,15 +328,15 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
             protected void onBindViewHolder(@NonNull MyViewHolder holder, final int position, @NonNull final OperationClient op) {
                 holder.typeOperation.setText(op.getOperationType());
                 holder.datetv.setText(op.getOperation_client_date() + "");
-                holder.opeartioBalance.setText(op.getBalance_client() +"dh");
+                holder.opeartioBalance.setText(op.getBalance_client() + "dh");
                 holder.opeartioBalance.setTextColor(Color.RED);
 //        if(operation.getOperationType()=="cash out"){
 //            holder.opeartioBalance.setTextColor(Color.RED);
-                if("cash out".equals(holder.typeOperation.getText().toString())) {
+                if ("cash out".equals(holder.typeOperation.getText().toString())) {
                     holder.opeartioBalance.setTextColor(Color.RED);
                     holder.imgOpType.setImageResource(R.drawable.arrow_up);
 
-                }else{
+                } else {
                     holder.opeartioBalance.setTextColor(Color.GREEN);
                     holder.imgOpType.setImageResource(R.drawable.arrow_in);
                 }
@@ -358,16 +344,17 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
                 holder.mView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        key=getRef(holder.getAdapterPosition()).getKey();
+                        key = getRef(holder.getAdapterPosition()).getKey();
                         balance = op.getBalance_client();
-                        description=op.getDescription();
-                        typeop=op.getOperationType();
+                        description = op.getDescription();
+                        typeop = op.getOperationType();
 
                         updateOperation();
                     }
                 });
 
             }
+
             @NonNull
             @Override
             public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -386,11 +373,11 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
         myDialog.setView(view);
 
         final AlertDialog dialog = myDialog.create();
-        final EditText Sold=view.findViewById(R.id.editTextBalance);
-        final EditText  Note=view.findViewById(R.id.editTextNote);
-        final Button Update=view.findViewById(R.id.Update);
-        final Button Delete=view.findViewById(R.id.Delete);
-        final TextView typeOp=view.findViewById(R.id.type);
+        final EditText Sold = view.findViewById(R.id.editTextBalance);
+        final EditText Note = view.findViewById(R.id.editTextNote);
+        final Button Update = view.findViewById(R.id.Update);
+        final Button Delete = view.findViewById(R.id.Delete);
+        final TextView typeOp = view.findViewById(R.id.type);
 
         typeOp.setText(typeop);
         Sold.setText(balance);
@@ -408,17 +395,17 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
                 Date date = new Date();
                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
-                OperationClient op = new OperationClient(typeop, format.format(date),balance,description);
+                OperationClient op = new OperationClient(typeop, format.format(date), balance, description);
 
                 databaseReference.child(key).setValue(op).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         loader.dismiss();
-                        if (task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Toast.makeText(ViewClientDetailsActivity.this, "Data has been updated successfully", Toast.LENGTH_SHORT).show();
-                        }else {
+                        } else {
                             String err = task.getException().toString();
-                            Toast.makeText(ViewClientDetailsActivity.this, "update failed "+err, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ViewClientDetailsActivity.this, "update failed " + err, Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -429,20 +416,27 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
             }
         });
         Delete.setOnClickListener(new View.OnClickListener() {
+            SessionManager sessionManager = new SessionManager(view.getContext());
+
             @Override
             public void onClick(View v) {
 
-                                loader.setMessage("Deleting");
-                                loader.show();
+                loader.setMessage("Deleting");
+                loader.show();
                 databaseReference.child(key).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         loader.dismiss();
-                        if (task.isSuccessful()){
+                        if (task.isSuccessful()) {
+                            if(typeop.equals("cash in")) {
+                                sessionManager.subCashIn();
+                            }else {
+                                sessionManager.subCashOut();
+                            }
                             Toast.makeText(ViewClientDetailsActivity.this, "Operation deleted successfully", Toast.LENGTH_SHORT).show();
-                        }else {
+                        } else {
                             String err = task.getException().toString();
-                            Toast.makeText(ViewClientDetailsActivity.this, "Failed to delete the operation "+ err, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ViewClientDetailsActivity.this, "Failed to delete the operation " + err, Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -456,27 +450,24 @@ public class ViewClientDetailsActivity extends AppCompatActivity  {
     }
 
 
-
     public static class MyViewHolder extends RecyclerView.ViewHolder {
         View mView;
-        TextView datetv,opeartioBalance,typeOperation;
+        TextView datetv, opeartioBalance, typeOperation;
         ImageView imgOpType;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             mView = itemView;
             datetv = mView.findViewById(R.id.oparationDate);
             opeartioBalance = mView.findViewById(R.id.oprationBalance);
-            imgOpType= mView.findViewById(R.id.iconTypeOperation);
+            imgOpType = mView.findViewById(R.id.iconTypeOperation);
             typeOperation = mView.findViewById(R.id.opearationType);
 
 
         }
 
 
-
     }
-
-
 
 
 }
