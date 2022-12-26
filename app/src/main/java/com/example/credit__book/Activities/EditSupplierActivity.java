@@ -152,12 +152,21 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
                                     public void onComplete(@NonNull Task<Void> task) {
                                         progressDialog.dismiss();
                                         if (task.isSuccessful()) {
+                                            databaseReference.child("OperationsSuppliers").child( new SessionManager(getApplicationContext()).getUserDetails().get(SessionManager.TELEPHONE)).child(phoneNumber).removeValue();
+
                                             Toast.makeText(EditSupplierActivity.this, "Your Supplier has been deleted successfuly!", Toast.LENGTH_SHORT).show();
                                         } else {
                                             Toast.makeText(EditSupplierActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
+                                first_nameV.setText("");
+                                last_nameV.setText("");
+                                phoneV.setText("");
+                                emailV.setText("");
+                                adresseV.setText("");
+                                Intent I=new Intent(EditSupplierActivity.this,MainDashboardActivity.class);
+                               startActivity(I);
 
 
                             }
@@ -190,18 +199,6 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
                 intent.putExtra("Supplier Address", adresseSupplier);
                 startActivity(intent);
                 break;
-        /*String firstName = first_name.getEditText().getText()+ "";
-        String lastName = last_name.getEditText().getText().toString();
-        String phoneNumber = phone.getEditText().getText().toString();
-        String emailSupplier = email.getEditText().getText().toString();
-        String adresseSupplier = adresse.getEditText().getText().toString();
-        progressDialog = new ProgressDialog(EditClientSupplierActivity.this);
-        progressDialog.setTitle("Please wait...");
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setMessage("Updating Your Informations");
-        progressDialog.show();
-        Supplier supplier=new Supplier();
-        supplier.updateSupplier(phoneNumber, firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier,EditClientSupplierActivity.this);
-*/
+
     }
 }}

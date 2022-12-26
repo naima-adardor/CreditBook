@@ -115,6 +115,7 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                 });
                             }
                         })
+
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
@@ -144,12 +145,14 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                 String phoneNumber = phone.getEditText().getText().toString();
                                 String emailClient= email.getEditText().getText().toString();
                                 String adresseClient = adresse.getEditText().getText().toString();
+
                                 databaseReference.child("clients " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
 
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         progressDialog.dismiss();
                                         if (task.isSuccessful()) {
+                                            databaseReference.child("OperationsClients").child( new SessionManager(getApplicationContext()).getUserDetails().get(SessionManager.TELEPHONE)).child(phoneNumber).removeValue();
                                             Toast.makeText(EditClientActivity.this, "Your Client has been deleted successfuly!", Toast.LENGTH_SHORT).show();
                                         } else {
                                             Toast.makeText(EditClientActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
@@ -157,7 +160,22 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                     }
                                 });
 
+                                first_nameV.setText("");
+                                last_nameV.setText("");
+                                phoneV.setText("");
+                                emailV.setText("");
+                                adresseV.setText("");
 
+                                Intent I=new Intent(EditClientActivity.this,MainDashboardActivity.class);
+                                startActivity(I);
+
+//                                Intent intent  = new Intent(EditClientActivity.this, CreditBookFragment.class);
+//                                intent.putExtra("Fragmentone", 0); //pass zero for Fragmentone.
+//                                startActivity(intent);
+//                                getSupportFragmentManager().beginTransaction()
+//                                        .replace(R.id.container, new CreditBookFragment())
+//                                        .addToBackStack(EditClientActivity.class.getSimpleName())
+//                                        .commit();
                             }
                         })
                         .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -187,19 +205,7 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                 intent.putExtra("Client Address", adresseClient);
                 startActivity(intent);
                 break;
-        /*String firstName = first_name.getEditText().getText()+ "";
-        String lastName = last_name.getEditText().getText().toString();
-        String phoneNumber = phone.getEditText().getText().toString();
-        String emailSupplier = email.getEditText().getText().toString();
-        String adresseSupplier = adresse.getEditText().getText().toString();
-        progressDialog = new ProgressDialog(EditClientSupplierActivity.this);
-        progressDialog.setTitle("Please wait...");
-        progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setMessage("Updating Your Informations");
-        progressDialog.show();
-        Supplier supplier=new Supplier();
-        supplier.updateSupplier(phoneNumber, firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier,EditClientSupplierActivity.this);
-*/
+
         }
     }
 }

@@ -6,7 +6,6 @@ import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.credit__book.Adapter.PageAdapter;
 import com.example.credit__book.R;
 import com.google.android.material.tabs.TabLayout;
 
@@ -18,13 +17,23 @@ public class client_supplier extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_client_supp);
+//        setContentView(R.layout.activity_client_supp);
 
         tabLayout = findViewById(R.id.tabLayout);
         viewPager = findViewById(R.id.viewPager);
 
+      /*  int fragmentId = getIntent().getIntExtra("FRAGMENT_ID", 0);
+        Bundle bundle = new Bundle();
+        bundle.putString("TARGET_FRAGMENT_ID", String.valueOf(fragmentId));
+        client_fragment client = new client_fragment ();
+        client.setArguments(bundle);
 
-
+        getSupportFragmentManager().beginTransaction().replace(R.id.viewPager, client).commit();*/
+       /* int value = getIntent().getIntExtra("Fragmentone", 0);
+        Bundle bundle = new Bundle();
+        bundle.putInt("key", value);
+        client_fragment fragmentOne = new client_fragment();
+        fragmentOne.setArguments(bundle);*/
 //        tabLayout.setupWithViewPager2(viewPager);
 //
 //        PageAdapter pageAdapter = new PageAdapter(getSupportFragmentManager(),2);

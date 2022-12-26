@@ -69,20 +69,10 @@
                     android:layout_gravity="right"
                     android:fontFamily="@font/alata"
                     android:gravity="right"
+                    android:paddingRight="10dp"
                     android:text="0680346100"
-                    android:textColor="@color/red2"
+                    android:textColor="@color/black"
                     android:textSize="19dp" />
-
-                <TextView
-                    android:id="@+id/description"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right"
-                    android:gravity="right"
-                    android:paddingRight="5dp"
-                    android:text="You have to get"
-                    android:textColor="@color/DarkBlue"
-                    android:textSize="16sp" />
 
             </LinearLayout>
 

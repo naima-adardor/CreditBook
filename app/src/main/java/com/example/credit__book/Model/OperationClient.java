@@ -4,17 +4,25 @@ public class OperationClient {
     private String operation_client_date;
     private String balance_client;
     private String description;
-    private String name_client;
+    private String operationType;
 
 
 
-    public OperationClient(String name_client, String operation_client_date, String balance_client, String description ) {
+    public OperationClient(String operationType, String operation_client_date, String balance_client, String description ) {
         this.operation_client_date = operation_client_date;
         this.balance_client = balance_client;
         this.description = description;
-        this.name_client = name_client;
+        this.operationType = operationType;
 
     }
+    public OperationClient(String balance_client, String description ) {
+
+        this.balance_client = balance_client;
+        this.description = description;
+
+
+    }
+    public  OperationClient(){};
 
     public String getOperation_client_date() {
         return operation_client_date;
@@ -41,10 +49,18 @@ public class OperationClient {
     }
 
     public String getName_client() {
-        return name_client;
+        return operationType;
     }
 
     public void setName_client(String name_client) {
-        this.name_client = name_client;
+        this.operationType = name_client;
+    }
+
+    public String getOperationType() {
+        return operationType;
+    }
+
+    public void setOperationType(String operationType) {
+        this.operationType = operationType;
     }
 }

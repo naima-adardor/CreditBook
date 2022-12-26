@@ -4,9 +4,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <TextView
-        android:id="@+id/textView28"
+        android:id="@+id/type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -14,7 +13,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="50dp"
         android:fontFamily="@font/alata"
-        android:text="CASH IN"
+        android:text="CASH OUT"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         android:textColor="#070707"
         android:textSize="24sp"
@@ -104,9 +103,8 @@
             android:layout_weight="2"
             >
 
-
             <Button
-                android:id="@+id/buttoncancel"
+                android:id="@+id/Delete"
                 android:layout_width="324dp"
                 android:layout_height="65dp"
                 android:layout_gravity="center"
@@ -114,10 +112,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="#4CAF50"
+                android:backgroundTint="@color/red3"
                 android:fontFamily="@font/alata"
                 android:gravity="center"
-                android:text="Cancel"
+                android:text="Delete"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#0B0A0A"
                 android:textSize="20sp"
@@ -130,7 +128,7 @@
             android:layout_weight="2">
 
             <Button
-                android:id="@+id/buttonSave"
+                android:id="@+id/Update"
                 android:layout_width="324dp"
                 android:layout_height="65dp"
                 android:layout_gravity="center"
@@ -138,10 +136,10 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
-                android:backgroundTint="#4CAF50"
+                android:backgroundTint="@color/Orange"
                 android:fontFamily="@font/alata"
                 android:gravity="center"
-                android:text="SAVE"
+                android:text="Update"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#0B0A0A"
                 android:textSize="20sp"

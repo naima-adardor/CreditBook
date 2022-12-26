@@ -1,12 +1,11 @@
 package com.example.credit__book.Activities;
 
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import android.view.MenuItem;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-
-import android.os.Bundle;
-import android.view.MenuItem;
 
 import com.example.credit__book.Fragments.CashBookFragment;
 import com.example.credit__book.Fragments.CreditBookFragment;
@@ -27,7 +26,11 @@ public class MainDashboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_dashboard);
-
+        /*int value = getIntent().getIntExtra("Fragmentone", 0);
+        Bundle bundle = new Bundle();
+        bundle.putInt("key", value);
+        client_fragment fragmentOne = new client_fragment();
+        fragmentOne.setArguments(bundle);*/
         bottom_nav = findViewById(R.id.bottom_nav);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.container, new DashboardFragment()).commit();
@@ -43,10 +46,11 @@ public class MainDashboardActivity extends AppCompatActivity {
                     case R.id.dashboard_nav:
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, dashboard).commit();
                         return true;
-                    case R.id.cash_nav:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.container, cash).commit();
-                        return true;
+//                    case R.id.cash_nav:
+//                        getSupportFragmentManager().beginTransaction().replace(R.id.container, cash).commit();
+//                        return true;
                     case R.id.credit_nav:
+
                         getSupportFragmentManager().beginTransaction().replace(R.id.container, credit).commit();
                         return true;
                     case R.id.profile_nav:

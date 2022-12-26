@@ -13,10 +13,14 @@ public class SessionManager {
 
     public static final String IS_LOGIN = "IsLoggedIn";
 
+
+
     public static final String FULL_NAME = "full_name";
     public static final String TELEPHONE = "phone_number";
     public static final String EMAIL = "email";
     public static final String PASSWORD = "password";
+    public static final String CASHIN = "cash_in";
+    public static final String CASHOUT = "cash_out";
 
     public SessionManager (Context context)  {
 
@@ -32,7 +36,33 @@ public class SessionManager {
         editor.putString(TELEPHONE, telephone);
         editor.putString(EMAIL, email);
         editor.putString(PASSWORD, password);
+        editor.putString(CASHIN, "0" );
+        editor.putString(CASHOUT, "0" );
         editor.commit();
+    }
+
+    public void addCashIn() {
+        editor.putInt(CASHIN, sharedPreferences.getInt(CASHIN, 0) + 1);
+        editor.commit();
+    }
+    public void addCashOut() {
+        editor.putInt(CASHOUT, sharedPreferences.getInt(CASHOUT, 0) + 1);
+        editor.commit();
+    }
+    public void subCashIn() {
+        editor.putInt(CASHIN, sharedPreferences.getInt(CASHIN, 0) - 1);
+        editor.commit();
+    }
+    public void subCashOut() {
+        editor.putInt(CASHOUT, sharedPreferences.getInt(CASHOUT, 0) - 1);
+        editor.commit();
+    }
+
+    public int getCashin() {
+        return sharedPreferences.getInt(CASHIN, 0);
+    }
+    public int getCashOut() {
+        return sharedPreferences.getInt(CASHOUT, 0);
     }
 
     public HashMap<String, String> getUserDetails() {
@@ -42,6 +72,7 @@ public class SessionManager {
         data.put(TELEPHONE, sharedPreferences.getString(TELEPHONE, null));
         data.put(EMAIL, sharedPreferences.getString(EMAIL, null));
         data.put(PASSWORD, sharedPreferences.getString(PASSWORD, null));
+
 
         return  data;
     }
