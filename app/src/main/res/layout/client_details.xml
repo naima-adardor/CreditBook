@@ -17,9 +17,9 @@
             android:id="@+id/back"
             android:layout_width="35dp"
             android:layout_height="35dp"
+            android:layout_alignParentLeft="false"
             android:layout_marginStart="7dp"
-            android:layout_alignParentLeft="true"
-            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24"/>
+            app:srcCompat="@drawable/ic_baseline_arrow_back_ios_24" />
 
         <TextView
             android:id="@+id/clientName"
@@ -30,18 +30,20 @@
             android:gravity="center"
             android:text="Client Name"
             android:textColor="@color/DarkBlue"
-            android:textSize="25dp" />
+            android:textSize="25sp" />
 
 
         <ImageView
             android:id="@+id/clientupdate"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
+            android:layout_width="54dp"
+            android:layout_height="49dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
             android:clickable="true"
+            android:contentDescription="@string/Book"
+            android:focusable="true"
             app:srcCompat="@drawable/edit_user"
-            app:tint="@color/Orange3"
-            android:layout_marginEnd="7dp"
-            android:layout_alignParentEnd="true"/>
+            app:tint="@color/Orange3" />
 
     </RelativeLayout>
 
@@ -73,7 +75,8 @@
             android:id="@+id/pdfCl"
             android:layout_width="52dp"
             android:layout_height="match_parent"
-            app:srcCompat="@drawable/export_pdf" />
+            app:srcCompat="@drawable/export_pdf"
+            android:contentDescription="TODO" />
 
     </LinearLayout>
 
@@ -85,43 +88,44 @@
         android:layout_marginTop="104dp"
         android:orientation="vertical">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView2"
             android:layout_width="match_parent"
-            android:layout_height="485dp">
+            android:layout_height="wrap_content"
 
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView2"
-                android:layout_width="379dp"
-                android:layout_height="387dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/recycler_view_row_client_details" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            android:paddingLeft="7dp"
+            android:paddingRight="7dp"
+            android:paddingBottom="10dp"
+            tools:listitem="@layout/recycler_view_row_client_details" />
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="69dp"
-            android:orientation="horizontal">
+
+            android:layout_width="350dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:paddingLeft="4.0dip"
+            android:paddingTop="5.0dip"
+            android:paddingRight="4.0dip"
+            android:paddingBottom="1.0dip">
 
             <Button
                 android:id="@+id/gotBtn"
-                android:layout_width="151dp"
-                android:layout_height="56dp"
-                android:layout_marginLeft="40dp"
-                android:layout_marginRight="30dp"
+                android:layout_width="30dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:layout_marginRight="7dp"
+                android:layout_weight="1.0"
                 android:backgroundTint="@color/green"
                 android:text="I GOT"
                 android:textColor="@color/white" />
 
             <Button
                 android:id="@+id/gaveBtn"
-                android:layout_width="151dp"
-                android:layout_height="55dp"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="30dp"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"
+                android:layout_weight="1.0"
                 android:backgroundTint="@color/red2"
                 android:text="I GAVE"
                 android:textColor="@color/white" />
