@@ -42,27 +42,27 @@ public class SessionManager {
     }
 
     public void addCashIn() {
-        editor.putString(CASHIN, sharedPreferences.getString(CASHIN, "0") + 1);
+        editor.putString(CASHIN, String.valueOf(Integer.parseInt(sharedPreferences.getString(CASHIN, String.valueOf(0))) + 1));
         editor.commit();
     }
     public void addCashOut() {
-        editor.putString(CASHOUT, sharedPreferences.getString(CASHOUT, "0") + 1);
+        editor.putString(CASHOUT, String.valueOf(Integer.parseInt(sharedPreferences.getString(CASHOUT, String.valueOf(0))) + 1));
         editor.commit();
     }
     public void subCashIn() {
-        editor.putString(CASHIN, sharedPreferences.getString(CASHIN, "0") + - 1);
+        editor.putString(CASHIN, String.valueOf(Integer.parseInt(sharedPreferences.getString(CASHIN, String.valueOf(0))) - 1));
         editor.commit();
     }
     public void subCashOut() {
-        editor.putInt(CASHOUT, sharedPreferences.getInt(CASHOUT, 0) - 1);
+        editor.putString(CASHOUT, String.valueOf(Integer.parseInt(sharedPreferences.getString(CASHOUT, String.valueOf(0))) - 1));
         editor.commit();
     }
 
     public String getCashin() {
-        return sharedPreferences.getString(CASHIN, "0");
+        return sharedPreferences.getString(CASHIN, String.valueOf(0));
     }
     public String getCashOut() {
-        return sharedPreferences.getString(CASHOUT, "0");
+        return sharedPreferences.getString(CASHOUT, String.valueOf(0));
     }
 
     public HashMap<String, String> getUserDetails() {
