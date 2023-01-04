@@ -32,8 +32,7 @@
                     android:id="@+id/textViewDateOperation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="12-11-2022"
+                    android:layout_marginStart="5dp"
                     android:textColor="#040303"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -50,7 +49,7 @@
                     android:id="@+id/textViewBalanceOpeartion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"
+                    android:layout_marginEnd="10dp"
                     android:gravity="right"
                     android:textColor="#4CAF50"
                     android:textSize="16sp"
@@ -60,10 +59,9 @@
                     android:id="@+id/textViewTypeOperation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="5dp"
                     android:gravity="right"
-                    android:paddingRight="10dp"
-                    android:text="Cash in"
+                    android:paddingEnd="10dp"
                     android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>

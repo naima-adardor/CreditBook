@@ -142,8 +142,8 @@
 
                     <ImageView
                         android:id="@+id/imageViewCashBook"
-                        android:layout_width="82dp"
-                        android:layout_height="76dp"
+                        android:layout_width="84dp"
+                        android:layout_height="84dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginBottom="8dp"
                         app:srcCompat="@drawable/supplier_count" />
@@ -185,7 +185,7 @@
                     <ImageView
                         android:id="@+id/imageViewCashOut"
                         android:layout_width="82dp"
-                        android:layout_height="76dp"
+                        android:layout_height="84dp"
                         android:layout_gravity="center_horizontal"
                         android:layout_marginBottom="8dp"
                         app:srcCompat="@drawable/cashout_count" />

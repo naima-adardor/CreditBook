@@ -71,8 +71,8 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-        cashinCount.setText(sessionManager.getCashin() +"");
-        cashOutCount.setText(sessionManager.getCashOut() + "");
+        cashinCount.setText(sessionManager.getCashin());
+        cashOutCount.setText(sessionManager.getCashOut());
         return view;
     }
 }

@@ -42,15 +42,15 @@ public class SessionManager {
     }
 
     public void addCashIn() {
-        editor.putInt(CASHIN, sharedPreferences.getInt(CASHIN, 0) + 1);
+        editor.putString(CASHIN, sharedPreferences.getString(CASHIN, "0") + 1);
         editor.commit();
     }
     public void addCashOut() {
-        editor.putInt(CASHOUT, sharedPreferences.getInt(CASHOUT, 0) + 1);
+        editor.putString(CASHOUT, sharedPreferences.getString(CASHOUT, "0") + 1);
         editor.commit();
     }
     public void subCashIn() {
-        editor.putInt(CASHIN, sharedPreferences.getInt(CASHIN, 0) - 1);
+        editor.putString(CASHIN, sharedPreferences.getString(CASHIN, "0") + - 1);
         editor.commit();
     }
     public void subCashOut() {
@@ -58,11 +58,11 @@ public class SessionManager {
         editor.commit();
     }
 
-    public int getCashin() {
-        return sharedPreferences.getInt(CASHIN, 0);
+    public String getCashin() {
+        return sharedPreferences.getString(CASHIN, "0");
     }
-    public int getCashOut() {
-        return sharedPreferences.getInt(CASHOUT, 0);
+    public String getCashOut() {
+        return sharedPreferences.getString(CASHOUT, "0");
     }
 
     public HashMap<String, String> getUserDetails() {

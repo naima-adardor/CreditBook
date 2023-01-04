@@ -196,7 +196,7 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginLeft="40dp"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="50sp"
             android:layout_marginRight="40dp"
             android:layout_marginBottom="5dp"
             android:backgroundTint="@color/Orange2"
