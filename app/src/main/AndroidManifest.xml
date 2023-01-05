@@ -87,13 +87,6 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".Activities.ViewReportCashbook"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
-        <activity
             android:name=".Activities.ViewClientDetailsActivity"
             android:exported="true">
             <meta-data
