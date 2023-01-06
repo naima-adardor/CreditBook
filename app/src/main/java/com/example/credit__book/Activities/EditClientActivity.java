@@ -64,6 +64,8 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
         address = getIntent().getStringExtra("Client Address");
 
         String[] arrStr = name.split(" ");
+        System.out.println("test1 " + name);
+        System.out.println("test "+ arrStr[0] + " " + arrStr[1]);
 
         first_nameV.setText(arrStr[0]);
         last_nameV.setText(arrStr[1]);
@@ -92,6 +94,9 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                                 String phoneNumber = phone.getEditText().getText().toString();
                                 String emailClient= email.getEditText().getText().toString();
                                 String adresseClient = adresse.getEditText().getText().toString();
+                                if(!validateFirstName(firstName) |  !validateLastName(lastName) |  !validateTelephone(phoneNumber) ){
+                                    return;
+                                }
                                 progressDialog.setMessage("Updating Your client informations");
                                 progressDialog.show();
                                 SessionManager sessionManager = new SessionManager(view.getContext());
@@ -101,8 +106,7 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
 
                                 Date date = new Date();
                                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-                                Client client = new Client(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailClient, adresseClient );
-                                databaseReference.child("clients " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).setValue(client).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                Client client = new Client(Integer.parseInt(phoneNumber), firstName + " " + lastName ,phoneNumber,emailClient,adresseClient, data.get(SessionManager.TELEPHONE), format.format(date));                                databaseReference.child("clients " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).setValue(client).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
                                         progressDialog.dismiss();
@@ -168,6 +172,7 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
 
                                 Intent I=new Intent(EditClientActivity.this,MainDashboardActivity.class);
                                 startActivity(I);
+                                finish();
 
 //                                Intent intent  = new Intent(EditClientActivity.this, CreditBookFragment.class);
 //                                intent.putExtra("Fragmentone", 0); //pass zero for Fragmentone.
@@ -204,8 +209,40 @@ public class EditClientActivity extends AppCompatActivity implements View.OnClic
                 intent.putExtra("Client Email", emailClient);
                 intent.putExtra("Client Address", adresseClient);
                 startActivity(intent);
+                finish();
                 break;
 
+        }
+    }
+
+    private boolean validateFirstName(String firstname) {
+        if (firstname.isEmpty()) {
+            this.first_name.setError("This Field is Required!");
+            return false;
+        }else {
+            this.first_name.setError(null);
+            this.first_name.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean validateLastName(String firstname) {
+        if (firstname.isEmpty()) {
+            this.last_name.setError("This Field is Required!");
+            return false;
+        }else {
+            this.last_name.setError(null);
+            this.last_name.setErrorEnabled(false);
+            return true;
+        }
+    }
+    private boolean validateTelephone(String telephone) {
+        if (telephone.isEmpty()) {
+            this.phone.setError("This Field is Required!");
+            return false;
+        }else {
+            this.phone.setError(null);
+            this.phone.setErrorEnabled(false);
+            return true;
         }
     }
 }

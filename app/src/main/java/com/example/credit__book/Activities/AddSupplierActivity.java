@@ -26,7 +26,7 @@ import java.util.HashMap;
 
 public class AddSupplierActivity extends AppCompatActivity implements View.OnClickListener {
 
-    TextInputLayout first_name,last_name,email, phone,adresse;
+    TextInputLayout first_name, last_name, email, phone, adresse;
     private Button add_supplier_btn;
     private ImageView Back;
     private DatabaseReference DBreference;
@@ -43,7 +43,7 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
         email = findViewById(R.id.editTextEmail);
         adresse = findViewById(R.id.editTextAdress);
         add_supplier_btn = findViewById(R.id.AddSupplier);
-        Back=findViewById(R.id.back);
+        Back = findViewById(R.id.back);
         add_supplier_btn.setOnClickListener(this);
         Back.setOnClickListener(this);
         progressDialog = new ProgressDialog(AddSupplierActivity.this);
@@ -68,7 +68,7 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
                 String phoneNumber = phone.getEditText().getText().toString();
                 String emailSupplier = email.getEditText().getText().toString();
                 String adresseSupplier = adresse.getEditText().getText().toString();
-                if(!validateFirstName(firstName) |  !validateFirstName(lastName) | !validateTelephone(phoneNumber) ){
+                if (!validateFirstName(firstName) | !validateLastName(lastName) | !validateTelephone(phoneNumber)) {
                     return;
                 }
                 SessionManager sessionManager = new SessionManager(view.getContext());
@@ -84,7 +84,7 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
                             Toast.makeText(AddSupplierActivity.this, "The supplier has been created successfuly!", Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(AddSupplierActivity.this, AddClientActivity.class));
                             finish();
-                        }else {
+                        } else {
                             Toast.makeText(AddSupplierActivity.this, "Failed, Please try again!", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -93,13 +93,25 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
                 break;
         }
     }
+
     private boolean validateFirstName(String firstname) {
         if (firstname.isEmpty()) {
             this.first_name.setError("This Field is Required!");
             return false;
-        }else {
+        } else {
             this.first_name.setError(null);
             this.first_name.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validateLastName(String firstname) {
+        if (firstname.isEmpty()) {
+            this.last_name.setError("This Field is Required!");
+            return false;
+        } else {
+            this.last_name.setError(null);
+            this.last_name.setErrorEnabled(false);
             return true;
         }
     }
@@ -108,10 +120,10 @@ public class AddSupplierActivity extends AppCompatActivity implements View.OnCli
         if (telephone.isEmpty()) {
             this.phone.setError("This Field is Required!");
             return false;
-        }else {
+        } else {
             this.phone.setError(null);
             this.phone.setErrorEnabled(false);
             return true;
         }
-    }
-    }
+    }   
+}

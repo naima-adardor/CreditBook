@@ -30,21 +30,20 @@ import java.util.HashMap;
 
 public class EditSupplierActivity extends AppCompatActivity implements View.OnClickListener {
     private TextView fullNameTxt;
-    private TextInputEditText first_nameV,last_nameV,emailV, phoneV,adresseV;
-    private TextInputLayout first_name,last_name, email, phone, adresse;
-    private Button Delete ,Update;
+    private TextInputEditText first_nameV, last_nameV, emailV, phoneV, adresseV;
+    private TextInputLayout first_name, last_name, email, phone, adresse;
+    private Button Delete, Update;
     private DatabaseReference mDatabase;
     private ProgressDialog progressDialog;
     private ImageView Back;
     private String phoneI, name, emailI, address;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_client);
-        Back=findViewById(R.id.back);
+        Back = findViewById(R.id.back);
         Back.setOnClickListener(this);
 
         first_name = findViewById(R.id.editTextFirstName);
@@ -73,8 +72,8 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
         adresseV.setText(address);
         phoneV.setFocusable(false);
 
-        Update=findViewById(R.id.Update);
-        Delete=findViewById(R.id.Delete);
+        Update = findViewById(R.id.Update);
+        Delete = findViewById(R.id.Delete);
 
         progressDialog = new ProgressDialog(EditSupplierActivity.this);
         progressDialog.setTitle("Please wait...");
@@ -89,11 +88,14 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
 
-                                String firstName = first_name.getEditText().getText()+ "";
+                                String firstName = first_name.getEditText().getText() + "";
                                 String lastName = last_name.getEditText().getText().toString();
                                 String phoneNumber = phone.getEditText().getText().toString();
                                 String emailSupplier = email.getEditText().getText().toString();
                                 String adresseSupplier = adresse.getEditText().getText().toString();
+                                if (!validateFirstName(firstName) | !validateLastName(lastName) | !validateTelephone(phoneNumber)) {
+                                    return;
+                                }
                                 progressDialog.setMessage("Updating Your supplier informations");
                                 progressDialog.show();
                                 SessionManager sessionManager = new SessionManager(view.getContext());
@@ -103,7 +105,7 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
 
                                 Date date = new Date();
                                 SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-                                Supplier supplier = new Supplier(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier );
+                                Supplier supplier = new Supplier(Integer.parseInt(phoneNumber), firstName + " " + lastName, phoneNumber, emailSupplier, adresseSupplier, data.get(SessionManager.TELEPHONE), format.format(date));
                                 databaseReference.child("suppliers " + data.get(SessionManager.TELEPHONE)).child(phoneNumber).setValue(supplier).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {
@@ -141,7 +143,7 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
                                 HashMap<String, String> data = sessionManager.getUserDetails();
                                 DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
-                                String firstName = first_name.getEditText().getText()+ "";
+                                String firstName = first_name.getEditText().getText() + "";
                                 String lastName = last_name.getEditText().getText().toString();
                                 String phoneNumber = phone.getEditText().getText().toString();
                                 String emailSupplier = email.getEditText().getText().toString();
@@ -152,7 +154,7 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
                                     public void onComplete(@NonNull Task<Void> task) {
                                         progressDialog.dismiss();
                                         if (task.isSuccessful()) {
-                                            databaseReference.child("OperationsSuppliers").child( new SessionManager(getApplicationContext()).getUserDetails().get(SessionManager.TELEPHONE)).child(phoneNumber).removeValue();
+                                            databaseReference.child("OperationsSuppliers").child(new SessionManager(getApplicationContext()).getUserDetails().get(SessionManager.TELEPHONE)).child(phoneNumber).removeValue();
 
                                             Toast.makeText(EditSupplierActivity.this, "Your Supplier has been deleted successfuly!", Toast.LENGTH_SHORT).show();
                                         } else {
@@ -165,8 +167,9 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
                                 phoneV.setText("");
                                 emailV.setText("");
                                 adresseV.setText("");
-                                Intent I=new Intent(EditSupplierActivity.this,MainDashboardActivity.class);
-                               startActivity(I);
+                                Intent I = new Intent(EditSupplierActivity.this, MainDashboardActivity.class);
+                                startActivity(I);
+                                finish();
 
 
                             }
@@ -185,20 +188,55 @@ public class EditSupplierActivity extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.back:
-                String firstName = first_name.getEditText().getText()+ "";
+                String firstName = first_name.getEditText().getText() + "";
                 String lastName = last_name.getEditText().getText().toString();
                 String phoneNumber = phone.getEditText().getText().toString();
                 String emailSupplier = email.getEditText().getText().toString();
                 String adresseSupplier = adresse.getEditText().getText().toString();
                 Intent intent = new Intent(EditSupplierActivity.this, ViewSupplierDetailsActivity.class);
-                intent.putExtra("Supplier Name", firstName+" "+lastName);
+                intent.putExtra("Supplier Name", firstName + " " + lastName);
                 intent.putExtra("Supplier Phone", phoneNumber);
                 intent.putExtra("Supplier Email", emailSupplier);
                 intent.putExtra("Supplier Address", adresseSupplier);
                 startActivity(intent);
+                finish();
                 break;
 
+        }
     }
-}}
+
+    private boolean validateFirstName(String firstname) {
+        if (firstname.isEmpty()) {
+            this.first_name.setError("This Field is Required!");
+            return false;
+        } else {
+            this.first_name.setError(null);
+            this.first_name.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validateLastName(String firstname) {
+        if (firstname.isEmpty()) {
+            this.last_name.setError("This Field is Required!");
+            return false;
+        } else {
+            this.last_name.setError(null);
+            this.last_name.setErrorEnabled(false);
+            return true;
+        }
+    }
+
+    private boolean validateTelephone(String telephone) {
+        if (telephone.isEmpty()) {
+            this.phone.setError("This Field is Required!");
+            return false;
+        } else {
+            this.phone.setError(null);
+            this.phone.setErrorEnabled(false);
+            return true;
+        }
+    }
+}
